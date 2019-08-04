@@ -29,7 +29,7 @@ module.exports = (client) => {
   passport.use(new Strategy({
     clientID: client.appInfo.id,
     clientSecret: "2XrGaZbV1f8W80ngxCj0DIHPlWi3c0Od",
-    callbackURL: `https://dc-bott.glitch.me/callback`,
+    callbackURL: `https://capable-pruner.glitch.me/callback`,
     scope: ["identify", "guilds"]
   },
   (accessToken, refreshToken, profile, done) => {
@@ -46,7 +46,7 @@ module.exports = (client) => {
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(helmet());
-  app.locals.domain = "https://dc-bott.glitch.me/";
+  app.locals.domain = "https://capable-pruner.glitch.me/";
   app.engine("html", require("ejs").renderFile);
   app.set("view engine", "html");
   var bodyParser = require("body-parser");
