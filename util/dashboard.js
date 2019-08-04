@@ -12,7 +12,6 @@ const db = require('quick.db')
 const moment = require("moment");
 const md = require("marked");
 const request = require('request')
-
 require("moment-duration-format");
 
 module.exports = (client) => {
