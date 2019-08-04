@@ -12,6 +12,7 @@ const db = require('quick.db')
 const moment = require("moment");
 const md = require("marked");
 const request = require('request')
+
 require("moment-duration-format");
 
 module.exports = (client) => {
@@ -28,8 +29,8 @@ module.exports = (client) => {
   
   passport.use(new Strategy({
     clientID: client.appInfo.id,
-    clientSecret: "2XrGaZbV1f8W80ngxCj0DIHPlWi3c0Od",
-    callbackURL: `https://capable-pruner.glitch.me/callback`,
+    clientSecret: client.config.dashboard.oauthSecret,
+    callbackURL: client.config.dashboard.callbackURL,
     scope: ["identify", "guilds"]
   },
   (accessToken, refreshToken, profile, done) => {
@@ -38,7 +39,7 @@ module.exports = (client) => {
   
   app.use(session({
     store: new MemoryStore({ checkPeriod: 86400000 }),
-    secret: "super-secret-session-thing",
+    secret: client.config.dashboard.sessionSecret,
     resave: false,
     saveUninitialized: false,
   }));
@@ -46,7 +47,7 @@ module.exports = (client) => {
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(helmet());
-  app.locals.domain = "https://capable-pruner.glitch.me/";
+  app.locals.domain = client.config.dashboard.domain;
   app.engine("html", require("ejs").renderFile);
   app.set("view engine", "html");
   var bodyParser = require("body-parser");
@@ -271,5 +272,5 @@ app.get("/dashboard/:guildID/members", checkAuth, async (req, res) => {
     renderTemplate(res, req, "guild/stats.ejs", {guild});
   });
   
-  client.site = app.listen("8000");
+  client.site = app.listen(client.config.dashboard.port);
 };
