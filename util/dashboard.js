@@ -28,8 +28,8 @@ module.exports = (client) => {
   
   passport.use(new Strategy({
     clientID: client.appInfo.id,
-    clientSecret: client.config.dashboard.oauthSecret,
-    callbackURL: client.config.dashboard.callbackURL,
+    clientSecret: "2XrGaZbV1f8W80ngxCj0DIHPlWi3c0Od",
+    callbackURL: `https://dc-bott.glitch.me/callback`,
     scope: ["identify", "guilds"]
   },
   (accessToken, refreshToken, profile, done) => {
@@ -38,7 +38,7 @@ module.exports = (client) => {
   
   app.use(session({
     store: new MemoryStore({ checkPeriod: 86400000 }),
-    secret: client.config.dashboard.sessionSecret,
+    secret: "super-secret-session-thing",
     resave: false,
     saveUninitialized: false,
   }));
@@ -46,7 +46,7 @@ module.exports = (client) => {
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(helmet());
-  app.locals.domain = client.config.dashboard.domain;
+  app.locals.domain = "https://dc-bott.glitch.me/";
   app.engine("html", require("ejs").renderFile);
   app.set("view engine", "html");
   var bodyParser = require("body-parser");
@@ -271,5 +271,5 @@ app.get("/dashboard/:guildID/members", checkAuth, async (req, res) => {
     renderTemplate(res, req, "guild/stats.ejs", {guild});
   });
   
-  client.site = app.listen(client.config.dashboard.port);
+  client.site = app.listen("8000");
 };

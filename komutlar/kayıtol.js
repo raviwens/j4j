@@ -24,7 +24,8 @@ msg.reply("**Kayıt komutları kapalı açmak için !kayıtsistemi aç**")
                  msg.guild.channels.get(channelss).overwritePermissions(msg.author, {
                     VIEW_CHANNEL: false
                 });
-            
+                   const rol = db.fetch(`krol_${msg.guild.id}`)
+            msg.member.addRole(rol)
     msg.channel.send({
         embed: {
             color: Math.floor(Math.random() * (0xFFFFFF + 1)),
@@ -40,7 +41,7 @@ msg.reply("**Kayıt komutları kapalı açmak için !kayıtsistemi aç**")
 exports.conf = {
     enabled: true,
     guildOnly: true,
-    aliases: ['kayıt','kayıt-ol'],
+    aliases: ['kayıt','kayıtol'],
     permLevel: 0
 };
 
