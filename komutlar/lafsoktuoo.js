@@ -8,7 +8,6 @@ exports.run = async (client, msg, args) => {
       "Içinden geldiği için bizimle olanları, işinden geldiği için bizimle olanlara değiştik. Yanlış ettik.",
       "Canımı yakacak kadar güçlü olanın sonuçlarına katlanacak kadar gücü olmalı.",
       "Eğer ben güneş isem sen aysın. Benim doğduğum yerde sen batarsın.",
-      "BU KOMUT ENVY CODE SUNUCUSUNA AİTTİR",
       "Bana laf cambazlığı yapma kızım, bir laf sokarım kürtajla bile aldıramazsın.",
       "Terk etmek kolaysa senin için, el sallamakta hiç zor olmaz benim için.",
       "Insanlığa davet etsek yol tarifi isteyecek insanlar var.",

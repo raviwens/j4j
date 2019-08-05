@@ -732,15 +732,14 @@ bot.on('raw', event => {
 
 //----------------------------------ZAMANLI YAZI-----------------------------// 
 
-/*
 
-İsterseniz kullanırsınız /* *\ bunları silerek komutu aktif hale getirebilirsiniz
+
 
 setInterval(() => {
   client.channels.get("KANAL İD").send('MESAJIN')
 }, 60000)
 
-*/
+
 
 //----------------------------------ZAMANLI YAZI SON-----------------------------// 
 
@@ -781,7 +780,7 @@ client.on('guildMemberAdd', (member) => {
 function cpanel1() {
     return new Promise(resolve => {
         setTimeout(() => {
-            client.channels.get(`592127430035243015`).setName(`KEYİFLİ SOHBETLER`);
+            client.channels.get(`KANALİD GİRİNİZ`).setName(`BU BOT`);
             cpanel2();
         }, 10000);
       });
@@ -790,7 +789,7 @@ function cpanel1() {
   function cpanel2() {
     return new Promise(resolve => {
         setTimeout(() => {
-            client.channels.get(`592127430035243015`).setName(`İYİ EĞLENCELER`);
+            client.channels.get(`KANALİD GİRİNİZ`).setName(`Elwasy#3071'E AİTTİR.`);
             cpanel3();
         }, 10000);
       });
@@ -798,7 +797,7 @@ function cpanel1() {
   function cpanel3() {
     return new Promise(resolve => {
         setTimeout(() => {
-            client.channels.get(`592127430035243015`).setName(`İYİ OYUNLAR`);
+            client.channels.get(`KANALİD GİRİNİZ`).setName(`KOMUTLAR CODARE SUNUCUSUNA AİTTİR.`);
             cpanel4();
         }, 10000); //Hızı düşürmeyin
       });
@@ -807,7 +806,7 @@ function cpanel1() {
 function cpanel4() {
     return new Promise(resolve => {
         setTimeout(() => {
-            client.channels.get(`592127430035243015`).setName(`İQWEQWEWQE`);
+            client.channels.get(`KANALİD GİRİNİZ`).setName(`İZİNSİZ PAYLAŞILMASI YASAKTIR `);
             cpanel1();
         }, 10000); //Hızı düşürmeyin
       });
