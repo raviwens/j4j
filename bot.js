@@ -432,7 +432,7 @@ var query = require('game-server-query');
   query(
     {
         type: 'csgo',
-        host: "185.193.165.189"
+        host: "185.193.165.243"
     })
  client.channels.find("id",'592430595947102250').setName('Adı : ' + query.name + '1');
  client.channels.find("id",'592430598040059944').setName('Map : ' + query.map);
