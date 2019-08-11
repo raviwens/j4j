@@ -776,46 +776,58 @@ client.on('guildMemberAdd', (member) => {
 
 //----------------------------------KAYITOL SON-----------------------------// 
 
-
-function cpanel1() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            client.channels.get(`KANALİD GİRİNİZ`).setName(`BU BOT`);
-            cpanel2();
-        }, 10000);
-      });
-}
-
-  function cpanel2() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            client.channels.get(`KANALİD GİRİNİZ`).setName(`Elwasy#3071'E AİTTİR.`);
-            cpanel3();
-        }, 10000);
-      });
+client.on(`message`, async m => {
+    
+  
+let kanalid = `609453650712068107`;
+  if(m.channel.id === kanalid) {
+    
+    m.delete()
+    if(m.author.bot) return;
+      if(m.guild.channels.get(await db.fetch(`talep_${m.author.id}`))) return m.author.send(`Talep kanalını 2 kere açamazsın önce eskisini kapatmalısın!\nEski talep kanalın: <#${await db.fetch(`talep_${m.author.id}`)}>`);
+    m.guild.createChannel(`talep_arso`).then(i=>{
+      db.add(`talep`, 1)
+      db.set(`talepknl_${m.channel.id}`, m.author.id)
+      db.set(`talep_${m.author.id}`, i.id)
+      
+      m.guild.members.forEach(uye=>{
+        i.overwritePermissions(uye,{
+                    VIEW_CHANNEL: false,
+                })
+      })
+          m.guild.roles.forEach((rol) => {
+            if (rol.hasPermission("ADMINISTRATOR")) {
+                i.overwritePermissions(rol,{
+                    VIEW_CHANNEL: true,
+                })
+                i.overwritePermissions(m.author.id,{
+                    VIEW_CHANNEL: true,
+                })
+            }
+        })
+      
+         
+        
+        i.send("@everyone @here").then(mesajaq => {
+          setTimeout(function() {
+            mesajaq.delete();
+          }, 1000)
+        })
+      let a = moment().format('HH')
+      let b = Math.floor(a)+Math.floor(3);
+      let c = `İstenilen Zaman: ${b}.${moment().format('mm')}`;
+    const embed = new Discord.RichEmbed()
+      .setTitle("Yeni Bir Talep Kanalı Açıldı!")
+      .addField("Talep açan", m.author)
+      .addField("Talepi oluştururken attığı mesaj", m.content)
+      .setColor("#36393F")
+      .setFooter(c + " - Kapatmak İçin " + prefix + "kapat", client.user.avatarURL)
+.setThumbnail(client.user.avatarURL)
+      i.send({embed});
+    })
+    
   }
-  function cpanel3() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            client.channels.get(`KANALİD GİRİNİZ`).setName(`KOMUTLAR CODARE SUNUCUSUNA AİTTİR.`);
-            cpanel4();
-        }, 10000); //Hızı düşürmeyin
-      });
-  }
-
-function cpanel4() {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            client.channels.get(`KANALİD GİRİNİZ`).setName(`İZİNSİZ PAYLAŞILMASI YASAKTIR `);
-            cpanel1();
-        }, 10000); //Hızı düşürmeyin
-      });
-  }
- 
- client.on('ready', async message => {
-   cpanel1();
- })
-
+})
 
 
 client.login(ayarlar.token);
