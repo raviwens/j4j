@@ -433,7 +433,7 @@ var bilgi = require('game-server-query');
   oyun.query(
     {
         type: 'csgo',
-        host: "185.193.165.189",
+        host: "cs.babamrb.com",
       port: '27015'
     })
    
