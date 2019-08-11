@@ -433,10 +433,10 @@ var bilgi = require('game-server-query');
   oyun.query(
     {
         type: 'csgo',
-        host: "216.52.148.47",
+        host: "188.212.100.42",
       port: '27015'
     })
-   console.log('Map' +oyun.query.map);
+   
  client.channels.find("id",'610217543310770227').setName('Adı : ' + oyun.query.name + '1');
  client.channels.find("id",'610217571886694412').setName('Map : ' + oyun.query.map);
  client.channels.find("id",'610217592866603041').setName('Oyuncular : ' + oyun.query.players );
