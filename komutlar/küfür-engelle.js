@@ -49,7 +49,7 @@ exports.run = (client, message) => {
 		enabled: true,
 		guildOnly: false,
 		aliases: ['küfürengel','küfür-engelle'],
-		permLevel: 3
+		permLevel: 0
 	  };
 
 	  exports.help = {

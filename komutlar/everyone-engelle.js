@@ -56,7 +56,7 @@ exports.run = async (client, message) => {
         enabled: true,
         guildOnly: false,
         aliases: ['here-engel', 'everyone-engel', 'everyonehereengel'],
-        permLevel: 3
+        permLevel: 0
       };
       
     exports.help = {

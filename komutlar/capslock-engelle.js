@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+  const Discord = require('discord.js');
 const db = require('quick.db')
 const ayarlar = require('../ayarlar.json')
 exports.run = async (client, message, args) => {
@@ -22,7 +22,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ['capslock-engel'],
-  permLevel: 3
+  permLevel: 0
 };
 exports.help = {
   name: 'capslock-engelle',

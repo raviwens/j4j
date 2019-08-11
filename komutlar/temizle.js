@@ -37,7 +37,7 @@ exports.conf = {
   enabled: true,
   guildOnly: true,
   aliases: ['temizle'],
-  permLevel: 2
+  permLevel: 0
 };
 
 exports.help = {

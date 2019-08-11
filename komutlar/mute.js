@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args) => {
 
 exports.conf = {
     aliases: [],
-    permLevel: 2
+    permLevel: 0
 };
 
 module.exports.help = {

@@ -55,7 +55,7 @@ exports.run = async (client, message) => {
         enabled: true,
         guildOnly: false,
         aliases: ['link-engel', 'reklamkoruması', 'reklam-koruması', 'linkengel'],
-        permLevel: 3
+        permLevel: 0
       };
       
     exports.help = {
