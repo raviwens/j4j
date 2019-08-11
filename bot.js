@@ -365,7 +365,7 @@ client.on("guildMemberAdd", async member => {
 client.on(`message`, async m => {
     
   
-let kanalid = `609453650712068107`;
+let kanalid = `610192034543697960`;
   if(m.channel.id === kanalid) {
     
     m.delete()
@@ -405,7 +405,7 @@ let kanalid = `609453650712068107`;
     const embed = new Discord.RichEmbed()
       .setTitle("Yeni Bir Talep Kanalı Açıldı!")
       .addField("Talep açan", m.author)
-      .addField("Talepi oluştururken attığı mesaj", m.content)
+      .addField("Talep Sebebi", m.content)
       .setColor("#36393F")
       .setFooter(c + " - Kapatmak İçin " + prefix + "kapat", client.user.avatarURL)
 .setThumbnail(client.user.avatarURL)
@@ -414,6 +414,20 @@ let kanalid = `609453650712068107`;
     
   }
 })
+
+if (msg.content === "kapat") {
+                ch.send("`Canlı Destek odanız kapatılıyor onaylıyorsan [evet] Yaz !`").then}
+                              if (msg.content === "evet") {
+                ch.send("`Canlı Destek odanız kapatılıyor...`").then(()=>{        
+                    setTimeout(()=> {
+                        ch.delete().catch()
+                    },1000)
+                });
+            }
+        },{time:86400000})
+    })
+   }
+;
 
 //----------------------------------Destek Sistemi SON-----------------------------// 
 
