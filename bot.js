@@ -419,6 +419,7 @@ let kanalid = `610192034543697960`;
 
 //----------------------------------Destek Sistemi SON-----------------------------// 
 
+const Gamedig = require('gamedig');
 
 client.on('ready', async() => {
 
@@ -429,15 +430,15 @@ let server;
 
 
 var bilgi = require('game-server-query');
-  bilgi(
+  Gamedig.query(
     {
         type: 'csgo',
         host: "74.91.112.208",
       
     })
- client.channels.find("id",'592430595947102250').setName('Adı : ' + bilgi.name + '1');
- client.channels.find("id",'592430598040059944').setName('Map : ' + bilgi.map);
- client.channels.find("id",'592430600200388629').setName('Oyuncular : ' + bilgi.players );
+ client.channels.find("id",'592430595947102250').setName('Adı : ' + Gamedig.name + '1');
+ client.channels.find("id",'592430598040059944').setName('Map : ' + Gamedig.map);
+ client.channels.find("id",'592430600200388629').setName('Oyuncular : ' + Gamedig.players );
   }, 6000); 
 });
   
