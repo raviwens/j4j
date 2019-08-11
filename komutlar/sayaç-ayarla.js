@@ -86,7 +86,7 @@ exports.conf = {
         enabled: true,
         guildOnly: true,
         aliases: ['sayaç-ayarla'],
-        permLevel: 2,
+        permLevel: 0,
         kategori: "moderasyon"
 }
  

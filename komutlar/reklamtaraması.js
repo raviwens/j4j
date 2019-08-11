@@ -18,7 +18,7 @@ exports.conf = {
     enabled: true,
     guildOnly: true,
     aliases: ['reklam-ara', 'reklamara', 'reklamtaraması'],
-    permLevel: 1
+    permLevel: 0
 }
 
 exports.help = {
