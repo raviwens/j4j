@@ -52,7 +52,7 @@
     "node-superfetch": "^0.1.9",
     "oauth": "^0.9.15",
     "oauth2": "^0.0.1",
-    "opusscript": "0.0.6",
+    "opusscript": "^0.0.7",
     "os": "^0.1.1",
     "parse-ms": "^2.1.0",
     "passport": "^0.4.0",

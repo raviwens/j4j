@@ -376,6 +376,7 @@ let kanalid = `610192034543697960`;
       db.set(`talepknl_${m.channel.id}`, m.author.id)
       db.set(`talep_${m.author.id}`, i.id)
       
+      
       m.guild.members.forEach(uye=>{
         i.overwritePermissions(uye,{
                     VIEW_CHANNEL: false,
