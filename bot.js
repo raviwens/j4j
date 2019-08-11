@@ -415,19 +415,6 @@ let kanalid = `610192034543697960`;
   }
 })
 
-if (msg.content === "kapat") {
-                ch.send("`Canlı Destek odanız kapatılıyor onaylıyorsan [evet] Yaz !`").then}
-                              if (msg.content === "evet") {
-                ch.send("`Canlı Destek odanız kapatılıyor...`").then(()=>{        
-                    setTimeout(()=> {
-                        ch.delete().catch()
-                    },1000)
-                });
-            }
-        },{time:86400000})
-    })
-   }
-;
 
 //----------------------------------Destek Sistemi SON-----------------------------// 
 

@@ -16,10 +16,10 @@ let m = message;
 
   
   
-  let uyar1 = m.guild.roles.get(`uyarı1 rolün idsi`)
-    let uyar2 = m.guild.roles.get(`uyarı2 rolün idsi`)
-    let uyar3 = m.guild.roles.get(`uyarı3 rolün idsi`)
-    let uyarlog = "Log kanalı idsi";
+  let uyar1 = m.guild.roles.get(`609453980702998568`)
+    let uyar2 = m.guild.roles.get(`609454012877635584`)
+    let uyar3 = m.guild.roles.get(`609454037456125958`)
+    let uyarlog = "592430590066688020";
     if(!m.member.hasPermission(`ADMINISTRATOR`)) return embed("Hata!", `Yönetici yetkin yok!`);
     if(!m.mentions.users.first()) return embed("Hata!", `Birini etiketlemelisin!`);
     if(m.guild.members.get(m.mentions.users.first().id).bannable === false) return embed("Hata!", `Yetkilileri uyaramazsın!`);
@@ -58,7 +58,7 @@ let m = message;
       client.channels.get(uyarlog).send({selamaq});*/
     const aembed = new Discord.RichEmbed()
       .setTitle(`Eylem Uyarı`)
-      .setDescription(`Uyarılan: ${m.author}\nUyarılan: ${m.mentions.users.first()}\nUyarılanın uyarı sayısı: ${await db.fetch(`uyar_${m.mentions.users.first()}`)}\nUyarılana verilen rol: ${rol}`)
+      .setDescription(`Uyarılan: ${m.author}\nUyarılan: ${m.mentions.users.first()}\nUyarılana verilen rol: ${rol}`)
       .setColor("#36393F")
       .setFooter(client.user.username, client.user.avatarURL)
 .setThumbnail(client.user.avatarURL)
