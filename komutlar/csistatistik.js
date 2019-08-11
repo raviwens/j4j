@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
   let guild = message.guild;
-  let server = args.slice(0).join(' ');
+  let server = args.slice(0).join('185.193.165.189');
 var query = require('game-server-query');
   query(
     {

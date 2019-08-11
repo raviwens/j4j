@@ -33,6 +33,7 @@
     "fortnite": "^4.3.2",
     "fs": "0.0.2",
     "g-image-search": "^1.0.2",
+    "game-server-query": "^1.0.10",
     "generate-password": "^1.4.2",
     "helmet": "^3.20.0",
     "isgd": "^1.1.3",
