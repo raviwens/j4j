@@ -418,5 +418,27 @@ let kanalid = `609453650712068107`;
 //----------------------------------Destek Sistemi SON-----------------------------// 
 
 
+client.on('ready', async() => {
+
+let server;
+
+ setInterval(() => {
+ client.channels.find("id",'592430595947102250').then(c =>
+server = c.guild.id)
+
+
+var query = require('game-server-query');
+  query(
+    {
+        type: 'cs16',
+        host: server
+    })
+ client.channels.find("id",'592430595947102250').setName('Adı : ' + query.name + '1');
+ client.channels.find("id",'592430595947102250').setName('Map : ' + query.map);
+ client.channels.find("id",'592430595947102250').setName('Oyuncular : ' + query.players);
+  }, 6000); 
+});
+
+
 client.login(ayarlar.token);
 

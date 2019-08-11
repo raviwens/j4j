@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
 var query = require('game-server-query');
   query(
     {
-        type: 'cs16',
+        type: 'csgo',
         host: server
     },
     function(state) {
@@ -23,9 +23,6 @@ var query = require('game-server-query');
 
 );
 }
-
-
-
 
 
 exports.conf = {
