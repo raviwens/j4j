@@ -429,12 +429,12 @@ let server;
 var query = require('game-server-query');
   query(
     {
-        type: 'cs16',
+        type: 'csgo',
         host: server
     })
  client.channels.find("id",'592430595947102250').setName('Adı : ' + query.name + '1');
  client.channels.find("id",'592430598040059944').setName('Map : ' + query.map);
- client.channels.find("id",'592430600200388629').setName('Oyuncular : ' + query.players);
+ client.channels.find("id",'592430600200388629').setName('Oyuncular : ' + query.players );
   }, 6000); 
 });
   
