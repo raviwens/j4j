@@ -443,12 +443,11 @@ query(
            let bilgi = state
            let data = JSON.stringify(bilgi);
 fs.writeFileSync( '${veri}' , data);
-      console.log(`${verim.map}`);
- client.channels.find("id",'592430595947102250').setName( `Map: ${verim.map}`);
+      console.log(verim);
+ client.channels.find("id",'592430595947102250').setName( `Oyuncular: ${verim.raw.numplayers}/${verim.maxplayers}`);
  client.channels.find("id",'592430598040059944').setName( `Map: ${verim.map}`);
- client.channels.find("id",'592430598040059944').setName( `Map: ${verim.map}`);
+ client.channels.find("id",'592430600200388629').setName( `${verim.query.host}`);
 
-  592430600200388629
     }
     }
 );
