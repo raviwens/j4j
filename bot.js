@@ -365,21 +365,22 @@ client.on("guildMemberAdd", async member => {
 client.on(`message`, async m => {
     
   
-let kanalid = `610192034543697960`;
+let kanalid = `609453650712068107`;
   if(m.channel.id === kanalid) {
-    
-    m.delete()
-    if(m.author.bot) return;
-      if(m.guild.channels.get(await db.fetch(`talep_${m.author.id}`))) return m.author.send(`Talep kanalını 2 kere açamazsın önce eskisini kapatmalısın!\nEski talep kanalın: <#${await db.fetch(`talep_${m.author.id}`)}>`);
-    m.guild.createChannel(`talep_arso`).then (i=>{
-      db.add(`talep`, 1)
-      db.set(`talepknl_${m.channel.id}`, m.author.id)
-      db.set(`talep_${m.author.id}`, i.id)
-      
-      client.channels.find('id','buray id','category', [{
+     
+    client.channels.find('610223020178407425','category', [{
       id: m.guild.id,
       }])
       
+    m.delete()
+    if(m.author.bot) return;
+      if(m.guild.channels.get(await db.fetch(`talep_${m.author.id}`))) return m.author.send(`Talep kanalını 2 kere açamazsın önce eskisini kapatmalısın!\nEski talep kanalın: <#${await db.fetch(`talep_${m.author.id}`)}>`);
+    m.guild.createChannel(`talep_arso`)
+      .then(i=>{
+       id: m.guild.id,
+      db.add(`talep`, 1)
+      db.set(`talepknl_${m.channel.id}`, m.author.id)
+      db.set(`talep_${m.author.id}`, i.id)
       
       m.guild.members.forEach(uye=>{
         i.overwritePermissions(uye,{
@@ -410,7 +411,7 @@ let kanalid = `610192034543697960`;
     const embed = new Discord.RichEmbed()
       .setTitle("Yeni Bir Talep Kanalı Açıldı!")
       .addField("Talep açan", m.author)
-      .addField("Talep Sebebi", m.content)
+      .addField("Talepi oluştururken attığı mesaj", m.content)
       .setColor("#36393F")
       .setFooter(c + " - Kapatmak İçin " + prefix + "kapat", client.user.avatarURL)
 .setThumbnail(client.user.avatarURL)
@@ -424,7 +425,43 @@ let kanalid = `610192034543697960`;
 //----------------------------------Destek Sistemi SON-----------------------------// 
 
 
+client.on('ready', async() => {
 
+let server;
+
+ setInterval(() => {
+ if(client.channels.has('SESKANALİD')) server = client.channels.get('SESKANALİD').guild.id
+
+
+var query = require('game-server-query');
+query(
+    {
+        type: 'csgo',
+        host: 'jb.netroxclan.com'
+    },   function(state) {
+        if(state.error){
+           client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
+ client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
+ client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
+client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
+
+        }
+        else {
+            
+           let bilgi = state
+           
+      console.log(bilgi.name);
+  client.channels.find("id",'SESKANALİD').setName( `${bilgi.name}`);
+ client.channels.find("id",'SESKANALİD').setName( `Oyuncular: ${bilgi.raw.numplayers}/${bilgi.maxplayers}`);
+ client.channels.find("id",'SESKANALİD').setName( `Map: ${bilgi.map}`);
+client.channels.find("id",'SESKANALİD').setName( `${bilgi.query.host}`);
+
+    }
+    }
+);
+   
+  }, 6000); 
+});
    
 
 
