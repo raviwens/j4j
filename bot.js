@@ -438,15 +438,13 @@ query(
       console.log("Server is offline");
     }
         else {
-            let verim = JSON.parse(fs.readFileSync("./jsonlar/veri.json", "utf8"));
-  
+            
            let bilgi = state
-           let data = JSON.stringify(bilgi);
-fs.writeFileSync( '${veri}' , data);
-      console.log(verim);
- client.channels.find("id",'592430595947102250').setName( `Oyuncular: ${verim.raw.numplayers}/${verim.maxplayers}`);
- client.channels.find("id",'592430598040059944').setName( `Map: ${verim.map}`);
- client.channels.find("id",'592430600200388629').setName( `${verim.query.host}`);
+           
+      console.log(bilgi.name);
+  client.channels.find("id",'592430595947102250').setName( `${bilgi.name}`);
+ client.channels.find("id",'592430598040059944').setName( `Oyuncular: ${bilgi.raw.numplayers}/${bilgi.maxplayers}`);
+ client.channels.find("id",'592430600200388629').setName( `Map: ${bilgi.map}`);
 
     }
     }
