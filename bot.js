@@ -438,10 +438,12 @@ query(
       console.log("Server is offline");
     }
         else {
+            let verim = JSON.parse(fs.readFileSync("./jsonlar/veri.json", "utf8"));
+  
            let bilgi = state
            let data = JSON.stringify(bilgi);
-fs.writeFileSync('veri.json', data);
-      console.log(bilgi);
+fs.writeFileSync( '${veri}' , data);
+      console.log(verim);
           
     }
     }
