@@ -423,10 +423,30 @@ let kanalid = `610192034543697960`;
 
 //----------------------------------Destek Sistemi SON-----------------------------// 
 
+client.on("message", message => {
+if (message.content.toLowerCase().startsWith(prefix + `kapat`)) {
+    if (!message.channel.name.startsWith(`destek-`)) return message.channel.send(`Bu komut sadece Destek Talebi kanallarında kullanılablir!`);
 
+    var deneme = new Discord.RichEmbed()
+    .setColor("RANDOM")
+    .setAuthor(`Destek Talebi Kapatma İşlemi`)
+    .setDescription(`Destek talebini kapatmayı onaylamak için, \n10 saniye içinde \`evet\` yazınız.`)
+    .setFooter(`${client.user.username} | Destek Sistemi`)
+    message.channel.send(deneme)
+    .then((m) => {
+      message.channel.awaitMessages(response => response.content === 'evet', {
+        max: 1,
+        time: 10000,
+        errors: ['time'],
+      })
+      .then((collected) => {
+          message.channel.delete();
+        })
+        .catch(() => {
+          m.edit('Destek Talebi kapatma isteğin zaman aşımına uğradı!').then(m2 => {
+              m2.delete();
+          }, 3000);
+      })})
 
-   
-
-
-client.login(ayarlar.token);
-
+}    
+  client.login(ayarlar.token)

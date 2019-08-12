@@ -4,7 +4,7 @@ const db = require("quick.db");
 
 exports.run = async (client, message, args, params) => {
 let m = message;
-if(m.guild.channels.get(await db.fetch(`talep_${m.author.id}`)),m.content === "onayla") {
+if(m.guild.channels.get(await db.fetch(`talep_${m.author.id}`))) {
 m.channel.send('Eğer talebinin kapatılmasını istiyorsan ``onayla`` yazınız')
   if(m.content === 'onayla'){
     m.channel.send('onayladin')
