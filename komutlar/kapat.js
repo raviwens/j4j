@@ -18,7 +18,7 @@ m.channel.send('Eğer talebinin kapatılmasını istiyorsan ``onayla`` yazınız
 };
 
 exports.conf = {
-  enabled: true,
+  enabled: false,
   guildOnly: false,
   aliases: [],
   permLevel: 0
