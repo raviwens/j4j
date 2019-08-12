@@ -462,26 +462,18 @@ let server;
 var query = require('game-server-query');
 query(
     {
-        type: 'csgo',
-        host: 'jb.netroxclan.com'
+        type: 'mc',
+        host: 'mc.enderoyuncu.com'
     },   function(state) {
         if(state.error){
-           client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
- client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
- client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
-client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
-
+         
         }
         else {
             
            let bilgi = state
            
       console.log(bilgi.name);
-  client.channels.find("id",'SESKANALİD').setName( `${bilgi.name}`);
- client.channels.find("id",'SESKANALİD').setName( `Oyuncular: ${bilgi.raw.numplayers}/${bilgi.maxplayers}`);
- client.channels.find("id",'SESKANALİD').setName( `Map: ${bilgi.map}`);
-client.channels.find("id",'SESKANALİD').setName( `${bilgi.query.host}`);
-
+  
     }
     }
 );
