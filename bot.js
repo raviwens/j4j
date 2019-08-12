@@ -371,7 +371,7 @@ let kanalid = `610192034543697960`;
     m.delete()
     if(m.author.bot) return;
       if(m.guild.channels.get(await db.fetch(`talep_${m.author.id}`))) return m.author.send(`Talep kanalını 2 kere açamazsın önce eskisini kapatmalısın!\nEski talep kanalın: <#${await db.fetch(`talep_${m.author.id}`)}>`);
-    m.guild.createChannel(`talep_arso`).then(channel => channel.setParent(m.guild.channels.find(channel => channel.name === "Destek")))  (i=>{
+    m.guild.createChannel(`talep_${m.send.id}`)  (i=>{
       db.add(`talep`, 1)
       db.set(`talepknl_${m.channel.id}`, m.author.id)
       db.set(`talep_${m.author.id}`, i.id)
