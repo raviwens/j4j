@@ -435,8 +435,12 @@ query(
         host: 'jb.netroxclan.com'
     },   function(state) {
         if(state.error){
-      console.log("Server is offline");
-    }
+           client.channels.find("id",'592430595947102250').setName(`Çevrimdışı`);
+ client.channels.find("id",'592430598040059944').setName(`Çevrimdışı`);
+ client.channels.find("id",'592430600200388629').setName(`Çevrimdışı`);
+client.channels.find("id",'592430602419044365').setName(`Çevrimdışı`);
+
+        }
         else {
             
            let bilgi = state
@@ -445,6 +449,7 @@ query(
   client.channels.find("id",'592430595947102250').setName( `${bilgi.name}`);
  client.channels.find("id",'592430598040059944').setName( `Oyuncular: ${bilgi.raw.numplayers}/${bilgi.maxplayers}`);
  client.channels.find("id",'592430600200388629').setName( `Map: ${bilgi.map}`);
+client.channels.find("id",'592430602419044365').setName( `${bilgi.query.host}`);
 
     }
     }
