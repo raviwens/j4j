@@ -362,19 +362,24 @@ client.on("guildMemberAdd", async member => {
 
 //----------------------------------Destek Sistemi-----------------------------// 
 
-client.on('message', async m => {
+client.on(`message`, async m => {
     
   
-let kanalid = `609453650712068107`;
+let kanalid = `610192034543697960`;
   if(m.channel.id === kanalid) {
     
     m.delete()
     if(m.author.bot) return;
       if(m.guild.channels.get(await db.fetch(`talep_${m.author.id}`))) return m.author.send(`Talep kanalını 2 kere açamazsın önce eskisini kapatmalısın!\nEski talep kanalın: <#${await db.fetch(`talep_${m.author.id}`)}>`);
-    m.guild.createChannel(`talep_arso`).then(i=>{
+    m.guild.createChannel(`talep_arso`).then (i=>{
       db.add(`talep`, 1)
       db.set(`talepknl_${m.channel.id}`, m.author.id)
       db.set(`talep_${m.author.id}`, i.id)
+      
+      client.channels.find('id','buray id','category', [{
+      id: m.guild.id,
+      }])
+      
       
       m.guild.members.forEach(uye=>{
         i.overwritePermissions(uye,{
@@ -405,7 +410,7 @@ let kanalid = `609453650712068107`;
     const embed = new Discord.RichEmbed()
       .setTitle("Yeni Bir Talep Kanalı Açıldı!")
       .addField("Talep açan", m.author)
-      .addField("Talepi oluştururken attığı mesaj", m.content)
+      .addField("Talep Sebebi", m.content)
       .setColor("#36393F")
       .setFooter(c + " - Kapatmak İçin " + prefix + "kapat", client.user.avatarURL)
 .setThumbnail(client.user.avatarURL)
@@ -416,4 +421,12 @@ let kanalid = `609453650712068107`;
 })
 
 
-//----------------------------------Destek Sistemi SON-----------------------------// 92430595947102250592430598040059944
+//----------------------------------Destek Sistemi SON-----------------------------// 
+
+
+
+   
+
+
+client.login(ayarlar.token);
+
