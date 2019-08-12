@@ -6,7 +6,7 @@ exports.run = async (client, message, args, params) => {
 let m = message;
 if(m.guild.channels.get(await db.fetch(`talep_${m.author.id}`))) {
     if (m.content === "evet") {
-    m.channel.delete
+    m.channel.delete();
                 m.send("Canlı Destek odanız kapatılıyor...").then(()=>{        
                 })}}
 };

@@ -362,22 +362,16 @@ client.on("guildMemberAdd", async member => {
 
 //----------------------------------Destek Sistemi-----------------------------// 
 
-client.on(`message`, async m => {
+client.on('message', async m => {
     
   
 let kanalid = `609453650712068107`;
   if(m.channel.id === kanalid) {
-     
-    client.channels.find('610223020178407425','category', [{
-      id: m.guild.id,
-      }])
-      
+    
     m.delete()
     if(m.author.bot) return;
       if(m.guild.channels.get(await db.fetch(`talep_${m.author.id}`))) return m.author.send(`Talep kanalını 2 kere açamazsın önce eskisini kapatmalısın!\nEski talep kanalın: <#${await db.fetch(`talep_${m.author.id}`)}>`);
-    m.guild.createChannel(`talep_arso`)
-      .then(i=>{
-       id: m.guild.id,
+    m.guild.createChannel(`talep_arso`).then(i=>{
       db.add(`talep`, 1)
       db.set(`talepknl_${m.channel.id}`, m.author.id)
       db.set(`talep_${m.author.id}`, i.id)
@@ -422,48 +416,4 @@ let kanalid = `609453650712068107`;
 })
 
 
-//----------------------------------Destek Sistemi SON-----------------------------// 
-
-
-client.on('ready', async() => {
-
-let server;
-
- setInterval(() => {
- if(client.channels.has('SESKANALİD')) server = client.channels.get('SESKANALİD').guild.id
-
-
-var query = require('game-server-query');
-query(
-    {
-        type: 'csgo',
-        host: 'jb.netroxclan.com'
-    },   function(state) {
-        if(state.error){
-           client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
- client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
- client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
-client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
-
-        }
-        else {
-            
-           let bilgi = state
-           
-      console.log(bilgi.name);
-  client.channels.find("id",'SESKANALİD').setName( `${bilgi.name}`);
- client.channels.find("id",'SESKANALİD').setName( `Oyuncular: ${bilgi.raw.numplayers}/${bilgi.maxplayers}`);
- client.channels.find("id",'SESKANALİD').setName( `Map: ${bilgi.map}`);
-client.channels.find("id",'SESKANALİD').setName( `${bilgi.query.host}`);
-
-    }
-    }
-);
-   
-  }, 6000); 
-});
-   
-
-
-client.login(ayarlar.token);
-
+//----------------------------------Destek Sistemi SON-----------------------------// 92430595947102250592430598040059944
