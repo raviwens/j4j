@@ -443,15 +443,16 @@ query(
            let bilgi = state
            let data = JSON.stringify(bilgi);
 fs.writeFileSync( '${veri}' , data);
-      console.log(verim);
-          
+      console.log(`${verim.map}`);
+ client.channels.find("id",'592430595947102250').setName( `Map: ${verim.map}`);
+ client.channels.find("id",'592430598040059944').setName( `Map: ${verim.map}`);
+ client.channels.find("id",'592430598040059944').setName( `Map: ${verim.map}`);
+
+  592430600200388629
     }
     }
 );
    
-    client.channels.find("id",'610217543310770227').setName('Adı : ' + query.name + '1');
- client.channels.find("id",'610217571886694412').setName('Map : ' + query.map);
- client.channels.find("id",'610217592866603041').setName('Oyuncular : ' + query.players );
   }, 6000); 
 });
   
