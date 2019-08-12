@@ -446,7 +446,9 @@ if (message.content.toLowerCase().startsWith(prefix + `kapat`)) {
           m.edit('Destek Talebi kapatma isteğin zaman aşımına uğradı!').then(m2 => {
               m2.delete();
           }, 3000);
-      })})
-
-}    
+        });
+    });
+}
+});
+    
   client.login(ayarlar.token)
