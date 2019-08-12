@@ -376,6 +376,10 @@ let kanalid = `610192034543697960`;
       db.set(`talepknl_${m.channel.id}`, m.author.id)
       db.set(`talep_${m.author.id}`, i.id)
       
+      client.channels.find('id','buray id','category', [{
+      id: m.guild.id,
+      }])
+      
       
       m.guild.members.forEach(uye=>{
         i.overwritePermissions(uye,{
@@ -420,44 +424,8 @@ let kanalid = `610192034543697960`;
 //----------------------------------Destek Sistemi SON-----------------------------// 
 
 
-client.on('ready', async() => {
 
-let server;
-
- setInterval(() => {
- if(client.channels.has('SESKANALİD')) server = client.channels.get('SESKANALİD').guild.id
-
-
-var query = require('game-server-query');
-query(
-    {
-        type: 'csgo',
-        host: 'jb.netroxclan.com'
-    },   function(state) {
-        if(state.error){
-           client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
- client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
- client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
-client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
-
-        }
-        else {
-            
-           let bilgi = state
-           
-      console.log(bilgi.name);
-  client.channels.find("id",'SESKANALİD').setName( `${bilgi.name}`);
- client.channels.find("id",'SESKANALİD').setName( `Oyuncular: ${bilgi.raw.numplayers}/${bilgi.maxplayers}`);
- client.channels.find("id",'SESKANALİD').setName( `Map: ${bilgi.map}`);
-client.channels.find("id",'SESKANALİD').setName( `${bilgi.query.host}`);
-
-    }
-    }
-);
    
-  }, 6000); 
-});
-  
 
 
 client.login(ayarlar.token);
