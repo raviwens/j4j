@@ -419,7 +419,6 @@ let kanalid = `610192034543697960`;
 
 //----------------------------------Destek Sistemi SON-----------------------------// 
 
-const oyun = require('gamedig');
 
 client.on('ready', async() => {
 
@@ -429,17 +428,23 @@ let server;
  if(client.channels.has('592430602419044365')) server = client.channels.get('592430605300662272').guild.id
 
 
-var bilgi = require('game-server-query');
-  oyun.query(
+var query = require('game-server-query');
+query(
     {
         type: 'csgo',
-        host: "cs.babamrb.com",
-      port: '27015'
-    })
-   
- client.channels.find("id",'610217543310770227').setName('Adı : ' + oyun.query.name + '1');
- client.channels.find("id",'610217571886694412').setName('Map : ' + oyun.query.map);
- client.channels.find("id",'610217592866603041').setName('Oyuncular : ' + oyun.query.players );
+        host: '185.193.165.189'
+    },   function(state) {
+        if(state.error){
+      console.log("Server is offline");
+    }
+        else {
+      console.log(state);
+    }
+    }
+);
+ client.channels.find("id",'610217543310770227').setName('Adı : ' + query.name + '1');
+ client.channels.find("id",'610217571886694412').setName('Map : ' + query.map);
+ client.channels.find("id",'610217592866603041').setName('Oyuncular : ' + query.players );
   }, 6000); 
 });
   
