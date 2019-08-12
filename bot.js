@@ -432,18 +432,22 @@ var query = require('game-server-query');
 query(
     {
         type: 'csgo',
-        host: '185.193.165.189'
+        host: 'jb.netroxclan.com'
     },   function(state) {
         if(state.error){
       console.log("Server is offline");
     }
         else {
+           client.channels.find("id",'610217543310770227').setName('Adı : ' + state.name + '1');
+
       console.log(state);
     }
     }
 );
-   
- client.channels.find("id",'610217543310770227').setName('Adı : ' + query.name + '1');
+   let bilgi= { 
+  
+};
+ client.channels.find("id",'61021A7543310770227').setName('Adı : ' + '1');
  client.channels.find("id",'610217571886694412').setName('Map : ' + query.map);
  client.channels.find("id",'610217592866603041').setName('Oyuncular : ' + query.players );
   }, 6000); 
