@@ -367,16 +367,16 @@ client.on(`message`, async m => {
   
 let kanalid = `610192034543697960`;
   if(m.channel.id === kanalid) {
-client.on('message', msg => {    
+          
     m.delete()
     if(m.author.bot) return;
-      if(m.guild.channels.get(await db.fetch(`talep_${m.author.id}`))) return m.author.send(`Talep kanalını 2 kere açamazsın önce eskisini kapatmalısın!\nEski talep kanalın: <#${await db.fetch(`talep_${m.author.id}`)}>`);
+      if(m.guild.channels.get(await db.fetch(`talep-${m.author.id}`))) return m.author.send(`Talep kanalını 2 kere açamazsın önce eskisini kapatmalısın!\nEski talep kanalın: <#${await db.fetch(`talep_${m.author.id}`)}>`);
     m.guild.createChannel(`talep-${m.author.id}`).then (i=>{
       db.add(`talep`, 1)
       db.set(`talepknl-${m.channel.id}`, m.author.id)
       db.set(`talep-${m.author.id}`, i.id)
       
-      client.channels.find('id','buray id','category', [{
+      client.channels.find('id','610191884240945162','category', [{
       id: m.guild.id,
       }])
       
@@ -424,7 +424,7 @@ client.on('message', msg => {
 
 client.on("message", message => {
 if (message.content.toLowerCase().startsWith(prefix + `kapat`)) {
-    if (!message.channel.name.startsWith(`talep_`)) return message.channel.send(`Bu komut sadece Destek Talebi kanallarında kullanılablir!`);
+    if (!message.channel.name.startsWith(`talep-`)) return message.channel.send(`Bu komut sadece Destek Talebi kanallarında kullanılablir!`);
 
     var deneme = new Discord.RichEmbed()
     .setColor("RANDOM")

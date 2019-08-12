@@ -16,13 +16,7 @@ module.exports = message => {
   let perms = client.elevation(message);
   let cmd;
   
-  if (!client.commands.has(command)) {
-    if (client.aliases.has(command)) {
-      return false;
-    } else {
-    message.channel.send(`Komutlarımda \`\`${command}\`\` adında bir komut bulamadım! Komut listesine bakmak için: \`\`${ayarlar.prefix}yardım\`\``)
-    }
-  }
+
   
   if (client.commands.has(command)) {
     cmd = client.commands.get(command);
