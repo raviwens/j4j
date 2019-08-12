@@ -371,7 +371,7 @@ let kanalid = `610192034543697960`;
     m.delete()
     if(m.author.bot) return;
       if(m.guild.channels.get(await db.fetch(`talep_${m.author.id}`))) return m.author.send(`Talep kanalını 2 kere açamazsın önce eskisini kapatmalısın!\nEski talep kanalın: <#${await db.fetch(`talep_${m.author.id}`)}>`);
-    m.guild.createChannel(`talep_${m.send.id}`)  (i=>{
+    m.guild.createChannel(`talep_arso`).then (i=>{
       db.add(`talep`, 1)
       db.set(`talepknl_${m.channel.id}`, m.author.id)
       db.set(`talep_${m.author.id}`, i.id)
@@ -425,7 +425,7 @@ client.on('ready', async() => {
 let server;
 
  setInterval(() => {
- if(client.channels.has('592430602419044365')) server = client.channels.get('592430605300662272').guild.id
+ if(client.channels.has('SESKANALİD')) server = client.channels.get('SESKANALİD').guild.id
 
 
 var query = require('game-server-query');
@@ -435,10 +435,10 @@ query(
         host: 'jb.netroxclan.com'
     },   function(state) {
         if(state.error){
-           client.channels.find("id",'592430595947102250').setName(`Çevrimdışı`);
- client.channels.find("id",'592430598040059944').setName(`Çevrimdışı`);
- client.channels.find("id",'592430600200388629').setName(`Çevrimdışı`);
-client.channels.find("id",'592430602419044365').setName(`Çevrimdışı`);
+           client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
+ client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
+ client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
+client.channels.find("id",'SESKANALİD').setName(`Çevrimdışı`);
 
         }
         else {
@@ -446,10 +446,10 @@ client.channels.find("id",'592430602419044365').setName(`Çevrimdışı`);
            let bilgi = state
            
       console.log(bilgi.name);
-  client.channels.find("id",'592430595947102250').setName( `${bilgi.name}`);
- client.channels.find("id",'592430598040059944').setName( `Oyuncular: ${bilgi.raw.numplayers}/${bilgi.maxplayers}`);
- client.channels.find("id",'592430600200388629').setName( `Map: ${bilgi.map}`);
-client.channels.find("id",'592430602419044365').setName( `${bilgi.query.host}`);
+  client.channels.find("id",'SESKANALİD').setName( `${bilgi.name}`);
+ client.channels.find("id",'SESKANALİD').setName( `Oyuncular: ${bilgi.raw.numplayers}/${bilgi.maxplayers}`);
+ client.channels.find("id",'SESKANALİD').setName( `Map: ${bilgi.map}`);
+client.channels.find("id",'SESKANALİD').setName( `${bilgi.query.host}`);
 
     }
     }
