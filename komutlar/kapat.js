@@ -7,9 +7,12 @@ let m = message;
 if(m.guild.channels.get(await db.fetch(`talep_${m.author.id}`))) {
 m.channel.send('Eğer talebinin kapatılmasını istiyorsan ``onayla`` yazınız')
   if(m.content === 'onayla'){
-      m.channel.delete();
+    m.channel.send('onayladin')
   }
-    } else {
+   
+
+  
+} else {
       return m.channel.send(`Bu kanal talep kanalı değil yada talep kanalını açan kişi değilsiniz!`)
     }
 };
