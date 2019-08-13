@@ -512,10 +512,11 @@ client.channels.find("id",'610007340829245455').setName(body.motd);
 );
 const Gamedig = require('gamedig');
 Gamedig.query({
-    type: 'minecraft',
-    host:'mc.sonoyuncu.com'
+    type: 'csgo',
+    host:'185.193.165.14'
 }).then((state) => {
     console.log(state);
+  
 }).catch((error) => {
     console.log("Server is offline");
 });
