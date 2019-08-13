@@ -510,5 +510,14 @@ client.channels.find("id",'610007340829245455').setName(body.motd);
  });
     }
 );
+const Gamedig = require('gamedig');
+Gamedig.query({
+    type: 'minecraft',
+    host:'mc.sonoyuncu.com'
+}).then((state) => {
+    console.log(state);
+}).catch((error) => {
+    console.log("Server is offline");
+});
 
   client.login(ayarlar.token)
