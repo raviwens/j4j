@@ -488,30 +488,27 @@ var mcPort = 25565; // Your MC server port (25565 is the default)
 
 client.on('ready', async => {
   
+ 
         var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
         istek(url, function(err, response, body) {
             if(err) {
                 console.log(err);
               }
             body = JSON.parse(body);
-            var status = '*Minecraft server is currently offline*';
             if(body.online) {
-                status = '**Minecraft** server **aktif**  -  ';
+              
                 if(body.players.now) {
-                    status += '**' + body.players.now + `/`+body.players.max + '** people are playing!';
-             let suresi = body.server.duration
-                  let zaman = ms(suresi)
+                
 
                   client.channels.find("id",'610776524416614401').setName( `Aktif oyunucu: ${body.players.now}/${body.players.max}`);
- client.channels.find("id",'610776548869537804').setName( `Aktif süre: ${zaman}`);
+ client.channels.find("id",'610776548869537804').setName( `${ms(body.duration)}`);
 
                 } else {
                     status += '*Nobody is playing!*';
                 }
             }
-            message.reply(status);
-        });
+ });
     }
 );
-    
+
   client.login(ayarlar.token)
