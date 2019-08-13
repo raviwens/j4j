@@ -465,17 +465,15 @@ query(
     },   function(state) {
     
         if(state.error){
-           client.channels.find("id",'610558083911122944').setName(`Çevrimdışı`);
- client.channels.find("id",'610558204903948307').setName(`Çevrimdışı`);
-
+         
         }
         else {
-            
+            console.log(state);
            let bilgi = state
            console.log(bilgi);
     
-  client.channels.find("id",'609816809985671210').setName( `${bilgi.name}`);
- client.channels.find("id",'610191729399824395').setName( `Oyuncular: ${bilgi.raw.numplayers}/${bilgi.maxplayers}`);
+  client.channels.find("id",'610776524416614401').setName( `${bilgi.name}`);
+ client.channels.find("id",'610776548869537804').setName( `Oyuncular: ${bilgi.raw.numplayers}/${bilgi.maxplayers}`);
  
     }
     }
@@ -484,6 +482,32 @@ query(
   }, 6000); 
 });
 
+var istek = require('request');
+var mcCommand = '/minecraft'; // Command for triggering
+var mcIP = '123.123.123.123'; // Your MC server IP or hostname address
+var mcPort = 25565; // Your MC server port (25565 is the default)
 
+client.on('message', message => {
+    if (message.content === mcCommand) {
+        var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
+        request(url, function(err, response, body) {
+            if(err) {
+                console.log(err);
+                return message.reply('Error getting Minecraft server status...');
+            }
+            body = JSON.parse(body);
+            var status = '*Minecraft server is currently offline*';
+            if(body.online) {
+                status = '**Minecraft** server is **online**  -  ';
+                if(body.players.now) {
+                    status += '**' + body.players.now + '** people are playing!';
+                } else {
+                    status += '*Nobody is playing!*';
+                }
+            }
+            message.reply(status);
+        });
+    }
+});
     
   client.login(ayarlar.token)
