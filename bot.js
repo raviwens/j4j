@@ -449,8 +449,6 @@ if (message.content.toLowerCase().startsWith(prefix + `kapat`)) {
     });
 }
 });
-
-
 client.on('ready', async() => {
 
 let server;
@@ -462,18 +460,23 @@ let server;
 var query = require('game-server-query');
 query(
     {
-        type: 'mc',
+        type: 'minecraft',
         host: 'mc.enderoyuncu.com'
     },   function(state) {
+    
         if(state.error){
-         
+           client.channels.find("id",'610558083911122944').setName(`Çevrimdışı`);
+ client.channels.find("id",'610558204903948307').setName(`Çevrimdışı`);
+
         }
         else {
             
            let bilgi = state
-           
-      console.log(bilgi.name);
-  
+           console.log(bilgi);
+    
+  client.channels.find("id",'609816809985671210').setName( `${bilgi.name}`);
+ client.channels.find("id",'610191729399824395').setName( `Oyuncular: ${bilgi.raw.numplayers}/${bilgi.maxplayers}`);
+ 
     }
     }
 );
