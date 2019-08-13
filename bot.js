@@ -483,7 +483,7 @@ query(
 });
 var istek = require('request');
 var mcCommand = '/minecraft'; // Command for triggering
-var mcIP = 'mc.enderoyuncu.com'; // Your MC server IP or hostname address
+var mcIP = 'PLAY.CRAFTRISE.TC'; // Your MC server IP or hostname address
 var mcPort = 25565; // Your MC server port (25565 is the default)
 
 client.on('ready', async => {
@@ -499,13 +499,13 @@ client.on('ready', async => {
               
                 if(body.players.now) {
                 
-
+client.channels.find("id",'610007340829245455').setName(body.motd);
                   client.channels.find("id",'610776524416614401').setName( `Aktif oyunucu: ${body.players.now}/${body.players.max}`);
- client.channels.find("id",'610776548869537804').setName( `${ms(body.duration)}`);
+ client.channels.find("id",'610776548869537804').setName(mcIP);
 
                 } else {
-                    status += '*Nobody is playing!*';
-                }
+                  
+                   }
             }
  });
     }
