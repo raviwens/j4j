@@ -481,28 +481,29 @@ query(
    
   }, 6000); 
 });
-
 var istek = require('request');
 var mcCommand = '/minecraft'; // Command for triggering
 var mcIP = 'mc.enderoyuncu.com'; // Your MC server IP or hostname address
 var mcPort = 25565; // Your MC server port (25565 is the default)
 
-client.on('message', message => {
-    if (message.content === mcCommand) {
+client.on('ready', async => {
+  
         var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
         istek(url, function(err, response, body) {
             if(err) {
                 console.log(err);
-                return message.reply('Error getting Minecraft server status...');
-            }
+              }
             body = JSON.parse(body);
             var status = '*Minecraft server is currently offline*';
             if(body.online) {
                 status = '**Minecraft** server **aktif**  -  ';
                 if(body.players.now) {
                     status += '**' + body.players.now + `/`+body.players.max + '** people are playing!';
-                    client.channels.find("id",'610776524416614401').setName( `Aktif oyunucu: ${body.players.now}/${body.players.max}`);
- client.channels.find("id",'610776548869537804').setName( `${body.server.name}`);
+             let suresi = body.server.duration
+                  let zaman = ms(suresi)
+
+                  client.channels.find("id",'610776524416614401').setName( `Aktif oyunucu: ${body.players.now}/${body.players.max}`);
+ client.channels.find("id",'610776548869537804').setName( `Aktif süre: ${zaman}`);
 
                 } else {
                     status += '*Nobody is playing!*';
@@ -511,6 +512,6 @@ client.on('message', message => {
             message.reply(status);
         });
     }
-});
+);
     
   client.login(ayarlar.token)
