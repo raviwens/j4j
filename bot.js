@@ -487,7 +487,7 @@ var mcPort = 25565; // Your MC server port (25565 is the default)
         
 client.on('ready', async() => {
   
-  setInterval(() => {
+  
 
         var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
         istek(url, function(err, response, body) {
@@ -511,7 +511,8 @@ client.channels.find("id",'612193568085377024').setName(body.motd);
                    }
             }
  });
-  })  }, 6000);
+  });
+
 
 
   client.login(ayarlar.token)
