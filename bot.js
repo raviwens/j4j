@@ -460,8 +460,8 @@ let server;
 var query = require('game-server-query');
 query(
     {
-        type: 'minecraft',
-        host: ''
+        type: 'csgo',
+        host: 'public.dustarena.net'
     },   function(state) {
     
         if(state.error){
@@ -473,8 +473,9 @@ query(
           
   client.channels.find("id",'612192244568555520').setName(`${state.name}`);
 client.channels.find("id",'612192315066548235').setName(`Map: ${state.map}`);  
-client.channels.find("id",'612192430506115082').setName(`Oyuncular: ${state.players.now}`); 
-    }
+client.channels.find("id",'612192410327449639').setName(`Oyuncular: ${state.raw.numplayers}/${state.maxplayers}`); 
+  client.channels.find("id",'612192430506115082').setName(`Oyuncular: ${state.raw.numplayers}/${state.maxplayers}`); 
+  }
     }
 );
    
