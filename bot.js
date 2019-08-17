@@ -26,6 +26,7 @@ let linkEngel = JSON.parse(fs.readFileSync("././jsonlar/linkEngelle.json", "utf8
 let kufurEngel = JSON.parse(fs.readFileSync("./jsonlar/kufurEngelle.json", "utf8"));
 let hereEngel = JSON.parse(fs.readFileSync("././jsonlar/hereEngelle.json", "utf8"));
 let sayac = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8")); 
+require('moment-duration-format');
 
 
 
@@ -483,7 +484,7 @@ var istek = require('request');
 var mcCommand = '/minecraft'; // Command for triggering
 var mcIP = 'PLAY.CRAFTRISE.TC'; // Your MC server IP or hostname address
 var mcPort = 25565; // Your MC server port (25565 is the default)
-
+        
 client.on('ready', async => {
   
  
@@ -496,7 +497,8 @@ client.on('ready', async => {
             if(body.online) {
               
                 if(body.players.now) {
-                
+        const duration = moment.duration(`$).format(" D [gün], H [saat], m [dakika], s [saniye]");
+      console.log(`${duration}`);
 client.channels.find("id",'612193568085377024').setName(body.motd);
                   client.channels.find("id",'612193588305985536').setName( `Aktif oyunucu: ${body.players.now}/${body.players.max}`);
  client.channels.find("id",'612193605746032640').setName(mcIP);
