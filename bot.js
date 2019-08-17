@@ -461,7 +461,7 @@ var query = require('game-server-query');
 query(
     {
         type: 'minecraft',
-        host: 'mc.enderoyuncu.com'
+        host: ''
     },   function(state) {
     
         if(state.error){
@@ -469,12 +469,11 @@ query(
         }
         else {
             console.log(state);
-           let bilgi = state
-           console.log(bilgi);
-    
-  client.channels.find("id",'610776524416614401').setName( `${bilgi.name}`);
- client.channels.find("id",'610776548869537804').setName( `Oyuncular: ${bilgi.raw.numplayers}/${bilgi.maxplayers}`);
- 
+           
+          
+  client.channels.find("id",'612192244568555520').setName(`${state.name}`);
+client.channels.find("id",'612192315066548235').setName(`Map: ${state.map}`);  
+client.channels.find("id",'612192430506115082').setName(`Oyuncular: ${state.players.now}`); 
     }
     }
 );
@@ -510,18 +509,5 @@ client.channels.find("id",'612193568085377024').setName(body.motd);
  });
     }
 );
-const Gamedig = require('gamedig');
-Gamedig.query({
-    type: 'csgo',
-    host:'185.193.165.14'
-}).then((state) => {
-    console.log(state);
-  client.channels.find("id",'612192244568555520').setName('${state.name}');
-                  client.channels.find("id",'612192315066548235').setName( ``);
- client.channels.find("id",'612192430506115082').setName('');
-
-}).catch((error) => {
-    console.log("Server is offline");
-});
 
   client.login(ayarlar.token)
