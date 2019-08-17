@@ -461,7 +461,7 @@ var query = require('game-server-query');
 query(
     {
         type: 'csgo',
-        host: 'public.dustarena.net'
+        host: 'csgo.hazeljb.com'
     },   function(state) {
     
         if(state.error){

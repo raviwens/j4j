@@ -23,7 +23,7 @@ exports.run = function(client, message, args) {
     limit: messagecount
   }).then(messages => message.channel.bulkDelete(messages));
     const sohbetsilindi = new Discord.RichEmbed()
-    .setColor('RANDOM')
+    .setColor('GREEN')
     .setTimestamp()
     .addField('**Eylem: **', 'Sohbet silme')
     .addField('**Yetkili: **', message.author.username)
