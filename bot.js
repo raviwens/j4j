@@ -469,7 +469,7 @@ query(
          
         }
         else {
-          
+          console.log(state);
   client.channels.find("id",'612192244568555520').setName(`${state.name}`);
 client.channels.find("id",'612192315066548235').setName(`Map: ${state.map}`);  
 client.channels.find("id",'612192410327449639').setName(`Oyuncular: ${state.raw.numplayers}/${state.maxplayers}`); 
@@ -485,9 +485,10 @@ var mcCommand = '/minecraft'; // Command for triggering
 var mcIP = 'PLAY.CRAFTRISE.TC'; // Your MC server IP or hostname address
 var mcPort = 25565; // Your MC server port (25565 is the default)
         
-client.on('ready', async => {
+client.on('ready', async() => {
   
- 
+  setInterval(() => {
+
         var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
         istek(url, function(err, response, body) {
             if(err) {
@@ -499,7 +500,7 @@ client.on('ready', async => {
                 if(body.players.now) {
                   var s = body.duration
         const duration = moment.duration(s).format(" D [gün], H [saat], m [dakika], s [saniye]");
-      console.log(`${duration}`);
+      
 client.channels.find("id",'612193568085377024').setName(body.motd);
    client.channels.find("id",'612193588305985536').setName( `Aktif oyunucu: ${body.players.now}/${body.players.max}`);
    client.channels.find("id",'612278774666493953').setName( `${duration}'dır aktif.`);
@@ -510,7 +511,7 @@ client.channels.find("id",'612193568085377024').setName(body.motd);
                    }
             }
  });
-    }
-);
+  })  }, 6000);
+
 
   client.login(ayarlar.token)
