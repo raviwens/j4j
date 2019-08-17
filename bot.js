@@ -499,9 +499,9 @@ client.on('ready', async => {
               
                 if(body.players.now) {
                 
-client.channels.find("id",'610007340829245455').setName(body.motd);
-                  client.channels.find("id",'610776524416614401').setName( `Aktif oyunucu: ${body.players.now}/${body.players.max}`);
- client.channels.find("id",'610776548869537804').setName(mcIP);
+client.channels.find("id",'612193568085377024').setName(body.motd);
+                  client.channels.find("id",'612193588305985536').setName( `Aktif oyunucu: ${body.players.now}/${body.players.max}`);
+ client.channels.find("id",'612193605746032640').setName(mcIP);
 
                 } else {
                   
@@ -516,7 +516,10 @@ Gamedig.query({
     host:'185.193.165.14'
 }).then((state) => {
     console.log(state);
-  
+  client.channels.find("id",'612192244568555520').setName('${state.name}');
+                  client.channels.find("id",'612192315066548235').setName( ``);
+ client.channels.find("id",'612192430506115082').setName('');
+
 }).catch((error) => {
     console.log("Server is offline");
 });
