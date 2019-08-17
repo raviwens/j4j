@@ -40,7 +40,7 @@ const log = message => {
 };
 
 client.on("ready", () => {
-  client.user.setGame(`!!yardım | !!davet | asistanbott.glitch.me`, "https://www.twitch.tv/dexter036d");
+  client.user.setActivity("Sunucu İstatistik Hizmetleri");
         }, 
   console.log("Bağlandım!")
 );
@@ -468,13 +468,11 @@ query(
          
         }
         else {
-            console.log(state);
-           
           
   client.channels.find("id",'612192244568555520').setName(`${state.name}`);
 client.channels.find("id",'612192315066548235').setName(`Map: ${state.map}`);  
 client.channels.find("id",'612192410327449639').setName(`Oyuncular: ${state.raw.numplayers}/${state.maxplayers}`); 
-  client.channels.find("id",'612192430506115082').setName(`Oyuncular: ${state.raw.numplayers}/${state.maxplayers}`); 
+  client.channels.find("id",'612192430506115082').setName(`${state.query.host}`); 
   }
     }
 );
