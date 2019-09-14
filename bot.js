@@ -515,7 +515,6 @@ client.channels.find("id",'612193568085377024').setName(body.motd);
  });
   });
 
-
 client.on('guildMemberAdd',async member => {
   let user = client.users.get(member.id);
   let chan = client.channels.get(db.fetch(`guvenlik${member.guild.id}`)) 
@@ -523,8 +522,8 @@ client.on('guildMemberAdd',async member => {
        const canvas = Canvas.createCanvas(360,100);
        const ctx = canvas.getContext('2d');
   
-  const resim1 = await Canvas.loadImage('https://cdn.discordapp.com/attachments/591299755976425493/614151181752860672/yhosgeldirrn.png')
-    const resim2 = await Canvas.loadImage('https://cdn.discordapp.com/attachments/591299755976425493/614164419768877056/yhosgeldirrn.png')
+  const resim1 = await Canvas.loadImage('https://cdn.discordapp.com/attachments/542420184309301279/622405835632672778/onaysiz.jpg')
+    const resim2 = await Canvas.loadImage('https://cdn.discordapp.com/attachments/542420184309301279/622405001007857668/guvenilor.jpg')
     const kurulus = new Date().getTime() - user.createdAt.getTime();
     const gün = moment.duration(kurulus).format("D")   
     var kontrol;
