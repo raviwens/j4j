@@ -500,12 +500,12 @@ client.on('ready', async() => {
                 if(body.players.now) {
                   var s = body.duration
         const duration = moment.duration(s).format(" D [gün], H [saat], m [dakika], s [saniye]");
-      
+      *
 client.channels.find("id",'612193568085377024').setName(body.motd);
    client.channels.find("id",'612193588305985536').setName( `Aktif oyunucu: ${body.players.now}/${body.players.max}`);
    client.channels.find("id",'612278774666493953').setName( `${duration}'dır aktif.`);
  client.channels.find("id",'612193605746032640').setName(mcIP);
-
+//
                 } else {
                   
                    }
