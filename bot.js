@@ -526,7 +526,7 @@ client.on('guildMemberAdd',async member => {
     const ktarih = new Date().getTime() - user.createdAt.getTime();
     const gün = moment.duration(ktarih).format("D")   
     var kontrol;
-      if (ktarih > 2629800000) kontrol = onaylı
+      if (ktarih > 26298000000) kontrol = onaylı
     if (ktarih < 26298000000) kontrol = onaysız
 
   const avatar = await Canvas.loadImage(member.user.displayAvatarURL);
