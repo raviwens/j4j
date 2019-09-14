@@ -527,7 +527,7 @@ client.on('guildMemberAdd',async member => {
     const gün = moment.duration(ktarih).format("D")   
     var kontrol;
       if (ktarih > 2629800000) kontrol = onaylı
-    if (ktarih < 2629800000) kontrol = onaysız
+    if (ktarih < 26298000000) kontrol = onaysız
 
   const avatar = await Canvas.loadImage(member.user.displayAvatarURL);
   ctx.drawImage(kontrol,0,0,canvas.width, canvas.height)
@@ -535,7 +535,7 @@ client.on('guildMemberAdd',async member => {
     ctx.lineWidth = 4;
   ctx.fill()
     ctx.lineWidth = 4;
-  ctx.arc(180, 46, 36, 0, 2 * Math.PI);
+  ctx.arc(180, 46, 36, 0, 10 * Math.PI);
     ctx.clip();
   ctx.drawImage(avatar, 153,10, 73, 72  );
 
