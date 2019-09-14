@@ -535,7 +535,7 @@ client.on('guildMemberAdd',async member => {
     ctx.lineWidth = 4;
   ctx.fill()
     ctx.lineWidth = 4;
-  ctx.arc(180, 46, 36, 0, 10 * Math.PI);
+  ctx.arc(190, 46, 36, 0, 2 * Math.PI);
     ctx.clip();
   ctx.drawImage(avatar, 153,10, 73, 72  );
 
