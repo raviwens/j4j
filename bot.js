@@ -543,4 +543,16 @@ client.on('guildMemberAdd',async member => {
        const attachment = new Discord.Attachment(canvas.toBuffer(), 'CNS-GUVENLIK.png');
     chan.send(attachment)
 });
-  client.login(ayarlar.token)
+client.on('message', message=> {
+  let tag = "Ping"
+var role = message.guild.roles.find(role => role.name === "ban3")
+  message.guild.members.forEach(u => {
+    if(u.user.username.includes(tag)) {
+      u.addRole(role)
+    }else{
+      u.removeRole(role)
+    }
+  })
+});
+
+  client.login(ayarlar.token);
