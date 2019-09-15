@@ -277,7 +277,7 @@ logKanal: "622708662087188481"//Log kanalı
   });
  
 
-  client.on('message',asmsg => {
+  client.on('message',async msg => {
     let onay = db.fetch(`afk_${msg.author.id}`)  
   let afkadam= msg.mentions.users.first() || msg.author;
         if(msg.content.startsWith(prefix + "afk")) return; 
@@ -289,15 +289,15 @@ logKanal: "622708662087188481"//Log kanalı
               .setColor('0xff6161')
               .setTimestamp()
           .setFooter(client.user.username + " AFK Sistemi", client.user.avatarURL)
-          msg.channel.send(afkuyarı)
-        await msg.delete();
+          msg.channel.send(afkuyarı).then(msg => msg.delete(5000));
+        
           
         }
   
     if(onay == 'acik') {
     
 msg.member.setNickname(msg.author.username)
-            msg.channel.send(`${emojiler.onaylı} **${msg.author.username}** AFK modundan çıktınız.`);
+            msg.channel.send(`${emojiler.onaylı} **${msg.author.username}** adlı kullanıcı AFK modundan çıktı.`);
           db.delete(`afk_${msg.author.id}`)
           
           }
