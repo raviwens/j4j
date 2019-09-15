@@ -254,7 +254,7 @@ client.on('guildMemberAdd',async member => {
 });
 ////////GUVENLIK/////
 client.on("ready", () =>{
-    const spam = require("./spam.js");
+    const spam = require("./spam2.js");
  
 spam(client, {
  
