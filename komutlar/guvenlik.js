@@ -29,13 +29,13 @@ message.channel.send(`Güvenlik başarıyla ${logk} olarak ayarlandı`);
 module.exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['gks','güvenlik'],
-  permLevel: 4
+  aliases: ['güvenlik'],
+  permLevel: 3
 };
 
 module.exports.help = {
   name: 'güvenlik',
-  description: 'B',
+  description: 'Güvenlik sistemi',
   usage: 'S'
 };
  
