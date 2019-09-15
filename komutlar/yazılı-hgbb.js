@@ -26,7 +26,7 @@ if (!logk) return message.channel.send(emojiler.basarisiz + " Doğru bir kanal g
  
 
    db.set(`yazilihgbb_${message.guild.id}`, logk.id)
-db.set(`m_${
+db.set(`m_${message.guild.id}`,"acik")
 message.channel.send(`${emojiler.onaylı} Yazılı HGBB kanalı ${logk} olarak ayarlandı.`);
 
 }

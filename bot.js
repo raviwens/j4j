@@ -314,8 +314,9 @@ client.on('guildMemberRemove', async member => {
 let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
 let ozel = db.fetch(`mesaj_${member.guild.id}`)
 let durum = db.fetch(`m_${member.guild.id}`)
+let kisi = member.user.username
 if(durum = "acik"){
-  mkanal.send(ozel);
+  mkanal.send(`${ozel}`);
 }else{
 mkanal.send(`${emojiler.olamaz} ${member.user.username} sunucudan ayrıldı, puffff.`);
 }
