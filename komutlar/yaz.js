@@ -1,10 +1,12 @@
 const Discord = require('discord.js');
-
+const db = require('quick.db');
 exports.run = (client, message, args) => {
-  let mesaj = args.slice(0).join(' ');
-if (mesaj.length < 1) return message.reply('Yazmam için herhangi bir şey yazmalısın.');
-  message.delete();
-  message.channel.send(mesaj);
+ if(args[0] === "ayarla"){
+    let mesaj = args.slice(1).join(' ')
+    db.set(`mesaj_${message.guild.id}`, mesaj)
+    message.channel.send("Yazılı HGBB mesajı`"+ mesaj + "olarak ayarlandı.");
+ db.set(`msistemi_${message.guild.id}`,"acik")
+  }
 };
 
 exports.conf = {
@@ -15,7 +17,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'yaz',
-  description: '[Admin Komutu]',
-  usage: 'yaz [yazdırmak istediğiniz şey]'
+  name: 'hgbb-mesaj',
+  description: '',
+  usage: ''
 };
