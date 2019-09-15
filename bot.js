@@ -305,12 +305,12 @@ msg.member.setNickname(msg.author.username)
 
 client.on('guildMemberAdd', async member => {
 let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
-
+if(member.user.bot === true) return;
 mkanal.send(`${emojiler.oley} **${member.user.username}** sunucuya katıldı, oleyyy.`);
 })
 client.on('guildMemberRemove', async member => {
 let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
-  
+ if(member.user.bot === true) return;
 mkanal.send(`${emojiler.olamaz} **${member.user.username}** suncudan ayrıldı, puffff.`);
 })
 
