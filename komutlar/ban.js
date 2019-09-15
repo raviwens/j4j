@@ -30,7 +30,7 @@ exports.run = async (bot, message, args) => {
                 try {
                 await member.ban(reason + ` | Yetkili: ${message.author.tag} - ${message.author.id}`)
   
-                message.channel.send(`${process.env.basarili} **${user.tag}** başarıyla banlandı.`)
+                message.channel.send(`${emojiler.onaylı} **${user.tag}** başarıyla banlandı.`)
             } catch(e) {
             message.channel.send(':warning: Bir hata var!')
         }

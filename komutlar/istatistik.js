@@ -2,6 +2,8 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const moment = require("moment");
 require("moment-duration-format");
+const emojiler = require('../emojiler.json');
+
 
 module.exports.run = async(client, message, args) => {
   const duration = moment.duration(client.uptime).format(" D [gün], H [saat], m [dakika], s [saniye]");

@@ -223,15 +223,15 @@ var role = message.guild.roles.find(role => role.name === "ban3")
   */
 ////GUVENLIK///
 client.on('guildMemberAdd',async member => {
-  let user = client.users.get(member.id);
-  let chan = client.channels.get(db.fetch(`guvenlik${member.guild.id}`)) 
+  let gkisi = client.users.get(member.id);
+  let gkanal = client.channels.get(db.fetch(`guard_${member.guild.id}`)) 
        const Canvas = require('canvas')
        const canvas = Canvas.createCanvas(360,100);
        const ctx = canvas.getContext('2d');
   
   const onaysız = await Canvas.loadImage('https://cdn.discordapp.com/attachments/542420184309301279/622408941384630272/onaysizz.jpg')
     const onaylı = await Canvas.loadImage('https://cdn.discordapp.com/attachments/542420184309301279/622405001007857668/guvenilor.jpg')
-    const ktarih = new Date().getTime() - user.createdAt.getTime();
+    const ktarih = new Date().getTime() - gkisi.createdAt.getTime();
     const gün = moment.duration(ktarih).format("D")   
     var kontrol;
       if (ktarih > 26298000000) kontrol = onaylı
@@ -249,11 +249,12 @@ client.on('guildMemberAdd',async member => {
 
    
        const attachment = new Discord.Attachment(canvas.toBuffer(), 'CNS-GUVENLIK.png');
-    chan.send(attachment)
+    gkanal.send(attachment)
 });
 ////////GUVENLIK/////
 client.on("ready", () =>{
     const spam = require("./spam.js");
+ 
 spam(client, {
 uyar: 3, //Uyarılmadan önce aralıkta gönderilmesine izin verilen maksimum mesaj miktarı.
 ban: 5, //Yasaklanmadan önce aralıkta gönderilmesine izin verilen maksimum ileti miktar.
@@ -262,7 +263,7 @@ maxBan: 7, //Bir kullanıcının yasaklanmadan önce bir zaman diliminde gönder
 zaman: 2000, //Spam tespit aralığı
 uyarM: "Spamı Durdur, yoksa BAN Hammerı kafana vuracağım!", // Uyarı verildiğinde gösterilcek mesaj.
 banM: "Spam yaptığı için BAN hammerı kafasına vurdum.", //Ban atıldığında gösterilecek mesaj.
-logKanal: "KANAL ID"//Log kanalı
+logKanal: "${gkanal}"//Log kanalı
 });
 });
 
