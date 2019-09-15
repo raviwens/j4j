@@ -2,17 +2,17 @@
     
 const Discord = require('discord.js');
 const db = require('quick.db');
-
+const emojiler = require('../emojiler.json');
 exports.run = async (bot, message, args) => {
     if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(":no_entry: Bu komudu kullanabilmek için `Üyeleri Yasakla` yetkisine sahip olmanız gerek.");
     let reason = args.slice(1).join(' ')
     if (!args[0]) return message.channel.send(":no_entry: Yasaklamak istediğiniz kullanıcıyı etiketleyiniz.")
     let user = message.mentions.users.first() || bot.users.get(args[0]) || message.guild.members.find(u => u.user.username.toLowerCase().includes(args[0].toLowerCase())).user
 
-    if (!user) return message.channel.send(`${process.env.basarisiz} Etiketlediğin kullanıcıyı sunucuda bulamadım.`)
+    if (!user) return message.channel.send(`${emojiler.basarisiz} Etiketlediğin kullanıcıyı sunucuda bulamadım.`)
     let member = message.guild.member(user)
-    if (!member) return message.channel.send(`${process.env.basarisiz} Etiketlediğin kullanıcıyı sunucuda bulamadım.`)
-    if (member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`${process.env.basarisiz} Kendi yetkimin üstündeki kişileri yasaklayamam.`)
+    if (!member) return message.channel.send(`${emojiler.basarisiz} Etiketlediğin kullanıcıyı sunucuda bulamadım.`)
+    if (member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`${emojiler.basarisiz} Kendi yetkimin üstündeki kişileri yasaklayamam.`)
     if (!reason) reason = 'Neden belirtilmemiş.'
   
     message.channel.send(`${user.tag}, adlı kullanıcıyı sunucudan yasaklayacağım emin misiniz? Eminseniz \`e\` işlemi iptal etmek ise \`h\` olarak cevaplayınız.`)
