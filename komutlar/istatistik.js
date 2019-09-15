@@ -20,8 +20,9 @@ exports.run = (bot, message, args) => {
             .setColor("0xc1ff05")
             .addField("❯ Bellek Kullanımı", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} / ${(os.totalmem() / 1024 / 1024).toFixed(2)} MB`)
             .addField("❯ Çalışma Süresi ", `${duration}`)
-            .addField("❯ Bot İstatistikleri", stripIndents`
-            \`\`\`yaml
+            .addField("❯ ", stripIndents
+            `\`\`\`yaml
+
             Kullanıcı: ${bot.users.array().length}
             Sunucu: ${bot.guilds.size.toLocaleString()} 
             Kanal: ${bot.channels.size.toLocaleString()}
