@@ -26,7 +26,7 @@ exports.run = (bot, message, args) => {
            .addField("❯ Ping", `${Math.round(bot.ping)}ms`)
             .addField("❯ CPU", `\`\`\`yaml\n${os.cpus().map(i => `${i.model}`)[0]}\`\`\``)
             .addField("❯ CPU Kullanımı", `%${percent.toFixed(2)}`)
-       .setFooter(bot.user.username + ' ', bot.user.avatarURL)
+       .setFooter(message.author.username + ' tarafından istendi.', bot.user.avatarURL)
       .setTimestamp()
         message.channel.send(botBilgi)
     });
