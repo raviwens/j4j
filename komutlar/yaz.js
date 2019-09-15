@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
     let mesaj = args.slice(1).join(' ')
     db.set(`mesaj_${message.guild.id}`, mesaj)
     message.channel.send("Yazılı HGBB mesajı`"+ mesaj + "olarak ayarlandı.");
- db.set(`msistemi_${message.guild.id}`,"acik")
+ db.set(`mdurum_${message.guild.id}`,"acik")
   }
 };
 

@@ -313,7 +313,7 @@ mkanal.send(`${emojiler.oley} ${member.user.username} sunucuya katıldı, oleyyy
 let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
 let ozel = db.fetch(`mesaj_${member.guild.id}`)
 let durum = db.fetch(`m_${member.guild.id}`)
-db.fetch(`msistemi_${member.guild.id}`).then(x => {
+db.fetch(`mdurum_${member.guild.id}`).then(x => {
 if(x == "acik"){
   mkanal.send(durum ? durum.replace('${etiket}',`<@`+ member.id+`>`).replace('-sunucu-', `${member.guild.name}`) .replace('-kullanıcı-',`${member.user.tag}`) .replace('-id-',`${member.user.id}`) : ``) ;
 }else if (x == 'kapali') {
