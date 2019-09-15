@@ -15,7 +15,7 @@ exports.run = async (bot, message, args) => {
     if (member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(`${emojiler.basarisiz} Kendi yetkimin üstündeki kişileri yasaklayamam.`)
     if (!reason) reason = 'Neden belirtilmemiş.'
   
-    message.channel.send(`${user.tag}, adlı kullanıcıyı sunucudan yasaklayacağım emin misiniz? Eminseniz \`e\` işlemi iptal etmek ise \`h\` olarak cevaplayınız.`)
+    message.channel.send(`${user.tag}, adlı kullanıcıyı sunucudan yasaklayacağım emin misiniz? Eminseniz \`evet (e)\` işlemi iptal etmek ise \`hayır (h)\` olarak cevaplayınız.`)
         let uwu = false;
             while (!uwu) {
                 const response = await message.channel.awaitMessages(neblm => neblm.author.id === message.author.id, { max: 1, time: 30000 });

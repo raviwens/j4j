@@ -248,7 +248,7 @@ client.on('guildMemberAdd',async member => {
   ctx.drawImage(avatar, 153,10, 73, 72  );
 
    
-       const attachment = new Discord.Attachment(canvas.toBuffer(), 'CNS-GUVENLIK.png');
+       const attachment = new Discord.Attachment(canvas.toBuffer(), 'SERVER-GUARD.png');
     gkanal.send(attachment)
 });
 ////////GUVENLIK/////
