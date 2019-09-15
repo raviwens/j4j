@@ -9,7 +9,7 @@ module.exports.run = async (bot, message) => {
 			.setTitle("Sunucuya Eklenen Emojiler")
 			.setDescription(`:${emojis[page - 1].name}:`)
 			.setImage(emojis[page - 1].url)
-			.setFooter(`Sayfa ${page}/${totalpages} | Emoji ID: ${emojis[page - 1].id}`)
+			.setFooter(`${emojis[page - 1].id}`)
 			.setColor("BLUE");
 		message.channel.send(embed).then(async function (sentEmbed) {
 			const emojiArray = ["◀", "▶"];
