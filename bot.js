@@ -305,10 +305,10 @@ msg.member.setNickname(msg.author.username)
 
 client.on('guildMemberAdd', async member => {
 let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
-  if(mkanal 
-mkanal.send(``);
+
+mkanal.send(`${emojiler.oley} `${member}`` sunucuya`);
 })
     
-      
+      b
 
   client.login(ayarlar.token);
