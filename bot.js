@@ -268,6 +268,13 @@ banM: "Spam yaptığı için BAN hammerı kafasına vurdum.", //Ban atıldığı
 logKanal: "622708662087188481"//Log kanalı
 });
 });
+  client.on('message', msg => {
+    let onay = db.fetch(`spam_${msg.guild.id}`)  
+          if (onay == 'acik') {
+
+  client.emit('checkMessage', msg); 
+          }
+  });
  
 
   client.on('message', msg => {
@@ -278,13 +285,6 @@ msg.member.setNickname(msg.author.username)
             msg.channel.send(`${emojiler.onaylı} **${msg.author.username}** AFK modundan çıktınız.`);
           db.delete(`afk_${msg.author.id}`)
           
-          }
-  });
-  client.on('message', msg => {
-    let onay = db.fetch(`spam_${msg.guild.id}`)  
-          if (onay == 'acik') {
-
-  client.emit('checkMessage', msg); 
           }
   });
   client.login(ayarlar.token);
