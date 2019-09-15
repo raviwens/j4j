@@ -312,11 +312,10 @@ mkanal.send(`${emojiler.oley} ${member.user.username} sunucuya katıldı, oleyyy
   
 client.on('guildMemberRemove', async member => {
 let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
-let ozel = db.fetch(`mesaj_${member.guild.id}`)
-let durum = db.fetch(`m_${member.guild.id}`)
+let ozel = db.fetch(`m_${member.guild.id}`)
 db.fetch(`mdurum_${member.guild.id}`).then(x => {
     if (x == `acik`) {
-  db.fetch(`mesaj_${member.guild.id}`).then(ozelgorusuruz =>{
+  db.fetch(`m_${member.guild.id}`).then(ozelgorusuruz =>{
  if (!ozelgorusuruz) return;
   mkanal.send(ozelgorusuruz ? ozelgorusuruz.replace('-sunucu-', `${member.guild.name}`) .replace('-kullanıcı-',`${member.user.tag}`) .replace('-id-',`${member.user.id}`) .replace('-sayı-',`${member.guild.members.size}`).replace('-etiket-',`<@`+member.id+`>`) : ``)
 
@@ -326,4 +325,5 @@ db.fetch(`mdurum_${member.guild.id}`).then(x => {
     }
   })
 })
+
   client.login(ayarlar.token);
