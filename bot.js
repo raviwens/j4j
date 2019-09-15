@@ -309,16 +309,16 @@ let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`))
 mkanal.send(`${emojiler.oley} ${member.user.username} sunucuya katıldı, oleyyy.`);
 })
     
-     
-client.on('guildMemberRemove', async member => {
+  client.on('guildMemberRemove', async member => {
 let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
 let ozel = db.fetch(`mesaj_${member.guild.id}`)
 let durum = db.fetch(`m_${member.guild.id}`)
-let kisi = member.user.username
-if(durum = "acik"){
+db.fetch(`msistemi_${member.guild.id}`).then(x => {
+if(x = "acik"){
   mkanal.send(`${ozel}`);
 }else{
 mkanal.send(`${emojiler.olamaz} ${member.user.username} sunucudan ayrıldı, puffff.`);
 }
+})
 })
   client.login(ayarlar.token);

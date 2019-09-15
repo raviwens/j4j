@@ -12,6 +12,7 @@ let logkanal = await db.fetch(`yazilihgbb_${message.guild.id}`)
     let mesaj = args.slice(1).join(' ')
     db.set(`mesaj_${message.guild.id}`, mesaj)
     message.channel.send("Yazılı HGBB mesajı`"+ mesaj + "olarak ayarlandı.");
+ return
   }
   if (args[0] === "kapat") {
     if(!logkanal) return message.channel.send(`${emojiler.basarisiz} Yazılı HGBB kapatmak için **Yazılı HGBB kanalının** seçili olması lazım. Kullanım: \`!yazılı-hgbb #kanal\``);
