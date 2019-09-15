@@ -8,7 +8,11 @@ exports.run = async (bot, message,args) => {
 
 let logk = message.mentions.channels.first();
 let logkanal = await db.fetch(`yazilihgbb_${message.guild.id}`)
-  
+  if(args[0] === "mesaj"){
+    let mesaj = args.slice(1).join(' ')
+    db.set(`mesaj_${message.guild.id}`, mesaj)
+    message.channel.send("Yazılı HGBB mesajı`"+ mesaj + "olarak ayarlandı.");
+  }
   if (args[0] === "kapat") {
     if(!logkanal) return message.channel.send(`${emojiler.basarisiz} Yazılı HGBB kapatmak için **Yazılı HGBB kanalının** seçili olması lazım. Kullanım: \`!yazılı-hgbb #kanal\``);
     
@@ -22,7 +26,7 @@ if (!logk) return message.channel.send(emojiler.basarisiz + " Doğru bir kanal g
  
 
    db.set(`yazilihgbb_${message.guild.id}`, logk.id)
-
+db.set(`m_${
 message.channel.send(`${emojiler.onaylı} Yazılı HGBB kanalı ${logk} olarak ayarlandı.`);
 
 }
