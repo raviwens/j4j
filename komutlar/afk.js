@@ -1,18 +1,18 @@
 const emojiler = require("../emojiler.json");
 exports.run = async (client, msg, args) => {
    if (!args[0]) return msg.channel.send({embed: {
-       color: Math.floor(Math.random() * (0xFFFFFF + 1)),
-       description: (`${emojiler.basarisiz} AFK olma sebebini yazmalısin`)
+       color: 0x48a9c7,
+       description: (`${emojiler.basarisiz} AFK olma sebebini yazmalısınız. Kullanım: ` + "`!afk <sebep>`")
  }});
-  let name = msg.author.username
-  if(msg.author.username.startsWith("[AFK]")){
-    msg.reply("Zaten AFK'sın.")
-  }
-  else {
-    msg.reply(`${emojiler.elmas}`)
-     msg.member.setNickname(`[AFK]${msg.author.username}`);
-  }  
+  let sebep = args.slice(0).join(' ')
+  let isim = msg.author.username
+  
+
+    msg.reply(`${emojiler.elmas} \`${sebep}\` nedeniyle AFK oldunuz.`)
+ msg.member.setNickname(`[AFK]${msg.author.username}`);
+   
 }
+
 
 exports.conf = {
   enabled: true,
