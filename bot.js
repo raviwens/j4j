@@ -302,4 +302,9 @@ msg.member.setNickname(msg.author.username)
           
           }
   });
+client.on('guildMemberAdd',async member => {
+  let kanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
+  let kisi = client.users.get(member.id);
+
+});
   client.login(ayarlar.token);
