@@ -263,8 +263,8 @@ ban: 5, //Yasaklanmadan önce aralıkta gönderilmesine izin verilen maksimum il
 maxUyarı: 5, //Bir kullanıcının uyarılmadan önce bir zaman dilimi içinde gönderebileceği maksimum kopya sayısı
 maxBan: 7, //Bir kullanıcının yasaklanmadan önce bir zaman diliminde gönderebildiği maksimum kopya sayısı
 zaman: 2000, //Spam tespit aralığı
-uyarM: "Spamı Durdur, yoksa BAN Hammerı kafana vuracağım!", // Uyarı verildiğinde gösterilcek mesaj.
-banM: "Spam yaptığı için BAN hammerı kafasına vurdum.", //Ban atıldığında gösterilecek mesaj.
+uyarM: "Spamı Durdur, yoksa seni susturacağım!", // Uyarı verildiğinde gösterilcek mesaj.
+banM: "Spam yaptığın için susturuldun.", //Ban atıldığında gösterilecek mesaj.
 logKanal: "622708662087188481"//Log kanalı
 });
 });

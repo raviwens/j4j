@@ -38,7 +38,7 @@ module.exports = async (client, options) => {
  client.on("checkMessage", async (message) => {
  
   // Ban the User
-  const banUser = async (m, banMsg) => {
+  const muteUser = async (m, banMsg) => {
     for (var i = 0; i < messageLog.length; i++) {
         if (messageLog[i].author == m.author.id) {
           messageLog.splice(i);
@@ -50,7 +50,7 @@ module.exports = async (client, options) => {
       let user = m.guild.members.get(m.author.id);
       if (user) {
      var verilcekrol = message.guild.roles.find(role => role.name === muteRol);
-   user.addRole(muteRol).then((member) => {
+   user.addRole(verilcekrol).then((member) => {
           m.channel.send(`<@!${m.author.id}>, ${banMsg}`);
           return true;
        }).catch(() => {
@@ -98,9 +98,10 @@ module.exports = async (client, options) => {
       
       }
       if (msgMatch == maxBan && !banned.includes(message.author.id)) {
-   
-        banUser(message, banM);
-           banser.addRole(muteRol)
+       var verilcekrol = message.guild.roles.find(role => role.name === muteRol);
+ 
+        muteUser(message, banM);
+           muteUser.addRole(verilcekrol)
   
           }
       
@@ -138,8 +139,10 @@ module.exports = async (client, options) => {
         
           channel.send(banembed);
         
-              banUser(message, banM);
-           banUser.addRole(muteRol)
+              muteUser(message, banM);    
+              var verilcekrol = message.guild.roles.find(role => role.name === muteRol);
+ 
+           muteUser.addRole(verilcekrol)
           
             }
           }
