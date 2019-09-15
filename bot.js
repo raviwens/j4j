@@ -285,10 +285,10 @@ logKanal: "622708662087188481"//Log kanalı
         if(db.has(`afk_${afkadam.id}`)) {
           msg.delete(1000);
           const afkuyarı = new Discord.RichEmbed()
-                .setDescription(emojiler.gold1 + `**${client.users.get(afkadam.id).username}** adlı kullanıcımız şuanda AFK \n\n**Sebep:** \n${db.fetch(`afksebep_${afkadam.id}`)}`)
-                .setColor("0x4af6ff")
-                .setTimestamp()
-                msg.channel.send(afkuyarı)
+                .setDescription(emojiler.gold1 + ` **${client.users.get(afkadam.id).username}** adlı kullanıcımız şuanda AFK \n\n**Sebep:** \n${db.fetch(`afksebep_${afkadam.id}`)}`)
+                 .setColor("0x4F7EE6D")                
+          
+          msg.channel.send(afkuyarı)
         }
   
     if(onay == 'acik') {
