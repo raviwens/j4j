@@ -283,11 +283,12 @@ logKanal: "622708662087188481"//Log kanalı
         if(msg.content.startsWith(prefix + "afk")) return; 
     if(msg.content.includes(`<@${afkadam.id}>`))
         if(db.has(`afk_${afkadam.id}`)) {
-            const embedistan = new Discord.RichEmbed()
-                .setDescription(`**${client.users.get(afkadam.id).tag}** adlı kullanıcı şuanda AFK! \n\n**Sebep:** \n${db.fetch(`afksebep_${afkadam.id}`)}`)
-                .setColor('RANDOM')
+          msg.delete();
+          const afkuyarı = new Discord.RichEmbed()
+                .setDescription(emojiler.elmas + `**${client.users.get(afkadam.id).username}** adlı kullanıcı şuanda AFK! \n\n**Sebep:** \n${db.fetch(`afksebep_${afkadam.id}`)}`)
+                .setColor("0x4af6ff")
                 .setTimestamp()
-                msg.channel.send(embedistan).then(message => message.delete(5000))
+                msg.channel.send(afkuyarı)
         }
   
     if(onay == 'acik') {

@@ -12,6 +12,7 @@ exports.run = async (client, message, args) => {
     message.reply(`${emojiler.elmas} \`${sebep}\` nedeniyle AFK oldunuz.`)
  message.member.setNickname(`[AFK] ` + message.author.username);
 await db.set(`afk_${message.author.id}`, 'acik')
+await db.set(`afksebep_${message.author.id}`, sebep)
 }
 
 
