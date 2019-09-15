@@ -1,17 +1,17 @@
 const emojiler = require("../emojiler.json");
 const db = require("quick.db");
-exports.run = async (client, msg, args) => {
-   if (!args[0]) return msg.channel.send({embed: {
+exports.run = async (client, message, args) => {
+   if (!args[0]) return message.channel.send({embed: {
        color: 0x48a9c7,
        description: (`${emojiler.basarisiz} AFK olma sebebini yazmalısınız. Kullanım: ` + "`!afk <sebep>`")
  }});
   let sebep = args.slice(0).join(' ')
-  let isim = msg.author.username
+  let isim = message.author.username
   
 
-    msg.reply(`${emojiler.elmas} \`${sebep}\` nedeniyle AFK oldunuz.`)
- msg.member.setNickname(`[AFK]${msg.author.username}`);
-  
+    message.reply(`${emojiler.elmas} \`${sebep}\` nedeniyle AFK oldunuz.`)
+ message.member.setNickname(`[AFK] ` + message.author.username);
+  db.set(`afk_${message.author.id}`, sebep)
 
 }
 
