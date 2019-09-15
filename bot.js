@@ -236,7 +236,7 @@ client.on('guildMemberAdd',async member => {
     const gün = moment.duration(ktarih).format("D")   
     var kontrol;
       if (ktarih > 26298000000) kontrol = onaylı
-    if (ktarih < 26298000000) kontrol = onaysız
+    if (ktarih < 2629800000) kontrol = onaysız
 
   const avatar = await Canvas.loadImage(member.user.displayAvatarURL);
   ctx.drawImage(kontrol,0,0,canvas.width, canvas.height)
@@ -272,8 +272,12 @@ logKanal: "622708662087188481"//Log kanalı
 
   client.on('message', msg => {
     let onay = db.fetch(`afk_${msg.author.id}`)  
-          if (onay == 'acik') {
+          if(onay == 'acik') {
+    
 msg.member.setNickname(msg.author.username)
+            msg.channel.send(`${emojiler.onaylı} **${msg.author.username}** AFK modundan çıktınız.`);
+          db.delete(`afk_${msg.author.id}`)
+          
           }
   });
   client.on('message', msg => {
