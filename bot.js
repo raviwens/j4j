@@ -297,7 +297,7 @@ logKanal: "622708662087188481"//Log kanalı
     if(onay == 'acik') {
     
 msg.member.setNickname(msg.author.username)
-            msg.channel.send(`${emojiler.onaylı} **${msg.author.username}** adlı kullanıcı AFK modundan çıktı.`);
+            msg.channel.send(`${emojiler.onaylı} **${msg.author.username}** adlı kullanıcı AFK modundan çıktı.`).then(msg => msg.delete(5000))
           db.delete(`afk_${msg.author.id}`)
           
           }
@@ -313,4 +313,11 @@ let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`))
 
 mkanal.send(`${emojiler.olamaz} **${member.user.username}** suncudan ayrıldı, puffff.`);
 })
+
+client.on('guildMemberAdd', async member => {
+let botkoruma = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
+
+botkoruma.send(`${emojiler.onaylı} \`${member.user.tag}\` adlı bot sunucudan atıldı.`);
+})
+
   client.login(ayarlar.token);
