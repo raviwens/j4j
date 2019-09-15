@@ -22,7 +22,7 @@ exports.run = async (bot, message, args) => {
                 const choice = response.first().content
                 if (choice == 'hayır' || choice == 'h') return message.channel.send('🚀 İşlem iptal **edildi.**')
                 if (choice !== 'evet' && choice !== 'e') {
-                message.channel.send('Lütfen sadece ``evet (e)`` veya ``hayır (h)`` ile cevap verin.')
+                message.channel.send(emojiler.basarisiz +' Lütfen sadece ``evet (e)`` veya ``hayır (h)`` ile cevap verin.')
                 }
                 if (choice == 'evet' || choice == 'e') uwu = true
                 }
