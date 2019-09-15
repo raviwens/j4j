@@ -278,27 +278,11 @@ logKanal: "622708662087188481"//Log kanalı
           }
   });
 client.on('message', message =>{
-  let afkdurum = db.fetch(`afk_${message.author.id}`);
-    let afkadam= message.mentions.users.first() || message.author;   message.member.setNickname(`${message.author.username}`);
-   if(message.content.includes(`<@${afkadam.id}>`))
-         if(db.has(`afk_${afkadam.id}`)) {
-             const afksuan = new Discord.RichEmbed()
-                     .setColor("0xcffa41")
-                     .setDescription(`**${client.users.get(afkadam.id).tag}** adlı kullanıcımız şuanda AFK \n**AFK nedeni:** \n\`${db.fetch(`afks_${afkadam.id}`)}\``)
-                     message.channel.send(afksuan)
-         }
-   
-         if(db.has(`afk_${message.author.id}`)) {
-                        let kisi = message.member
-
-             const unafk = new Discord.RichEmbed()
-
-                 .setColor("0x33d8f5")
-                 .setDescription(emojiler.onaylı+" <@"+`${message.author.id}`+">"+"** Başarıyla AFK modundan çıktın.**")
-                 kisi.setNickname(message.author.username)
-
-                message.channel.send(unafk);
-             db.delete(`afk_${message.author.id}`)
-         } 
+  if(message.author.username.startsWith("[AFK]")){
+  message.member.setNickname("[AFK]sjsjx"+message.author.username)
+  }
+    
+  
+         
 });
   client.login(ayarlar.token);
