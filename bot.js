@@ -21,6 +21,7 @@ const Jimp = require("jimp")
 const request = require('node-superfetch');
 const ms = require('parse-ms')
 const moment = require('moment');
+const emojiler= require('./emojiler.json');
 require('./util/eventLoader')(client);
 let linkEngel = JSON.parse(fs.readFileSync("././jsonlar/linkEngelle.json", "utf8"));
 let kufurEngel = JSON.parse(fs.readFileSync("./jsonlar/kufurEngelle.json", "utf8"));
@@ -276,4 +277,11 @@ logKanal: "622708662087188481"//Log kanalı
   client.emit('checkMessage', msg); 
           }
   });
+client.on('message', msg =>{
+  let afkdurum = db.fetch(`afk_${msg.author.id}`);
+  if(afkdurum == 'afk'){
+    msg.member.setNickname(`${msg.author.username}`);
+    msg.reply(`${emojiler.elmas} AFK modundan çıktınız.`);
+  }
+});
   client.login(ayarlar.token);

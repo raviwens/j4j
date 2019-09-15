@@ -1,4 +1,5 @@
 const emojiler = require("../emojiler.json");
+const db = require("quick.db");
 exports.run = async (client, msg, args) => {
    if (!args[0]) return msg.channel.send({embed: {
        color: 0x48a9c7,
@@ -10,7 +11,8 @@ exports.run = async (client, msg, args) => {
 
     msg.reply(`${emojiler.elmas} \`${sebep}\` nedeniyle AFK oldunuz.`)
  msg.member.setNickname(`[AFK]${msg.author.username}`);
-   
+  
+
 }
 
 
