@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
   let isim = message.author.username
   
 
-    message.reply(`${emojiler.elmas} \`${sebep}\` nedeniyle AFK oldunuz.`)
+    message.channel.send(`${emojiler.elmas} **${message.author.username}** adlı kullanıcı, \`${sebep}\` nedeniyle AFK oldu.`)
  message.member.setNickname(`[AFK] ` + message.author.username);
 await db.set(`afk_${message.author.id}`, 'acik')
 await db.set(`afksebep_${message.author.id}`, sebep)
