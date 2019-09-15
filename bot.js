@@ -302,13 +302,13 @@ msg.member.setNickname(msg.author.username)
           
           }
   });
-client.on('guildMemberAdd',async member => {
-  let kanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
-  kanal.then(hgmesaj =>{
- if (!hgmesaj) return;
-    if(kanal){
-member.send(hgmesaj ? hgmesaj.replace('-sunucu-', `${member.guild.name}`) .replace('-kullanıcı-',`${member.user.usermame}`) .replace('-id-',`${member.user.id}`) : ``)
-  }}
-            )
-});
+
+client.on('guildMemberAdd', async member => {
+let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
+  if(mkanal 
+mkanal.send(``);
+})
+    
+      
+
   client.login(ayarlar.token);
