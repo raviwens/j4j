@@ -273,7 +273,7 @@ logKanal: "622708662087188481"//Log kanalı
   client.on('message', msg => {
     let onay = db.fetch(`afk_${msg.author.id}`)  
           if (onay == 'acik') {
-msg.member.setNickname(msg.author.tag)
+msg.member.setNickname(msg.author.username)
           }
   });
   client.on('message', msg => {
