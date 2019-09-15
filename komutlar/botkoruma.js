@@ -11,7 +11,7 @@ let logkanal = await db.fetch(`botkoruma_${message.guild.id}`)
   
   if (args[0] === "kapat") {
     if(!logkanal) return message.channel.send(`${emojiler.basarisiz} Bot Koruma Sistemini kapatmak için **bot koruma kanalının** seçili olması lazım. Kullanım: \`!botkoruma #kanal\``);
-    
+    db.delete(`botguard_${message.guild.id}`)
    db.delete(`botkoruma_${message.guild.id}`)
    message.channel.send(`${emojiler.onaylı} Bot Koruma Sistemi başarıyla kapatıldı.`);
   
@@ -22,7 +22,7 @@ if (!logk) return message.channel.send(emojiler.basarisiz + " Doğru bir kanal g
  
 
    db.set(`botkoruma_${message.guild.id}`, logk.id)
-db.set(`botguard_$
+db.set(`botguard_${message.guild.id}`,'acik')
 message.channel.send(`${emojiler.onaylı} Bot Koruma Sistemi başarıyla ${logk} olarak ayarlandı.`);
 
 }

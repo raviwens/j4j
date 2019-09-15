@@ -250,7 +250,8 @@ client.on('guildMemberAdd',async member => {
 
    
        const attachment = new Discord.Attachment(canvas.toBuffer(), 'SERVER-GUARD.png');
-    gkanal.send(attachment)
+ if(member.user.bot === true) return;
+  gkanal.send(attachment)
 });
 ////////GUVENLIK/////
 client.on("ready", () =>{
@@ -292,14 +293,11 @@ logKanal: "622708662087188481"//Log kanalı
           msg.channel.send(afkuyarı)
         
           
-        }
-  
-    if(onay == 'acik') {
-    
+        }  
+    if(onay == 'acik') {   
 msg.member.setNickname(msg.author.username)
             msg.channel.send(`${emojiler.onaylı} **${msg.author.username}** adlı kullanıcı AFK modundan çıktı.`).then(msg => msg.delete(5000))
-          db.delete(`afk_${msg.author.id}`)
-          
+          db.delete(`afk_${msg.author.id}`)      
           }
   });
 
@@ -316,10 +314,13 @@ mkanal.send(`${emojiler.olamaz} **${member.user.username}** suncudan ayrıldı, 
 
 client.on('guildMemberAdd', async member => {
 let botkoruma = client.channels.get(db.fetch(`botkoruma_${member.guild.id}`)) 
-    if(member.user.bot !==true){ 
-    }else{
+     let onay = db.fetch(`botguard_${member.guild.id}`)  
+   if(member.user.bot !==true){ 
+    }else{   
+      if(onay = 'acik'){
 botkoruma.send(`${emojiler.onaylı} \`${member.user.tag}\` adlı bot sunucudan atıldı.`);
  member.kick(member);
+    }
     }
     })
 
