@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     if (!message.member.hasPermissions ('KICK_MEMBERS')) return message.channel.send(`${emojiler.basarisiz} Bu komudu kullanabilmek için ` +'`Kick Members`'+ ` yetkisine Sahip olmalısın.`)
     const mod = message.author;
     let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if (!user) return message.channel.send(`${emojiler.basarisiz} böyle birisini bulamıyorum.`)
+    if (!user) return message.channel.send(`${emojiler.basarisiz} Böyle birisini bulamıyorum. Kullanım: `+ '`!mute @kisi`')
   let muterole = message.guild.roles.find(`name`, "Muted");
   if (!muterole) {
         try {
@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
     }
 
     await (user.addRole(muterole.id));
-  
+  message.channel.send(`${emojiler.onaylı} Başarılı, ${user} susturuldu.`);
 
 }
 
