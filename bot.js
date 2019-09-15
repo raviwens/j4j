@@ -316,8 +316,11 @@ mkanal.send(`${emojiler.olamaz} **${member.user.username}** suncudan ayrıldı, 
 
 client.on('guildMemberAdd', async member => {
 let botkoruma = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
-
+    if(member.user.bot !==true){ 
+    }else{
 botkoruma.send(`${emojiler.onaylı} \`${member.user.tag}\` adlı bot sunucudan atıldı.`);
-})
+ member.kick();
+    }
+    })
 
   client.login(ayarlar.token);
