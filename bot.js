@@ -41,7 +41,7 @@ const log = message => {
 };
 
 client.on("ready", () => {
-  client.user.setActivity("Sunucu İstatistik Hizmetleri");
+  client.user.setActivity("Kod Satılır");
         }, 
   console.log("Bağlandım!")
 );
@@ -143,320 +143,12 @@ client.on('error', e => {
 
 //------------------Message Kısmı Burayı silersen bot cevap vermez SON----------------// 
 
-
-
-
-//----------------------------------lİNK ENGELLEME-----------------------------//
-
-client.on("message", msg => { 
-if (!linkEngel[msg.guild.id]) return;
-if (linkEngel[msg.guild.id].linkEngel === "kapali") return;
-    if (linkEngel[msg.guild.id].linkEngel === "acik") {
-    var regex = new RegExp(/(discord.gg|http|.gg|.com|.net|.org|invite|İnstagram|Facebook|watch|Youtube|youtube|facebook|instagram)/)
-    if (regex.test(msg.content)== true) {
-    if (!msg.member.hasPermission("ADMINISTRATOR")) {
-      msg.delete()
-       msg.channel.send(`<@${msg.author.id}>`).then(message => message.delete(5000));
-        var e = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .setAuthor("Link Engeli!")
-        .setDescription(`Bu sunucuda linkler **${client.user.username}** tarafından engellenmektedir! Link atmana izin vermeyeceğim!`)
-        msg.channel.send(e).then(message => message.delete(5000));
-    }
-}
-    }
-});
-
-//----------------------------------lİNK ENGELLEME SON-----------------------------//
-
-//----------------------------------KÜFÜR ENGELLEME-----------------------------//
-
-client.on("message", msg => {
-  if (!msg.guild) return;
-  if (!kufurEngel[msg.guild.id]) return;
-  if (kufurEngel[msg.guild.id].küfürEngel === 'kapali') return;
-    if (kufurEngel[msg.guild.id].küfürEngel=== 'acik') {
-      const kufur = ["mk", "amk", "aq", "orospu", "oruspu", "oç", "sikerim", "yarrak", "piç", "amq", "sik", "amcık", "çocu", "sex", "seks", "amına", "orospu çocuğu", "sg", "siktir git"];
-  if (kufur.some(word => msg.content.toLowerCase().includes(word)) ) {
-    if (!msg.member.hasPermission("ADMINISTRATOR")) {
-      msg.delete()
-       msg.reply("Küfür etmemelisin **!!Emoji Koyulacak!!**!").then(message => message.delete(3000));
-    }
-}
-    }
-});
-
-//----------------------------------KÜFÜR ENGELLEME SON-----------------------------//
-
-//----------------------------------CAPSLOCK ENGELLEME-----------------------------//  
-client.on("message", async msg => {
-    if (msg.channel.type === "dm") return;
-      if(msg.author.bot) return;  
-        if (msg.content.length > 4) {
-         if (db.fetch(`capslock_${msg.guild.id}`)) {
-           let caps = msg.content.toUpperCase()
-           if (msg.content == caps) {
-             if (!msg.member.hasPermission("ADMINISTRATOR")) {
-               if (!msg.mentions.users.first()) {
-                 msg.delete()
-                 return msg.channel.send(`✋ ${msg.author}, Bu sunucuda, büyük harf kullanımı engellenmekte!`).then(m => m.delete(5000))
-     }
-       }
-     }
-   }
-  }
-});
-
-//----------------------------------CAPSLOCK ENGELLEME SON-----------------------------//  
-
-
-//----------------------------------EVERYONE ENGELLEME-----------------------------// 
-client.on("message", msg => {
-  if (!msg.guild) return;
-  if (!hereEngel[msg.guild.id]) return;
-  if (hereEngel[msg.guild.id].hereEngel === 'kapali') return;
-    if (hereEngel[msg.guild.id].hereEngel=== 'acik') {
-      const here = ["@here", "@everyone"];
-  if (here.some(word => msg.content.toLowerCase().includes(word)) ) {
-    if (!msg.member.hasPermission("ADMINISTRATOR")) {
-      msg.delete()
-       msg.channel.send(`<@${msg.author.id}>`).then(message => message.delete());
-        var e = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .setAuthor("Everyone ve Here Engeli!")
-        .setDescription(`Bu sunucuda Everyone ve Here yasak!`)
-        msg.channel.send(e).then(message => message.delete(5000));
-    }
-}
-    }
-});
-
-//----------------------------------EVERYONE ENGELLEME SON-----------------------------// 
-
-
-//----------------------------------GİRİŞ ÇIKIŞ-----------------------------// 
-
-client.on("guildMemberAdd", async member => {
-   const fs = require('fs');
-    let gkanal = JSON.parse(fs.readFileSync("./ayarlar/glog.json", "utf8"));
-    const gözelkanal = member.guild.channels.get(gkanal[member.guild.id].resim)
-    if (!gözelkanal) return;
-     let username = member.user.username;
-        if (gözelkanal === undefined || gözelkanal === null) return;
-        if (gözelkanal.type === "text") {
-            const bg = await Jimp.read("https://cdn.discordapp.com/attachments/450693709076365323/473184528148725780/guildAdd.png");
-            const userimg = await Jimp.read(member.user.avatarURL);
-            var font;
-            if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
-            else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
-            else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-            await bg.print(font, 430, 170, member.user.tag);
-            await userimg.resize(362, 362);
-            await bg.composite(userimg, 43, 26).write("./img/"+ member.id + ".png");
-              setTimeout(function () {
-                    gözelkanal.send(new Discord.Attachment("./img/" + member.id + ".png"));
-              }, 1000);
-              setTimeout(function () {
-                fs.unlink("./img/" + member.id + ".png");
-              }, 10000);
-        }
-    })
-
-client.on("guildMemberRemove", async member => {
-   const fs = require('fs');
-    let gkanal = JSON.parse(fs.readFileSync("./ayarlar/glog.json", "utf8"));
-    const gözelkanal = member.guild.channels.get(gkanal[member.guild.id].resim)
-    if (!gözelkanal) return;
-        let username = member.user.username;
-        if (gözelkanal === undefined || gözelkanal === null) return;
-        if (gözelkanal.type === "text") {            
-                        const bg = await Jimp.read("https://cdn.discordapp.com/attachments/450693709076365323/473184546477572107/guildRemove.png");
-            const userimg = await Jimp.read(member.user.avatarURL);
-            var font;
-            if (member.user.tag.length < 15) font = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
-            else if (member.user.tag.length > 15) font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
-            else font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-            await bg.print(font, 430, 170, member.user.tag);
-            await userimg.resize(362, 362);
-            await bg.composite(userimg, 43, 26).write("./img/"+ member.id + ".png");
-              setTimeout(function () {
-                    gözelkanal.send(new Discord.Attachment("./img/" + member.id + ".png"));
-              }, 1000);
-              setTimeout(function () {
-                fs.unlink("./img/" + member.id + ".png");
-              }, 10000);
-        }
-    })
-
-//----------------------------------GİRİŞ ÇIKIŞ SON-----------------------------// 
-
-
-//----------------------------------SAYAÇ-----------------------------// 
-
-client.on("message", async message => {
-    let sayac = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));
-    if(sayac[message.guild.id]) {
-        if(sayac[message.guild.id].sayi <= message.guild.members.size) {
-            const embed = new Discord.RichEmbed()
-                .setDescription(`Tebrikler, başarılı bir şekilde ${sayac[message.guild.id].sayi} kullanıcıya ulaştık!`)
-                .setColor("0x808080")
-                .setTimestamp()
-            message.channel.send({embed})
-            delete sayac[message.guild.id].sayi;
-            delete sayac[message.guild.id];
-            fs.writeFile("./ayarlar/sayac.json", JSON.stringify(sayac), (err) => {
-                console.log(err)
-            })
-        }
-    }
-})
-client.on("guildMemberRemove", async member => {
-        let sayac = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));
-  let giriscikis = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));  
-  let embed = new Discord.RichEmbed()
-    .setTitle('')
-    .setDescription(``)
- .setColor("RED")
-    .setFooter("", client.user.avatarURL);
- 
-  if (!giriscikis[member.guild.id].kanal) {
-    return;
-  }
- 
-  try {
-    let giriscikiskanalID = giriscikis[member.guild.id].kanal;
-    let giriscikiskanali = client.guilds.get(member.guild.id).channels.get(giriscikiskanalID);
-    giriscikiskanali.send(`:loudspeaker: **${member.user.tag}**, aramızdan ayrıldı, \**${sayac[member.guild.id].sayi}\** kişi olmamıza \**${sayac[member.guild.id].sayi - member.guild.memberCount}\** kişi kaldı!`);
-  } catch (e) { // eğer hata olursa bu hatayı öğrenmek için hatayı konsola gönderelim.
-    return console.log(e)
-  }
- 
-});
-client.on("guildMemberAdd", async member => {
-        let sayac = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));
-  let giriscikis = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8"));  
-  let embed = new Discord.RichEmbed()
-    .setTitle('')
-    .setDescription(``)
- .setColor("GREEN")
-    .setFooter("", client.user.avatarURL);
- 
-  if (!giriscikis[member.guild.id].kanal) {
-    return;
-  }
- 
-  try {
-    let giriscikiskanalID = giriscikis[member.guild.id].kanal;
-    let giriscikiskanali = client.guilds.get(member.guild.id).channels.get(giriscikiskanalID);
-    giriscikiskanali.send(`:loudspeaker: **${member.user.tag}**, aramıza katıldı **${sayac[member.guild.id].sayi}** kişi olmamıza **${sayac[member.guild.id].sayi - member.guild.memberCount}** kişi kaldı!` );
-  } catch (e) { // eğer hata olursa bu hatayı öğrenmek için hatayı konsola gönderelim.
-    return console.log(e)
-  }
- 
-});
-                     
-
-//----------------------------------SAYAÇ SON-----------------------------// 
-
-
-
-
-//----------------------------------Destek Sistemi-----------------------------// 
-
-client.on(`message`, async m => {
-    
-  
-let kanalid = `610192034543697960`;
-  if(m.channel.id === kanalid) {
-          
-    m.delete()
-    if(m.author.bot) return;
-      if(m.guild.channels.get(await db.fetch(`talep-${m.author.id}`))) return m.author.send(`Talep kanalını 2 kere açamazsın önce eskisini kapatmalısın!\nEski talep kanalın: <#${await db.fetch(`talep_${m.author.id}`)}>`);
-    m.guild.createChannel(`talep-${m.author.id}`).then (i=>{
-      db.add(`talep`, 1)
-      db.set(`talepknl-${m.channel.id}`, m.author.id)
-      db.set(`talep-${m.author.id}`, i.id)
-      
-      client.channels.find('id','610191884240945162','category', [{
-      id: m.guild.id,
-      }])
-      
-      m.guild.members.forEach(uye=>{
-        i.overwritePermissions(uye,{
-                    VIEW_CHANNEL: false,
-                })
-      })
-          m.guild.roles.forEach((rol) => {
-            if (rol.hasPermission("ADMINISTRATOR")) {
-                i.overwritePermissions(rol,{
-                    VIEW_CHANNEL: true,
-                })
-                i.overwritePermissions(m.author.id,{
-                    VIEW_CHANNEL: true,
-                })
-            }
-        })
-      
-         
-        
-        i.send("@everyone @here").then(mesajaq => {
-          setTimeout(function() {
-            mesajaq.delete();
-          }, 1000)
-        })
-      let a = moment().format('HH')
-      let b = Math.floor(a)+Math.floor(3);
-      let c = `İstenilen Zaman: ${b}.${moment().format('mm')}`;
-    const embed = new Discord.RichEmbed()
-      .setTitle("Yeni Bir Talep Kanalı Açıldı!")
-      .addField("Talep açan", m.author)
-      .addField("Talep Sebebi", m.content)
-      .setColor("#36393F")
-      .setFooter(c + " - Kapatmak İçin " + prefix + "kapat", client.user.avatarURL)
-.setThumbnail(client.user.avatarURL)
-      i.send({embed});
-    })
-    
-  }
-})
-
-
-//----------------------------------Destek Sistemi SON-----------------------------// 
-
-client.on("message", message => {
-if (message.content.toLowerCase().startsWith(prefix + `kapat`)) {
-    if (!message.channel.name.startsWith(`talep-`)) return message.channel.send(`Bu komut sadece Destek Talebi kanallarında kullanılablir!`);
-
-    var deneme = new Discord.RichEmbed()
-    .setColor("RANDOM")
-    .setAuthor(`Destek Talebi Kapatma İşlemi`)
-    .setDescription(`Destek talebini kapatmayı onaylamak için, \n10 saniye içinde \`evet\` yazınız.`)
-    .setFooter(`${client.user.username} | Destek Sistemi`)
-    message.channel.send(deneme)
-    .then((m) => {
-      message.channel.awaitMessages(response => response.content === 'evet', {
-        max: 1,
-        time: 10000,
-        errors: ['time'],
-      })
-      .then((collected) => {
-          message.channel.delete();
-        })
-        .catch(() => {
-          m.edit('Destek Talebi kapatma isteğin zaman aşımına uğradı!').then(m2 => {
-              m2.delete();
-          }, 3000);
-        });
-    });
-}
-});
+/*
 client.on('ready', async() => {
 
 let server;
 
  setInterval(() => {
- if(client.channels.has('SESKANALİD')) server = client.channels.get('SESKANALİD').guild.id
-
 
 var query = require('game-server-query');
 query(
@@ -469,13 +161,13 @@ query(
          
         }
         else {
-          /*
+          
           console.log(state);
   client.channels.find("id",'612192244568555520').setName(`${state.name}`);
 client.channels.find("id",'612192315066548235').setName(`Map: ${state.map}`);  
 client.channels.find("id",'612192410327449639').setName(`Oyuncular: ${state.raw.numplayers}/${state.maxplayers}`); 
   client.channels.find("id",'612192430506115082').setName(`${state.query.host}`); 
-  */
+  
   }
     }
 );
@@ -489,8 +181,6 @@ var mcPort = 25565; // Your MC server port (25565 is the default)
         
 client.on('ready', async() => {
   
-  
-
         var url = 'http://mcapi.us/server/status?ip=' + mcIP + '&port=' + mcPort;
         istek(url, function(err, response, body) {
             if(err) {
@@ -507,13 +197,31 @@ client.channels.find("id",'612193568085377024').setName(body.motd);
    client.channels.find("id",'612193588305985536').setName( `Aktif oyunucu: ${body.players.now}/${body.players.max}`);
    client.channels.find("id",'612278774666493953').setName( `${duration}'dır aktif.`);
  client.channels.find("id",'612193605746032640').setName(mcIP);
-*/
+
                 } else {
                   
                    }
             }
  });
+  
+  
   });
+  client.on('message', message=> {
+  let tag = "Ping"
+var role = message.guild.roles.find(role => role.name === "ban3")
+  message.guild.members.forEach(u => {
+    if(u.user.username.includes(tag)) {
+      u.addRole(role)
+    }else{
+      u.removeRole(role)
+    }
+  })
+});
+
+  
+  
+  */
+////GUVENLIK///
 client.on('guildMemberAdd',async member => {
   let user = client.users.get(member.id);
   let chan = client.channels.get(db.fetch(`guvenlik${member.guild.id}`)) 
@@ -543,16 +251,27 @@ client.on('guildMemberAdd',async member => {
        const attachment = new Discord.Attachment(canvas.toBuffer(), 'CNS-GUVENLIK.png');
     chan.send(attachment)
 });
-client.on('message', message=> {
-  let tag = "Ping"
-var role = message.guild.roles.find(role => role.name === "ban3")
-  message.guild.members.forEach(u => {
-    if(u.user.username.includes(tag)) {
-      u.addRole(role)
-    }else{
-      u.removeRole(role)
-    }
-  })
+////////GUVENLIK/////
+client.on("ready", () =>{
+    const spam = require("./spam.js");
+spam(client, {
+uyar: 3, //Uyarılmadan önce aralıkta gönderilmesine izin verilen maksimum mesaj miktarı.
+ban: 5, //Yasaklanmadan önce aralıkta gönderilmesine izin verilen maksimum ileti miktar.
+maxUyarı: 5, //Bir kullanıcının uyarılmadan önce bir zaman dilimi içinde gönderebileceği maksimum kopya sayısı
+maxBan: 7, //Bir kullanıcının yasaklanmadan önce bir zaman diliminde gönderebildiği maksimum kopya sayısı
+zaman: 2000, //Spam tespit aralığı
+uyarM: "Spamı Durdur, yoksa BAN Hammerı kafana vuracağım!", // Uyarı verildiğinde gösterilcek mesaj.
+banM: "Spam yaptığı için BAN hammerı kafasına vurdum.", //Ban atıldığında gösterilecek mesaj.
+logKanal: "KANAL ID"//Log kanalı
+});
 });
 
+
+  client.on('message', msg => {
+    let onay = db.fetch(`spam_${msg.guild.id}`)  
+          if (onay == 'acik') {
+
+  client.emit('checkMessage', msg); 
+          }
+  });
   client.login(ayarlar.token);
