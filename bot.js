@@ -304,7 +304,11 @@ msg.member.setNickname(msg.author.username)
   });
 client.on('guildMemberAdd',async member => {
   let kanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
-  let kisi = client.users.get(member.id);
-
+  kanal.then(hgmesaj =>{
+ if (!hgmesaj) return;
+    if(kanal){
+member.send(hgmesaj ? hgmesaj.replace('-sunucu-', `${member.guild.name}`) .replace('-kullanıcı-',`${member.user.usermame}`) .replace('-id-',`${member.user.id}`) : ``)
+  }}
+            )
 });
   client.login(ayarlar.token);
