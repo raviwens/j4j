@@ -256,6 +256,7 @@ client.on("ready", () =>{
     const spam = require("./spam.js");
  
 spam(client, {
+ 
 uyar: 3, //Uyarılmadan önce aralıkta gönderilmesine izin verilen maksimum mesaj miktarı.
 ban: 5, //Yasaklanmadan önce aralıkta gönderilmesine izin verilen maksimum ileti miktar.
 maxUyarı: 5, //Bir kullanıcının uyarılmadan önce bir zaman dilimi içinde gönderebileceği maksimum kopya sayısı
@@ -263,10 +264,10 @@ maxBan: 7, //Bir kullanıcının yasaklanmadan önce bir zaman diliminde gönder
 zaman: 2000, //Spam tespit aralığı
 uyarM: "Spamı Durdur, yoksa BAN Hammerı kafana vuracağım!", // Uyarı verildiğinde gösterilcek mesaj.
 banM: "Spam yaptığı için BAN hammerı kafasına vurdum.", //Ban atıldığında gösterilecek mesaj.
-logKanal: "${gkanal}"//Log kanalı
+logKanal: "622708662087188481"//Log kanalı
 });
 });
-
+ 
 
   client.on('message', msg => {
     let onay = db.fetch(`spam_${msg.guild.id}`)  

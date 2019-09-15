@@ -18,12 +18,12 @@ let logkanal = await db.fetch(`guard_${message.guild.id}`)
     return
   }
   
-if (!logk) return message.channel.send('Güvenlik kanalını bulamadım  Kullanım `!!güvenlik #kanal`');
+if (!logk) return message.channel.send(emojiler.basarisiz + " Doğru bir kanal girmelisiniz, Kullanım `!güvenlik #kanal`");
  
 
    db.set(`guard_${message.guild.id}`, logk.id)
 
-message.channel.send(`${emojiler.onaylı} Güvenlik başarıyla ${logk} olarak ayarlandı`);
+message.channel.send(`${emojiler.onaylı} Güvenlik başarıyla ${logk} olarak ayarlandı.`);
 
 }
 
@@ -37,6 +37,6 @@ module.exports.conf = {
 module.exports.help = {
   name: 'güvenlik',
   description: 'Güvenlik sistemi',
-  usage: 'S'
+  usage: '!güvenlik #kanal'
 };
  

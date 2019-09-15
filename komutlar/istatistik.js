@@ -16,10 +16,10 @@ module.exports.run = async(client, message, args) => {
     .addField(':busts_in_silhouette: Kullanıcılar:', client.guilds.reduce((a, b) => a + b.memberCount, 0))
     .addField(':tv: Kanallar:', client.channels.size)
     .addField(':clipboard: Sunucular:', client.guilds.size)
-    .addField(':desktop: Bellek kullanımı:', (process.memoryUsage().heapUsed / 2048 / 2048).toFixed(2))
+    .addField(':desktop: Bellek kullanımı:', (process.memoryUsage().heapUsed / 2048 / 2048).toFixed(2) + `MB`)
     .addField(':book: Kütüphanesi;', `Discord.js`)
     .addField(` :books: Discord.js sürümü:`, Discord.version)
-      .setFooter('Sunucu İstatistik Hizmetleri', client.user.avatarURL)
+      .setFooter(client.user.username, client.user.avatarURL)
     .setTimestamp()
     message.channel.send(embed);
 }
