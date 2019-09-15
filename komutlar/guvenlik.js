@@ -10,10 +10,10 @@ let logk = message.mentions.channels.first();
 let logkanal = await db.fetch(`guard_${message.guild.id}`)
   
   if (args[0] === "kapat") {
-    if(!logkanal) return message.channel.send(` Güvenliği kapatmak için \`güvenlik kanalının\` seçili olması lazım örnek kullanım: \`!güvenlik #kanal\``);
+    if(!logkanal) return message.channel.send(` Güvenlik Sistemini kapatmak için \`güvenlik kanalının\` seçili olması lazım örnek kullanım: \`!güvenlik #kanal\``);
     
    db.delete(`guvenlik${message.guild.id}`)
-   message.channel.send(`${emojiler.onaylı} Güvenlik başarıyla kapatıldı.`);
+   message.channel.send(`${emojiler.onaylı} Güvenlik Sistemi başarıyla kapatıldı.`);
   
     return
   }
@@ -23,7 +23,7 @@ if (!logk) return message.channel.send(emojiler.basarisiz + " Doğru bir kanal g
 
    db.set(`guard_${message.guild.id}`, logk.id)
 
-message.channel.send(`${emojiler.onaylı} Güvenlik başarıyla ${logk} olarak ayarlandı.`);
+message.channel.send(`${emojiler.onaylı} Güvenlik Sistemi başarıyla ${logk} olarak ayarlandı.`);
 
 }
 
