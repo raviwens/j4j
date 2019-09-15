@@ -271,18 +271,16 @@ logKanal: "622708662087188481"//Log kanalı
  
 
   client.on('message', msg => {
+    let onay = db.fetch(`afk_${msg.author.id}`)  
+          if (onay == 'acik') {
+msg.member.setNickname(msg.author.tag)
+          }
+  });
+  client.on('message', msg => {
     let onay = db.fetch(`spam_${msg.guild.id}`)  
           if (onay == 'acik') {
 
   client.emit('checkMessage', msg); 
           }
   });
-client.on('message', message =>{
-  if(message.author.username.startsWith("[AFK]")){
-  message.member.setNickname("[AFK]sjsjx"+message.author.username)
-  }
-    
-  
-         
-});
   client.login(ayarlar.token);
