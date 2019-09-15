@@ -1,15 +1,13 @@
 const Discord = require("discord.js");
 const ms = require("ms");
-
+const emojiler= require('../emojiler.json');
 module.exports.run = async (bot, message, args) => {
 
-    if (!message.member.hasPermissions ('KICK_MEMBERS')) return message.channel.send("<a:basarisiz:596887378476400651> | Komudu Kullanmak İçin Kick Members Yetkisine Sahip Olmalısın.")
+    if (!message.member.hasPermissions ('KICK_MEMBERS')) return message.channel.send(`${emojiler.basarisiz} Bu komudu kullanabilmek için ` +'`Kick Members`'+ ` yetkisine Sahip olmalısın.`)
     const mod = message.author;
     let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if (!user) return message.channel.send(`<a:basarisiz:596887378476400651> | Kullanıcıyı Bulamıyorum`)
-    let reason = message.content.split(" ").slice(2).join(" ");
-    if (!reason) return message.channel.sendEmbed(new Discord.RichEmbed().setAuthor('Hata').setDecription('<a:basarisiz:596887378476400651> | Mute Sebebini Yazman Gerek ').setColor('RANDOM'))
-    let muterole = message.guild.roles.find(`name`, "Muted");
+    if (!user) return message.channel.send(`${emojiler.basarisiz} böyle birisini bulamıyorum.`)
+  let muterole = message.guild.roles.find(`name`, "Muted");
   if (!muterole) {
         try {
             muterole = await message.guild.createRole({
@@ -29,14 +27,7 @@ module.exports.run = async (bot, message, args) => {
     }
 
     await (user.addRole(muterole.id));
-    const muteembed = new Discord.RichEmbed()
-            .setAuthor('Eylem: Mute')
-            .addField('Kullanıcı', `<@${user.id}>`)
-            .addField('Sebep', `${reason}`)
-            .addField('Yetkili', `${mod}`)
-            .setColor('RANDOM')
-        message.channel.send(muteembed)
-
+  
 
 }
 

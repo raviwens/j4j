@@ -115,7 +115,7 @@ module.exports = async (client, options) => {
       .setTitle('Anti Spam Sistemi')
       .setThumbnail('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQo-kn9X2JTtDZa1x3uGjSd8vGnFTu6AmmVQ_w0mBHT6dxfdtFs')
       .addField(`Spam Algılandı`,`${message.author.username}'in spam yaptığı saptandı ve uyarı mesajı gönderildi.`)
-      .setFooter('Anti Spam', client.user.avatarURL)
+      .setFooter(client.user.username + ' Anti Spam Sistemi', client.user.avatarURL)
       .setTimestamp()
    
           channel.send(uyarembed);
@@ -129,7 +129,7 @@ module.exports = async (client, options) => {
       .setTitle('Anti Spam Sistemi')
       .setThumbnail('https://cdn.discordapp.com/attachments/619564474096943129/620213588778418195/anibanned.gif')
       .addField(`Spam Algılandı`,`${message.author.username} uyarımı dinlemediği için kafasına BAN hammerı geçirdim.`)
-      .setFooter('Anti Spam', client.user.avatarURL)
+      .setFooter(client.user.username + ' Anti Spam Sistemi', client.user.avatarURL)
       .setTimestamp()
          const channel = client.channels.find('id', logKanal)
         
