@@ -324,10 +324,16 @@ botkoruma.send(`${emojiler.onaylı} \`${member.user.tag}\` adlı bot sunucudan a
     });
 client.on("guildMemberAdd", message => { 
   let panelUye = db.fetch(`spanelUye_${message.guild.id}`)
-  client.channels.get(panelUye).setName(`Toplam Kullanıcı: ${message.guild.memberCount}`); 
+let panelBot = db.fetch(`spanelBot_${message.guild.id}`)
+ 
+ client.channels.get(panelUye).setName(`Toplam Kullanıcı: ${message.guild.memberCount}`); 
+      client.channels.get(panelBot).setName(`Bot sayısı: ${message.guild.members.filter( member => member.user.bot).size}`)
 });
 client.on("guildMemberRemove", message => {
   let panelUye = db.fetch(`spanelUye_${message.guild.id}`)
-  client.channels.get(panelUye).setName(`Toplam Kullanıcı:${message.guild.memberCount}`); 
-                         });
+ let panelBot = db.fetch(`spanelBot_${message.guild.id}`)
+ 
+ client.channels.get(panelUye).setName(`Toplam Kullanıcı: ${message.guild.memberCount}`); 
+      client.channels.get(panelBot).setName(`Bot sayısı: ${message.guild.members.filter( member => member.user.bot).size}`)
+});
 client.login(ayarlar.token);
