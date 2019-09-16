@@ -322,5 +322,12 @@ botkoruma.send(`${emojiler.onaylı} \`${member.user.tag}\` adlı bot sunucudan a
     }
     }
     });
-  client.on("guildMemberAdd", message => { client.channels.get("kanal ID").setName(`🔵 Kişi Sayısı: ${message.guild.memberCount} 📤`); // kanal id yazan yerlere sesli kanalın id'sini sağtıklayıp kopyalayın ve yapıştırın }); //Sunucudan Çıktığın Kişi Sayını Azaltma client.on("guildMemberRemove", message => { client.channels.get("kanal ID").setName(`🔴 Kişi Sayısı: ${message.guild.memberCount} 📥`); });
-  client.login(ayarlar.token);
+client.on("guildMemberAdd", message => { 
+  let panelUye = db.fetch(`spanelUye_${message.guild.id}`)
+  client.channels.get(panelUye).setName(`Toplam Kullanıcı: ${message.guild.memberCount}`); 
+});
+client.on("guildMemberRemove", message => {
+  let panelUye = db.fetch(`spanelUye_${message.guild.id}`)
+  client.channels.get(panelUye).setName(`Toplam Kullanıcı:${message.guild.memberCount}`); 
+                         });
+client.login(ayarlar.token);
