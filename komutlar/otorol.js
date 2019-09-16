@@ -14,15 +14,15 @@ exports.run = async(client, message, args) => {
   let ikinciRol;
   if (!rol) return message.channel.send(emojiler.basarisiz + ' Yeni kişilere vereceğim rolü etiketlemelisin. Kullanım: `!otorol ayarla @Rol #kanal`')
   else yeniRol = message.mentions.roles.first().id
- let rolisim = message.mentions.roles.first().name
+ 
       let isim = message.mentions.roles.first().name  
   let kanal = message.mentions.channels.first();
   if (!kanal) return message.channel.send(emojiler.basarisiz + ' Bilgilendirme mesajlarını atacağım yeri etiketlemelisin. Kullanım: `!otorol ayarla @Rol #kanal`')
     db.set(`otorolisim_${message.guild.id}`, isim)
   let i = await  db.set(`otorolKanal_${message.guild.id}`, message.mentions.channels.first().id)
-  let otorol = await db.set(`autoRole_${message.guild.id}`, yeniRol)
+  let otorol = await db.set(`otorol_${message.guild.id}`, yeniRol)
   if (!message.guild.roles.get(yeniRol)) return message.channel.send(emojiler.basarisiz+" Etiketlediğin rolü bulamadım. Rolün etiketlenebilir olduğundan emin olmalısın.")
-    message.channel.send(`${emojiler.onaylı} Yeni kişilere vereceğim rol \`${rolisim}\`\n Bilgilendirme kanalı ise <#${i}> olarak ayarlandı.`)  
+    message.channel.send(`${emojiler.onaylı} Başarılı, gerekli ayarlamalar yapıldı.\n${emojiler.gold2} Yeni kişilere vereceğim rol \`${isim}\` olarak ayarlandı.\n ${emojiler.gold2} Bilgilendirme kanalı <#${i}> olarak ayarlandı.`)  
      
   } 
 
@@ -35,7 +35,7 @@ exports.run = async(client, message, args) => {
         db.delete(`otorolKanal_${message.guild.id}`)
     db.delete(`autoRole_${message.guild.id}`)
 
-    message.channel.send(`Otorolü başarıyla kapattım.`)
+    message.channel.send(`${emojiler.onaylı} Otorol başarıyla kapatıldı.`)
   }
 };
   
