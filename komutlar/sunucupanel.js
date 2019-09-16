@@ -23,7 +23,7 @@ await db.delete(`spanelDurum_${message.guild.id}`)
     return message.channel.send(emojiler.gold1 + " Sunucu İstatistik paneli silindi.");
 }if (args[0] ==="kur"){
  let durum = db.fetch(`spanelDurum${message.guild.id}`)
-  if(durum === "acik") return message.channel.send(emojiler.basarisiz + `Sunucu İstatistik Paneli zaten kurulu. \n${emojiler.gold1} Sıfırlamak için\
+  if(durum === "acik") return message.channel.send(emojiler.basarisiz + `Sunucu İstatistik Paneli zaten kurulu. \n${emojiler.gold2} Sıfırlamak için\n${emojiler.gold1}\`!sunucupanel sıfırla\`\n yazınız.`);
 var sunucupanel = message.guild.createChannel("Sunucu Panel", "category").then(sp => {
 db.set(`spanel_${message.guild.id}`,sp.id)
 db.set(`spanelDurum_${message.guild.id}`, 'acik')
