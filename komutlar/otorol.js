@@ -33,7 +33,7 @@ exports.run = async(client, message, args) => {
     
     db.delete(`otorolisim_${message.guild.id}`)
         db.delete(`otorolKanal_${message.guild.id}`)
-    db.delete(`autoRole_${message.guild.id}`)
+    db.delete(`otorol_${message.guild.id}`)
 
     message.channel.send(`${emojiler.onaylı} Otorol başarıyla kapatıldı.`)
   }
