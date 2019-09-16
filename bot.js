@@ -325,7 +325,8 @@ botkoruma.send(`${emojiler.onaylı} \`${member.user.tag}\` adlı bot sunucudan a
 client.on("guildMemberAdd", message => { 
   let panelUye = db.fetch(`spanelUye_${message.guild.id}`)
 let panelBot = db.fetch(`spanelBot_${message.guild.id}`)
- 
+ let panelDurum = db.fetch(`spanelDurum_${message.guild.id}`)
+ if(panelDurum === 'acik'){
  client.channels.get(panelUye).setName(`Toplam Kullanıcı: ${message.guild.memberCount}`); 
       client.channels.get(panelBot).setName(`Bot sayısı: ${message.guild.members.filter( member => member.user.bot).size}`)
 }
