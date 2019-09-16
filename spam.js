@@ -51,7 +51,7 @@ module.exports = async (client, options) => {
         user.ban(deleteMessagesAfterBanForPastDays).then((member) => {
           m.channel.send(`<@!${m.author.id}>, ${banMsg}`);
           return true;
-       }).catch(() => {
+        }).catch(() => {
           m.channel.send(`Ooops, Sana karşı ban yetkim yok sanki hee? <@!${message.author.id}>!`);
           return false;
       });
