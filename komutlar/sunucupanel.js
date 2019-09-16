@@ -7,10 +7,16 @@ if (args[0] === "kapat") {
   let k = db.fetch(`spanel_${message.guild.id}`)
   let k1 = db.fetch(`spanelUye_${message.guild.id}`)
   let k2 = db.fetch(`spanelBot_${message.guild.id}`)
+   client.category.get(k).delete()
+
+  client.channels.get(k1).delete()
+  client.channels.get(k2).delete()
   
-  db.delete(`spanel_${message.guild.id}`)
-  db.delete(`spanelUye_${message.guild.id}`)
-  db.delete(`spanelBot_${message.guild.id}`)
+  
+ await db.delete(`spanel_${message.guild.id}`)
+  await db.delete(`spanelUye_${message.guild.id}`)
+  await db.delete(`spanelBot_${message.guild.id}`)
+  return message.channel.send(emojiler.gold1 + " Sunucu Analiz paneli silindi.");
 }else{
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
 var sunucupanel = message.guild.createChannel("Sunucu Panel", "category").then(sp => {
