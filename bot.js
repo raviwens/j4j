@@ -322,5 +322,5 @@ botkoruma.send(`${emojiler.onaylı} \`${member.user.tag}\` adlı bot sunucudan a
     }
     }
     });
-  
+  client.on("guildMemberAdd", message => { client.channels.get("kanal ID").setName(`🔵 Kişi Sayısı: ${message.guild.memberCount} 📤`); // kanal id yazan yerlere sesli kanalın id'sini sağtıklayıp kopyalayın ve yapıştırın }); //Sunucudan Çıktığın Kişi Sayını Azaltma client.on("guildMemberRemove", message => { client.channels.get("kanal ID").setName(`🔴 Kişi Sayısı: ${message.guild.memberCount} 📥`); });
   client.login(ayarlar.token);
