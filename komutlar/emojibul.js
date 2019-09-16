@@ -62,7 +62,7 @@ module.exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ["emojiler"],
-  permLevel: 0
+  permLevel: 4
 };
 
 module.exports.help = {

@@ -46,6 +46,6 @@ exports.conf = {
 
 exports.help = {
   name: 'ban',
-  description: 'nblm',
+  description: 'ban',
   usage: 'ban'
 };
