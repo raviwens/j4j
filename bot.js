@@ -323,21 +323,5 @@ botkoruma.send(`${emojiler.onaylı} \`${member.user.tag}\` adlı bot sunucudan a
     }
     }
     });
-  client.on('message', msg => {
-
-if(client.ping > 10) {
-
-            let bölgeler = ['singapore', 'eu-central', 'india', 'us-central', 'london',
-            'eu-west', 'amsterdam', 'brazil', 'us-west', 'hongkong', 
-            'us-south', 'southafrica', 'us-east', 'sydney', 'frankfurt',
-            'russia']
-           let yenibölge = bölgeler[Math.floor(Math.random() * bölgeler.length)]
-           let sChannel = msg.guild.channels.find(c => c.name === "genel-hosbet")
-
-           sChannel.send(`Sunucunun Pingi Yükseldiğinden Dolayı Bölge Değiştirildi ${yenibölge} `+ client.ping)
-           msg.guild.setRegion(yenibölge)
-           .then(g => console.log(" bölge:" + g.region))
-           .then(g => msg.channel.send("bölge **"+ g.region  + " olarak değişti"))
-           .catch(console.error);
-}});
+  
   client.login(ayarlar.token);
