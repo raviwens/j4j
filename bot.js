@@ -319,7 +319,7 @@ let botkoruma = client.channels.get(db.fetch(`botkoruma_${member.guild.id}`))
     }else{   
       if(onay = 'acik'){
 botkoruma.send(`${emojiler.onaylı} \`${member.user.tag}\` adlı bot sunucudan atıldı.`);
- member.kick(member);
+ member.kick(client.user.username +" Bot Koruma Sistemi");
     }
     }
     })
