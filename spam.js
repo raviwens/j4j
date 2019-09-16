@@ -10,8 +10,8 @@ var messageLog = [];
 module.exports = async (client, options) => {
   /* Option Definitions */
   
-  const uyar = (options && options.uyar) || 3; //Uyarılmadan önce aralıkta gönderilmesine izin verilen maksimum mesaj miktarı.
-  const ban = (options && options.ban) || 5;  //Yasaklanmadan önce aralıkta gönderilmesine izin verilen maksimum ileti miktar.
+  const uyar = (options && options.uyar) || 7; //Uyarılmadan önce aralıkta gönderilmesine izin verilen maksimum mesaj miktarı.
+  const ban = (options && options.ban) || 15;  //Yasaklanmadan önce aralıkta gönderilmesine izin verilen maksimum ileti miktar.
   const zaman = (options && options.zaman) || 2000; // ms kullanıcılarda zaman miktarı, yasaklanmadan önce aralık değişkeninin maksimumunu gönderebilir.
   const uyarM = (options && options.uyarM) || "Lütfen spamı durdur!"; //Spamda gönderilecek uyarı mesajı.
   const banM = (options && options.banM) || "Ban hammerı kafasına yedi!"; //Ban da gönderilcek uyarı mesajı.

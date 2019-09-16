@@ -259,13 +259,13 @@ client.on("ready", () =>{
  
 spam(client, {
  
-uyar: 3, //Uyarılmadan önce aralıkta gönderilmesine izin verilen maksimum mesaj miktarı.
-ban: 5, //Yasaklanmadan önce aralıkta gönderilmesine izin verilen maksimum ileti miktar.
+uyar: 7, //Uyarılmadan önce aralıkta gönderilmesine izin verilen maksimum mesaj miktarı.
+ban: 15, //Yasaklanmadan önce aralıkta gönderilmesine izin verilen maksimum ileti miktar.
 maxUyarı: 5, //Bir kullanıcının uyarılmadan önce bir zaman dilimi içinde gönderebileceği maksimum kopya sayısı
 maxBan: 7, //Bir kullanıcının yasaklanmadan önce bir zaman diliminde gönderebildiği maksimum kopya sayısı
 zaman: 2000, //Spam tespit aralığı
-uyarM: "Spamı Durdur, yoksa seni susturacağım!", // Uyarı verildiğinde gösterilcek mesaj.
-banM: "Spam yaptığın için susturuldun.", //Ban atıldığında gösterilecek mesaj.
+uyarM: "Spamı Durdur, yoksa seni Banlayacağım!", // Uyarı verildiğinde gösterilcek mesaj.
+banM: `Spam yaptığı için banlandı. ${emojiler.elmas} Sunu`, //Ban atıldığında gösterilecek mesaj.
 logKanal: "622708662087188481"//Log kanalı
 });
 });
