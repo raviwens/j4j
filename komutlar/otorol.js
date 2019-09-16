@@ -10,7 +10,7 @@ exports.run = async(client, message, args) => {
   
     if (args[0] == 'ayarla') {
  let rol = message.mentions.roles.first() || message.guild.roles.get(args.join(' '))
-  let newRole;
+  let 
   let tworole;
   if (!rol) return message.channel.send(':no_entry: Otorol ayarlamanız için bir rol etiketlemeniz gerek. `/otorol ayarla @Üye #kanal`')
   else newRole = message.mentions.roles.first().id
