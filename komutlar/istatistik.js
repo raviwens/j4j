@@ -4,7 +4,8 @@ const os = require('os');
 let cpuStat = require("cpu-stat");
 const { stripIndents } = require('common-tags');
 require('moment-duration-format');
-co
+const emojiler = require("../emojiler.json")
+const ayarlar = require("../ayarlar.json")
 exports.run = async (bot, message, args) => {
   
   const db = require('quick.db');
@@ -37,7 +38,7 @@ exports.run = async (bot, message, args) => {
         **Kanal Sayısı:** ${bot.channels.size.toLocaleString()}
         `, true)
         .addField('Versiyonlar', stripIndents`
-        **Bot sürümü** v${bot.ayarlar.versiyon}
+        **Bot sürümü** v${ayarlar.versiyon}
         **Discord.JS sürümü** v${Discord.version}
         **NodeJS sürümü** ${process.version}
         `, true)

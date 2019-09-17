@@ -29,7 +29,9 @@ let hereEngel = JSON.parse(fs.readFileSync("././jsonlar/hereEngelle.json", "utf8
 let sayac = JSON.parse(fs.readFileSync("./ayarlar/sayac.json", "utf8")); 
 require('moment-duration-format');
 
-
+client.ayarlar[
+  "
+  ];
 
 var prefix = ayarlar.prefix;
 
