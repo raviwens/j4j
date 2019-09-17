@@ -18,7 +18,7 @@ exports.run = async (bot, message, args) => {
         const s = new Discord.RichEmbed()
         .setColor("0x00d2ff")
         .setAuthor(`${bot.user.username}  İstatistikler`, bot.user.avatarURL)
-        .addField('Gecikme Durumları',emojiler.gold1+ "** Tepki Gecikmesi `{ping1}`ms** \n**"+emojiler.gold1+"Bot Gecikmesi `{ping2}`ms**".replace("{ping1}", new Date().getTime() -3000- message.createdTimestamp).replace("{ping2}", Math.round(bot.ping)), true)
+        .addField('Gecikme Durumları',emojiler.gold1+ `** Tepki Gecikmesi \`{ping1}\`ms** \n**${emojiler.gold1}Bot Gecikmesi \`{ping2}\`ms**`.replace("{ping1}", Math.round(sonuc.createdTimestamp-m.createdTimestamp-bot.ping) ).replace("{ping2}", Math.round(bot.ping)), true)
         .addField('Çalışma Süresi', `${duration}`, true)
         .addField('Genel veriler', stripIndents`
         **Kullanıcı Sayısı:**  ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
@@ -32,7 +32,7 @@ exports.run = async (bot, message, args) => {
         `, true)
         .addField('Kullanılan bellek boyutu', `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024).toLocaleString()} MB`, true)
         return m.edit(s)
-        message.react('622809600109838346')
+        message.react('622738255435005952')
         }, 3000)
     };
 
