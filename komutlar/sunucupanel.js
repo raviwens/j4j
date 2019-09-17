@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
    
   if (args[0] === "sıfırla") {
   let durum = await db.fetch(`sunucupanel_${message.guild.id}`)
-    if (!durum) return message.channel.send(`${emojiler.basarisiz} Sunucu İstatistik panelinin kurulu olduğunu sanmıyorum.`)
+    if (!durum) return message.channel.send(`${emojiler.basarisiz} Sunucu İstatistik paneli kurulmamış. Kurmak için:\n${emojiler.gold2} \`!sunucupanel kur\` yazınız.`)
     
     let k = db.fetch(`spanel_${message.guild.id}`)
   let k1 = db.fetch(`spanelUye_${message.guild.id}`)
@@ -27,7 +27,7 @@ exports.run = async (client, message, args) => {
     return message.channel.send(emojiler.gold1 + " Sunucu İstatistik paneli silindi.");
 }if (args[0] ==="kur"){
    let durum= await db.fetch(`sunucupanel_${message.guild.id}`)
-    if (durum) return message.channel.send(`${emojiler.basarisiz} Sunucu İstatistik paneli zaten kurulu, Sıfırlamak için:\n${emojiler.gold2} \`!sunucupanel sıfırla\` yazınız.`)
+    if (durum) return message.channel.send(`${emojiler.basarisiz} Sunucu İstatistik paneli zaten kurulu.\nSıfırlamak için:\n${emojiler.gold2} \`!sunucupanel sıfırla\` yazınız.`)
  
  var sunucupanel = message.guild.createChannel("Sunucu Panel", "category").then(sp => {
 db.set(`spanel_${message.guild.id}`,sp.id)
