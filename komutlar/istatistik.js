@@ -11,14 +11,14 @@ exports.run = async (bot, message, args) => {
   const db = require('quick.db');
   
   var m = await message.channel.send(`${emojiler.bekliyor} Ölçüm yapılıyor, lütfen bekleyiniz...`)
-  var sonuc = await message.channel.send(emojiler.gold2 + " Veriler alındı...").then(msg => msg.delete(3000))
+  var sonuc = await message.channel.send(emojiler.gold2 + " Veriler alındı...").then(msg => msg.delete(5000))
  
         const duration = moment.duration(bot.uptime).format('D [gün], H [saat], m [dakika], s [saniye]');
       setTimeout(() => {
         const s = new Discord.RichEmbed()
         .setColor("0x00d2ff")
         .setAuthor(`${bot.user.username}  İstatistikler`, bot.user.avatarURL)
-        .addField('Gecikme Durumları', emojiler.gold1 + " **Tepki Gecikmesi `{ping1}`ms** \n"+emojiler.gold1+" **Bot Gecikmesi `{ping2}`ms**".replace("{ping1}",m.createdTimestamp - message.createdTimestamp - bot.ping).replace("{ping2}", Math.round(bot.ping)), true)
+        .addField('Gecikme Durumları', emojiler.gold1 + " **Tepki Gecikmesi `"+m.createdTimestamp - sonuc.createdTimestamp - bot.ping+"ms** \n"+emojiler.gold1+" **Bot Gecikmesi `{ping2}`ms**".replace("{ping2}", Math.round(bot.ping)), true)
         .addField('Çalışma Süresi', `${duration}`, true)
         .addField('Genel veriler', stripIndents`
         **Kullanıcı Sayısı:**  ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
