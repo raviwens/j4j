@@ -3,9 +3,10 @@ const db = require('quick.db');
 const emojiler = require('../emojiler.json');
 const moment = require('moment');
 require('moment-duration-format');
-exports.run = (client, message, args) => {
-       const m= message.channel.send(`${emojiler.bekliyor} Bekleyiniz, botun gecikmesi ölçül`);
-  message.channel.send(`${emojiler.gold1} **Tepki Gecikmesi** \`${Date.now() - message.createdTimestap}\`**ms**\n${emojiler.gold1} **Bot Gecikmesi** \`${Math.round(client.ping)}\`**ms**`);
+exports.run = async (client, message, args) => {
+   var olcum = await message.channel.send('Ping is being appreciated... :bar_chart:');
+    olcum.edit( `${emojiler.gold1} **Tepki Gecikmesi** \`Math.round((olcum.createdTimestamp - olcum.createdTimestamp) - client.ping)}\`**ms**\n${emojiler.gold1} **Bot Gecikmesi** \`${Math.round(client.ping)}\`**ms**`);
+
 }
 
 exports.conf = {
