@@ -1,45 +1,62 @@
 const Discord = require('discord.js');
 const moment = require('moment');
-const { version } = require("discord.js");
 const os = require('os');
 let cpuStat = require("cpu-stat");
 const { stripIndents } = require('common-tags');
 require('moment-duration-format');
-
-var ayarlar = require('../ayarlar.json');
-
-exports.run = (bot, message, args) => {
+co
+exports.run = async (bot, message, args) => {
+  
+  const db = require('quick.db');
+  
+  var m = await message.channel.send(`${emojiler.bekliyor} Lütfen bekleyiniz istatistikler alınıyor`)
+  
+  var osType = await os.type();
+        if (osType === 'Darwin') osType = 'macOS'
+        else if (osType === 'Windows') osType = 'Windows'
+        else osType = os.type();
+    var osBit = await os.arch();
+    if (osBit === 'x64') osBit = '64 Bit'
+    else if (osBit === 'x82') osBit = '32 Bit'
+    else osBit = os.arch();
     let cpuLol;
     cpuStat.usagePercent(function(err, percent, seconds) {
         if (err) {
             return console.log(err);
         }
-        const duration = moment.duration(bot.uptime).format(" D [gün], H [saat], m [dakika], s [saniye]");
-        const botBilgi = new Discord.RichEmbed()
-            .setAuthor(bot.user.username + " - İstatistikler", bot.user.avatarURL)
-            .setColor("0xc1ff05")
-            .addField("❯ Bellek Kullanımı", `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} /512 MB`)
-            .addField("❯ Çalışma Süresi ", `${duration}`)
-            .addField("❯ Sunucu",`${bot.guilds.size.toLocaleString()} `)
-           .addField("❯ Kanal",`${bot.channels.size.toLocaleString()}`)
-           .addField("❯ Kullanıcı", `${bot.users.array().length}`)
-           .addField("❯ Ping", `${Math.round(bot.ping)}ms`)
-        .setFooter(message.author.username + ' tarafından istendi.', bot.user.avatarURL)
-      .setTimestamp()
-        message.channel.send(botBilgi)
+        const duration = moment.duration(bot.uptime).format('D [gün], H [saat], m [dakika], s [saniye]');
+      setTimeout(() => {
+        const s = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setAuthor(`${bot.user.username} | İstatistikler`, bot.user.avatarURL)
+        .addField('Gecikme süreleri', "Mesaj Gecikmesi: {ping1} milisaniye \nBot Gecikmesi: {ping2} milisaniye".replace("{ping1}", new Date().getTime() - message.createdTimestamp).replace("{ping2}", bot.ping), true)
+        .addField('Çalışma süresi', `${duration}`, true)
+        .addField('Genel veriler', stripIndents`
+        **Kullanıcı Sayısı:**  ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
+        **Sunucu Sayısı:** ${bot.guilds.size.toLocaleString()}
+        **Kanal Sayısı:** ${bot.channels.size.toLocaleString()}
+        `, true)
+        .addField('Versiyonlar', stripIndents`
+        **Bot sürümü** v${bot.ayarlar.versiyon}
+        **Discord.JS sürümü** v${Discord.version}
+        **NodeJS sürümü** ${process.version}
+        `, true)
+        .addField('Kullanılan bellek boyutu', `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024).toLocaleString()} MB`, true)
+        .addField('İşletim sistemi', `${osType} ${osBit}`, true)
+        .addField('İşlemci', `\`\`\`xl\n${os.cpus().map(i => `${i.model}`)[0]}\n\`\`\``)
+        return m.edit(s)
+        message.react('617413726768988160')
+        }, 3000)
     });
 };
-
 exports.conf = {
     enabled: true,
     guildOnly: false,
-    aliases: ['i','botbilgi'],
+    aliases: ['i'],
     permLevel: 0
-  };
-  
-  exports.help = {
-    name: 'istatistik',
-    category: "bot",
-    description: 'Botun istatistiklerini gösterir.',
-    usage: 'istatistik'
-  };
+};
+module.exports.help = {
+  name: 'istatistik',
+  description: 'İstatistik',
+  usage: '!i'
+};
