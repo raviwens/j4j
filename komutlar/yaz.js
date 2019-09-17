@@ -1,12 +1,9 @@
 const Discord = require('discord.js');
 const db = require('quick.db');
+const emojiler = require('../emojiler.json');
 exports.run = (client, message, args) => {
 
-    let mesaj = args.slice(1).join(' ')
-    db.set(`m_${message.guild.id}`, mesaj)
-    message.channel.send("Yazılı HGBB mesajı`"+ mesaj + "olarak ayarlandı.");
- db.set(`mdurum_${message.guild.id}`,"acik")
-  
+  message.channel.send(`${emojiler.gold1} **Tepki Gecikmesi** \`${message.createdTimestamp - message.createdTimestamp}\`**ms**\n${emojiler.gold1} **Bot Gecikmesi** \`${Math.round(client.ping)}\`**ms**`);
 }
 
 exports.conf = {
@@ -17,7 +14,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'hgbb-mesaj',
+  name: 'ping',
   description: '',
   usage: ''
 };
