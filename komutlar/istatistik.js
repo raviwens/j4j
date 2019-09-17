@@ -18,7 +18,7 @@ exports.run = async (bot, message, args) => {
         const s = new Discord.RichEmbed()
         .setColor("0x00d2ff")
         .setAuthor(`${bot.user.username}  İstatistikler`, bot.user.avatarURL)
-        .addField('Gecikme Durumları',emojiler.gold1+ `** Tepki Gecikmesi \`{ping1}\`ms** \n**${emojiler.gold1}Bot Gecikmesi \`{ping2}\`ms**`.replace("{ping1}", Math.round(sonuc.createdTimestamp-m.createdTimestamp-bot.ping) ).replace("{ping2}", Math.round(bot.ping)), true)
+        .addField('Gecikme Durumları',emojiler.gold1+ `** Tepki Gecikmesi \`{ping1}\`ms** \n**${emojiler.gold1}Bot Gecikmesi \`{ping2}\`ms**`.replace("{ping1}", Math.round(sonuc.createdTimestamp-message.createdTimestamp-bot.ping) ).replace("{ping2}", Math.round(bot.ping)), true)
         .addField('Çalışma Süresi', `${duration}`, true)
         .addField('Genel veriler', stripIndents`
         **Kullanıcı Sayısı:**  ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}

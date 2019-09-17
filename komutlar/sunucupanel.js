@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
   if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send(`${emojiler.basarisiz} Bu komudu kullanabilmek için "Sunucuyu Yönet" yetkisine sahip olman gerek.`)
   if(!args[0]) return message.channel.send(emojiler.basarisiz +` Bir eylem belirtmelisiniz. \n${emojiler.gold2} Sunucu İstatistik panelini kurmak için \n${emojiler.gold1}\`!sunucupanel kur\`\n${emojiler.gold2} Sunucu İstatistik panelini temizlemek için\n${emojiler.gold1}\`!sunucupanel sıfırla\` \nyazınız. `);
   if (args[0] === "sıfırla") {
-
+if(!db.fetch(`spanelDurum_${message.guild.id}`)) return message.channel.send(`HATA`);
     let k = db.fetch(`spanel_${message.guild.id}`)
   let k1 = db.fetch(`spanelUye_${message.guild.id}`)
   let k2 = db.fetch(`spanelBot_${message.guild.id}`)
