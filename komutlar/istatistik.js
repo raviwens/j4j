@@ -10,27 +10,15 @@ exports.run = async (bot, message, args) => {
   
   const db = require('quick.db');
   
-  var m = await message.channel.send(`${emojiler.bekliyor} Lütfen bekleyiniz istatistikler alınıyor`)
-  
-  var osType = await os.type();
-        if (osType === 'Darwin') osType = 'macOS'
-        else if (osType === 'Windows') osType = 'Windows'
-        else osType = os.type();
-    var osBit = await os.arch();
-    if (osBit === 'x64') osBit = '64 Bit'
-    else if (osBit === 'x82') osBit = '32 Bit'
-    else osBit = os.arch();
-    let cpuLol;
-    cpuStat.usagePercent(function(err, percent, seconds) {
-        if (err) {
-            return console.log(err);
-        }
+  var m = await message.channel.send(`${emojiler.bekliyor} Ölçüm yapılıyor, lütfen bekleyiniz...`)
+  var sonuc = await message.channel.send(emojiler.gold2 + " Veriler alındı...").then(msg => msg.delete(3000))
+ 
         const duration = moment.duration(bot.uptime).format('D [gün], H [saat], m [dakika], s [saniye]');
       setTimeout(() => {
         const s = new Discord.RichEmbed()
-        .setColor("RANDOM")
-        .setAuthor(`${bot.user.username} | İstatistikler`, bot.user.avatarURL)
-        .addField('Gecikme süreleri', "Mesaj Gecikmesi: {ping1} milisaniye \nBot Gecikmesi: {ping2} milisaniye".replace("{ping1}", new Date().getTime() - message.createdTimestamp).replace("{ping2}", bot.ping), true)
+        .setColor("0x00d2ff")
+        .setAuthor(`${bot.user.username}  İstatistikler`, bot.user.avatarURL)
+        .addField('Gecikme Durumları', "**Tepki Gecikmesi `{ping1}`ms** \n**Bot Gecikmesi `{ping2}`ms**".replace("{ping1}", new Date().getTime() -3000- message.createdTimestamp).replace("{ping2}", Math.round(bot.ping)), true)
         .addField('Çalışma süresi', `${duration}`, true)
         .addField('Genel veriler', stripIndents`
         **Kullanıcı Sayısı:**  ${bot.guilds.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}
@@ -43,13 +31,11 @@ exports.run = async (bot, message, args) => {
         **NodeJS sürümü** ${process.version}
         `, true)
         .addField('Kullanılan bellek boyutu', `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024).toLocaleString()} MB`, true)
-        .addField('İşletim sistemi', `${osType} ${osBit}`, true)
-        .addField('İşlemci', `\`\`\`xl\n${os.cpus().map(i => `${i.model}`)[0]}\n\`\`\``)
         return m.edit(s)
-        message.react('617413726768988160')
+        message.react('622809600109838346')
         }, 3000)
-    });
-};
+    };
+
 exports.conf = {
     enabled: true,
     guildOnly: false,
