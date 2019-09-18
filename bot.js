@@ -334,10 +334,9 @@ client.on('guildMemberAdd', async member => {
 	ctx.strokeRect(0, 0, canvas.width, canvas.height);
   
   ctx.fillStyle = `#BAF79C`;
-	ctx.font = `30px "Warsaw"`;
+	ctx.font = `30px "Chilanka"`;
 	ctx.textAlign = "center";
-	if(member.user.username.lenght >  12) return ctx.fillText(`${member.user.username.toUpperCase()}`, 170, 210);
-	if(member.user.username.lenght <  12) return ctx.fillText(`${member.user.username.toUpperCase()}`, 170, 220);
+  ctx.fillText(`${member.user.username.toUpperCase()}`, 170, 180);
   
   let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL
   const { body } = await request.get(avatarURL);
