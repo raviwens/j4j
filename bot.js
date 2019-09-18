@@ -334,11 +334,12 @@ client.on('guildMemberAdd', async member => {
 	ctx.strokeRect(0, 0, canvas.width, canvas.height);
   
   ctx.fillStyle = `#BAF79C`;
-	ctx.font = `30px "Arial"`;
+	
 	ctx.textAlign = "center";
   var kontrol;
- if(member.user.username.length < 14) kontrol =if(member.user.username.length > 14) kontrol= ctx.fillText(`${member.user.username.toUpperCase()}`,170, 210);
-   ctx.fillText(`${member.user.username.toUpperCase()}`, 170, 210);
+ if(member.user.username.length < 14) kontrol =ctx.font = `35px "Arial"`;
+  if(member.user.username.length > 14) kontrol= ctx.font = `18px "Arial"`;
+   ctx.fillText(`${member.user.username.toUpperCase()}`, 180, 210);
   let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL
   const { body } = await request.get(avatarURL);
 	const avatar = await Canvas.loadImage(body);
@@ -349,7 +350,7 @@ client.on('guildMemberAdd', async member => {
 	ctx.lineWidth = 4;
 	ctx.arc(112 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
 	ctx.clip();
-	ctx.drawImage(avatar, 112, 55, 110, 170);
+	ctx.drawImage(avatar, 112, 55, 170, 170);
   
   const dosya= new Discord.Attachment(canvas.toBuffer(), 'SERVER-GUARD.png');
   rkanal.send(dosya)
