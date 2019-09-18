@@ -7,23 +7,23 @@ exports.run = async (bot, message,args) => {
     if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply(`Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
 
 let logk = message.mentions.channels.first();
-let logkanal = await db.fetch(`yazilihgbb_${message.guild.id}`)
+let logkanal = await db.fetch(`resimlihgbb_${message.guild.id}`)
   
   if (args[0] === "kapat") {
-    if(!logkanal) return message.channel.send(`${emojiler.basarisiz} Yazılı HGBB kapatmak için **Yazılı HGBB kanalının** seçili olması lazım. Kullanım: \`!yazılı-hgbb #kanal\``);
+    if(!logkanal) return message.channel.send(`${emojiler.basarisiz} Resimli HGBB kapatmak için **Resimli HGBB kanalının** seçili olması lazım. Kullanım: \`!resimli-hgbb #kanal\``);
     
-   db.delete(`yazilihgbb_${message.guild.id}`)
+   db.delete(`resimlihgbb_${message.guild.id}`)
    message.channel.send(`${emojiler.onaylı} Yazılı HGBB başarıyla kapatıldı.`);
   
     return
   }
   
-if (!logk) return message.channel.send(emojiler.basarisiz + " Doğru bir kanal girmelisiniz, Kullanım `!yazılı-hgbb #kanal`");
+if (!logk) return message.channel.send(emojiler.basarisiz + " Doğru bir kanal girmelisiniz, Kullanım `!resimli-hgbb #kanal`");
  
 
-   db.set(`yazilihgbb_${message.guild.id}`, logk.id)
+   db.set(`resimlihgbb_${message.guild.id}`, logk.id)
 db.set(`m_${message.guild.id}`,"acik")
-message.channel.send(`${emojiler.onaylı} Yazılı HGBB kanalı ${logk} olarak ayarlandı.`);
+message.channel.send(`${emojiler.onaylı} Resimli HGBB kanalı ${logk} olarak ayarlandı.`);
 
 }
 
@@ -35,8 +35,8 @@ module.exports.conf = {
 };
 
 module.exports.help = {
-  name: 'yazılı-hgbb',
+  name: 'resimli-hgbb',
   description: '',
-  usage: '!yazılı-hgbb #kanal'
+  usage: '!resimli-hgbb #kanal'
 };
  
