@@ -13,6 +13,7 @@ exports.run = async (client, message, args) => {
  message.member.setNickname(`[AFK] ` + message.author.username);
 await db.set(`afk_${message.author.id}`, 'acik')
 await db.set(`afksebep_${message.author.id}`, sebep)
+await db.set(`afksure_${message.author.id}`, message.createdTimestamp)
 }
 
 

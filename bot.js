@@ -254,6 +254,7 @@ client.on('guildMemberAdd',async member => {
   gkanal.send(attachment)
 });
 ////////GUVENLIK/////
+//SPAM
 client.on("ready", () =>{
     const spam = require("./spam.js");
  
@@ -275,12 +276,16 @@ banM: `Spam yaptığı için banlandı. \n${emojiler.gold2} Sunucuyu korumaktay�
   client.emit('checkMessage', msg); 
           }
   });
- 
-
+ //SPAM
+//AFK
   client.on('message',async msg => {
     let onay = db.fetch(`afk_${msg.author.id}`)  
   let afkadam= msg.mentions.users.first() || msg.author;
-        if(msg.content.startsWith(prefix + "afk")) return; 
+   
+    let afksure = db.fetch(`afksure_{message.author.id}`)
+     const toplamsure=  moment.duration(afksure).format('D [gün], H [saat], m [dakika], s [saniye]');
+      
+    if(msg.content.startsWith(prefix + "afk")) return; 
     if(msg.content.includes(`<@${afkadam.id}>`))
         if(db.has(`afk_${afkadam.id}`)) {
           msg.delete(1000);
@@ -295,11 +300,12 @@ banM: `Spam yaptığı için banlandı. \n${emojiler.gold2} Sunucuyu korumaktay�
         }  
     if(onay == 'acik') {   
 msg.member.setNickname(msg.author.username)
-            msg.channel.send(`${emojiler.onaylı} **${msg.author.username}** adlı kullanıcı AFK modundan çıktı.`).then(msg => msg.delete(5000))
+            msg.channel.send(`${emojiler.onaylı} **${msg.author.username}** adlı kullanıcı AFK modundan çıktı. \n${emojiler.gold1} \`\``).then(msg => msg.delete(5000))
           db.delete(`afk_${msg.author.id}`)      
           }
   });
-
+//AFK
+//GIRIS CIKIS
 client.on('guildMemberAdd', async member => {
 let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
 if(member.user.bot === true) return;
@@ -310,7 +316,9 @@ let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`))
  if(member.user.bot === true) return;
 mkanal.send(`${emojiler.olamaz} **${member.user.username}** suncudan ayrıldı, puffff.`);
 });
+//GIRIS CIKIS
 
+//BOT KORUMA
 client.on('guildMemberAdd', async member => {
 let botkoruma = client.channels.get(db.fetch(`botkoruma_${member.guild.id}`)) 
      let onay = db.fetch(`botguard_${member.guild.id}`)  
@@ -322,6 +330,10 @@ botkoruma.send(`${emojiler.onaylı} \`${member.user.tag}\` adlı bot sunucudan a
     }
     }
     });
+
+//BOT KORUMA
+
+//SUNUCUPANEL
 client.on("guildMemberAdd", message => { 
   let panelUye = db.fetch(`spanelUye_${message.guild.id}`)
 let panelBot = db.fetch(`spanelBot_${message.guild.id}`)
@@ -341,4 +353,5 @@ client.on("guildMemberRemove", message => {
 
  }
 });
+//SUNUCUPANEL
 client.login(ayarlar.token);
