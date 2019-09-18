@@ -283,7 +283,7 @@ banM: `Spam yaptığı için banlandı. \n${emojiler.gold2} Sunucuyu korumaktay�
   let afkadam= msg.mentions.users.first() || msg.author;
    
     let afksure = db.fetch(`afksure_{message.author.id}`)
-     const toplamsure=  moment.duration(afksure).format('D [gün], H [saat], m [dakika], s [saniye]');
+    const toplamsure=  moment.duration(msg.cretedTimestamp - afksure).format('D [gün], H [saat], m [dakika], s [saniye]');
       
     if(msg.content.startsWith(prefix + "afk")) return; 
     if(msg.content.includes(`<@${afkadam.id}>`))
@@ -300,7 +300,7 @@ banM: `Spam yaptığı için banlandı. \n${emojiler.gold2} Sunucuyu korumaktay�
         }  
     if(onay == 'acik') {   
 msg.member.setNickname(msg.author.username)
-            msg.channel.send(`${emojiler.onaylı} **${msg.author.username}** adlı kullanıcı AFK modundan çıktı. \n${emojiler.gold1} \`\``).then(msg => msg.delete(5000))
+            msg.channel.send(`${emojiler.onaylı} **${msg.author.username}** adlı kullanıcı AFK modundan çıktı. \n${emojiler.gold1} \`${toplamsure}\` AFK`).then(msg => msg.delete(5000))
           db.delete(`afk_${msg.author.id}`)      
           }
   });
