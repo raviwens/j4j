@@ -33,22 +33,22 @@ exports.run = async (client, message, args) => {
 db.set(`spanel_${message.guild.id}`,sp.id)
  db.set(`sunucupanel_${message.guild.id}`, message.author.id)
   client.channels.get(sp.id).setPosition(0)
- 
+  let role = message.guild.roles.find(a => a.name === "@everyone");
+ sp.overwritePermissions(role, {
+  CONNECT: false,
+})
   var toplamkişi = message.guild.createChannel(`Toplam Kullanıcı: ${message.guild.members.filter(m => !m.user.bot).size}`, "voice").then(ss => {
 ss.setParent(sp)
 db.set(`spanelUye_${message.guild.id}` , ss.id)
 let role = message.guild.roles.find(a => a.name === "@everyone");
-    ss.overwritePermissions(role, {
-  CONNECT: false,
-})
+
+
 })
 var toplambot = message.guild.createChannel(` Bot Sayısı: ${message.guild.members.filter(m => m.user.bot).size}`, "voice").then(ss => {
 ss.setParent(sp)
 db.set(`spanelBot_${message.guild.id}` , ss.id)
 let role = message.guild.roles.find(a => a.name === "@everyone");
-    ss.overwritePermissions(role, {
-  CONNECT: false,
-})
+  
 
 })
 })

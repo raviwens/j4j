@@ -299,11 +299,7 @@ banM: `Spam yaptığı için banlandı. \n${emojiler.gold2} Sunucuyu korumaktay�
         }  
     if(onay == 'acik') {   
 message.member.setNickname(message.author.username)
-        const ms = require('ms')
-      let süre = db.fetch(`sys_süre_${message.author.id}`);
-      let timeObj = ms(Date.now(- süre));
-      message.channel.send(`${message.author} Şu Anda **adminlik** nedeni ile ***${timeObj.hours}h ${timeObj.minutes}m ${timeObj.seconds} saniyedir sistem modunda!***`)
-      message.channel.send(`${emojiler.onaylı} **${message.author.username}** adlı kullanıcı AFK modundan çıktı. \n${emojiler.gold1} \`${afksure}\` AFK`).then(msg => msg.delete(5000))
+      message.channel.send(`${emojiler.onaylı} **${message.author.username}** adlı kullanıcı AFK modundan çıktı.`).then(msg => msg.delete(5000))
           db.delete(`afk_${message.author.id}`)    
           }
   });
