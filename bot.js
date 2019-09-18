@@ -317,7 +317,7 @@ mkanal.send(`${emojiler.olamaz} **${member.user.username}** suncudan ayrıldı, 
 });
 //GIRIS CIKIS
 client.on('guildMemberAdd', async member => {
-  let rkanal = client.channels.get(db.fetch(`resimlihgbb_${member.guild.id}`))
+  let rkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`))
   if(member.user.bot === true) return;
   const Canvas = require('canvas')
     , Image = Canvas.Image
@@ -333,10 +333,11 @@ client.on('guildMemberAdd', async member => {
   ctx.strokeStyle = '#74037b';
 	ctx.strokeRect(0, 0, canvas.width, canvas.height);
   
-  ctx.fillStyle = `#D3D3D3`;
-	ctx.font = `25px "Warsaw"`;
+  ctx.fillStyle = `#BAF79C`;
+	ctx.font = `30px "Warsaw"`;
 	ctx.textAlign = "center";
-	ctx.fillText(`${member.user.username.toUpperCase()}`, 170, 210);
+	if(member.user.username.lenght >  12) return ctx.fillText(`${member.user.username.toUpperCase()}`, 170, 210);
+	if(member.user.username.lenght <  12) return ctx.fillText(`${member.user.username.toUpperCase()}`, 170, 220);
   
   let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL
   const { body } = await request.get(avatarURL);
@@ -350,8 +351,8 @@ client.on('guildMemberAdd', async member => {
 	ctx.clip();
 	ctx.drawImage(avatar, 112, 55, 110, 110);
   
-  const attachment = new Discord.Attachment(canvas.toBuffer(), 'SERVER-GUARD.png');
-  member.guild.channels.get(rkanal).send(attachment)
+  const dosya= new Discord.Attachment(canvas.toBuffer(), 'SERVER-GUARD.png');
+  rkanal.send(dosya)
 
   
 })
