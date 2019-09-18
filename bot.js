@@ -300,7 +300,7 @@ banM: `Spam yaptığı için banlandı. \n${emojiler.gold2} Sunucuyu korumaktay�
         }  
     if(onay == 'acik') {   
 msg.member.setNickname(msg.author.username)
-            msg.channel.send(`${emojiler.onaylı} **${msg.author.username}** adlı kullanıcı AFK modundan çıktı. \n${emojiler.gold1} \`${toplamsure}\` AFK`).then(msg => msg.delete(5000))
+            msg.channel.send(`${emojiler.onaylı} **${msg.author.username}** adlı kullanıcı AFK modundan çıktı. \n${emojiler.gold1} \`${toplamsure} ${afksure}\` AFK`).then(msg => msg.delete(5000))
           db.delete(`afk_${msg.author.id}`)      
           }
   });
