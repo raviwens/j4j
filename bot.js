@@ -278,30 +278,32 @@ banM: `Spam yaptığı için banlandı. \n${emojiler.gold2} Sunucuyu korumaktay�
   });
  //SPAM
 //AFK
-  client.on('message',async msg => {
-    let onay = db.fetch(`afk_${msg.author.id}`)  
-  let afkadam= msg.mentions.users.first() || msg.author;
+  client.on('message',async message => {
+    let onay = db.fetch(`afk_${message.author.id}`)  
+  let afkadam= message.mentions.users.first() || message.author;
    
     let afksure = db.fetch(`afksure_{message.author.id}`)
-    const toplamsure=  moment.duration(msg.cretedTimestamp - afksure).format('D [gün], H [saat], m [dakika], s [saniye]');
+    const toplamsure=  moment.duration(message.cretedTimestamp - afksure).format('D [gün], H [saat], m [dakika], s [saniye]');
       
-    if(msg.content.startsWith(prefix + "afk")) return; 
-    if(msg.content.includes(`<@${afkadam.id}>`))
+    if(message.content.startsWith(prefix + "afk")) return; 
+    if(message.content.includes(`<@${afkadam.id}>`))
         if(db.has(`afk_${afkadam.id}`)) {
-          msg.delete(1000);
+          message.delete(1000);
           const afkuyarı = new Discord.RichEmbed()
               .setDescription(emojiler.gold1 + ` **${client.users.get(afkadam.id).username}** adlı kullanıcımız şuanda AFK \n\n\`${db.fetch(`afksebep_${afkadam.id}`)}\` sebebi ile **AFK**`)
               .setColor('0xff6161')
               .setTimestamp()
           .setFooter(client.user.username + " AFK Sistemi", client.user.avatarURL)
-          msg.channel.send(afkuyarı)
+          message.channel.send(afkuyarı)
         
           
         }  
     if(onay == 'acik') {   
-msg.member.setNickname(msg.author.username)
-            msg.channel.send(`${emojiler.onaylı} **${msg.author.username}** adlı kullanıcı AFK modundan çıktı. \n${emojiler.gold1} \`${toplamsure} ${afksure}\` AFK`).then(msg => msg.delete(5000))
-          db.delete(`afk_${msg.author.id}`)      
+message.member.setNickname(message.author.username)
+            message.channel.send(`${emojiler.onaylı} **${message.author.username}** adlı kullanıcı AFK modundan çıktı. \n${emojiler.gold1} \`${afksure}\` AFK`).then(msg => msg.delete(5000))
+          db.delete(`afk_${message.author.id}`)    
+      db.delete(`afksure_${message.author.id}`)
+      db.delete(`afksebep_${message.author.id}`)
           }
   });
 //AFK
