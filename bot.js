@@ -283,8 +283,7 @@ banM: `Spam yaptığı için banlandı. \n${emojiler.gold2} Sunucuyu korumaktay�
   let afkadam= message.mentions.users.first() || message.author;
    
     let afksure = db.fetch(`afksure_{message.author.id}`)
-    const toplamsure=  moment.duration(message.cretedTimestamp - afksure).format('D [gün], H [saat], m [dakika], s [saniye]');
-      
+    
     if(message.content.startsWith(prefix + "afk")) return; 
     if(message.content.includes(`<@${afkadam.id}>`))
         if(db.has(`afk_${afkadam.id}`)) {
@@ -300,10 +299,12 @@ banM: `Spam yaptığı için banlandı. \n${emojiler.gold2} Sunucuyu korumaktay�
         }  
     if(onay == 'acik') {   
 message.member.setNickname(message.author.username)
-            message.channel.send(`${emojiler.onaylı} **${message.author.username}** adlı kullanıcı AFK modundan çıktı. \n${emojiler.gold1} \`${afksure}\` AFK`).then(msg => msg.delete(5000))
+        const ms = require('ms')
+      let süre = db.fetch(`sys_süre_${message.author.id}`);
+      let timeObj = ms(Date.now(- süre));
+      message.channel.send(`${message.author} Şu Anda **adminlik** nedeni ile ***${timeObj.hours}h ${timeObj.minutes}m ${timeObj.seconds} saniyedir sistem modunda!***`)
+      message.channel.send(`${emojiler.onaylı} **${message.author.username}** adlı kullanıcı AFK modundan çıktı. \n${emojiler.gold1} \`${afksure}\` AFK`).then(msg => msg.delete(5000))
           db.delete(`afk_${message.author.id}`)    
-      db.delete(`afksure_${message.author.id}`)
-      db.delete(`afksebep_${message.author.id}`)
           }
   });
 //AFK
