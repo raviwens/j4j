@@ -319,14 +319,15 @@ mkanal.send(`${emojiler.olamaz} **${member.user.username}** suncudan ayrıldı, 
 client.on('guildMemberAdd', async member => {
   let rkanal = client.channels.get(db.fetch(`resimlihgbb_${member.guild.id}`))
   if(member.user.bot === true) return;
-  const Canvas = require('canvas')
+  const {registerFont, Canvas }= require('canvas')
     , Image = Canvas.Image
     , Font = Canvas.Font
     , path = require('path');
   
   const canvas = Canvas.createCanvas(360, 250);
 	const ctx = canvas.getContext('2d');
-  
+ registerFont('https://cdn.glitch.com/e994edbc-8425-417a-b835-ea3cce1b33cc%2FRidin%20Dirty%20-%20TTF.ttf?v=1568865148024', { family: 'Comic Sans' })
+ 
   const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/623947123473514496/623947203144056842/sunucuyakatildi.jpg');
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
   
@@ -337,8 +338,8 @@ client.on('guildMemberAdd', async member => {
 	
 	ctx.textAlign = "center";
   var kontrol;
- if(member.user.username.length < 14) kontrol =ctx.font = `35px "Arial"`;
-  if(member.user.username.length > 14) kontrol= ctx.font = `18px "Arial"`;
+ if(member.user.username.length < 14) kontrol =ctx.font = `35px "Comic Sans"`;
+  if(member.user.username.length > 14) kontrol= ctx.font = `18px "Comic Sans"`;
    ctx.fillText(`${member.user.username.toUpperCase()}`, 180, 210);
   let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL
   const { body } = await request.get(avatarURL);
