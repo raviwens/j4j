@@ -5,11 +5,11 @@ exports.run = async (client, message, args) => {
   let yazıkanalları = message.guild.channels.filter(c => c.type == 'text').array();
  let role = message.guild.roles.find(a => a.name === "@everyone");
   
-yazıkanalları.overwritePermissions(role, {
+ yazıkanalları.overwritePermissions(role, {
   SEND_MESSAGES: false,
   
 });
-message.channel.send(emojiler.onaylı`Sunucu başarıyla kitlendi. \n${emojiler.gold2} Sunucuyu açmak için:\n\`!sunucuyuaç\``)
+message.channel.send(emojiler.onaylı`Sunucu başarıyla kitlendi. \n${emojiler.gold2} Sunucuyu açmak için:\n${emojiler.gold1} \`!sunucuyuaç\``)
 }
 
 exports.conf = {
