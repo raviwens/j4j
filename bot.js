@@ -325,10 +325,8 @@ client.on('guildMemberAdd', async member => {
     , path = require('path');
 
   const canvas = Canvas.createCanvas(360, 250)
-const canvasguard = Canvas.createCanvas(360, 250)
 
   const ctx = canvas.getContext('2d');
- const yazi = canvasguard.getContext('2d');
  
   const background = await Canvas.loadImage('https://cdn.discordapp.com/attachments/623947123473514496/623947203144056842/sunucuyakatildi.jpg');
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
@@ -340,11 +338,12 @@ const canvasguard = Canvas.createCanvas(360, 250)
 	
 	ctx.textAlign = "center";
   var kontrol;
- if(member.user.username.length < 14) kontrol =ctx.font = `35px "Sans Serif"`;
+ if(member.user.username.length < 14) kontrol =ctx.font = `33px "Sans Serif"`;
   if(member.user.username.length > 14) kontrol= ctx.font = `18px "Sans Serif"`;
    ctx.fillText(`${member.user.username.toUpperCase()}`, 180, 210);
-yazi.font = `2px "Sans Serif"`;
-  yazi.fillText(`${client.user.username}`, 100, 250);
+ctx.fillStyle = `#12fccd`;
+ ctx.font = `18px "Sans Serif"`;
+   ctx.fillText(`${client.user.username}`, 78, 235);
  
   let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL
   const { body } = await request.get(avatarURL);
@@ -386,7 +385,10 @@ yazi.font = `2px "Sans Serif"`;
  if(member.user.username.length < 14) kontrol =ctx.font = `35px "Arial"`;
   if(member.user.username.length > 14) kontrol= ctx.font = `18px "Arial"`;
    ctx.fillText(`${member.user.username.toUpperCase()}`, 180, 210);
-  let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL
+  ctx.fillStyle = `#37edc9`;
+ ctx.font = `15px "Sans Serif"`;
+   ctx.fillText(`${client.user.username}`, 82, 235);
+let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL
   const { body } = await request.get(avatarURL);
 	const avatar = await Canvas.loadImage(body);
   
