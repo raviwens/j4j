@@ -1,6 +1,6 @@
   const Discord = require('discord.js');
 const db = require('quick.db');
-
+const emojiler = require("../emojiler.json");
 exports.run = async (client, message, args) => {
 
     if (!message.guild) {
@@ -15,13 +15,14 @@ exports.run = async (client, message, args) => {
 let botkoruma = db.fetch(`botkoruma_${message.guild.id}`)
 
   const sayfa = [`
-${db.has(`botkoruma_${message.guild.id}`) ? `**Bot Koruma:** ${client.channels.get(db.fetch(`botkoruma_${message.guild.id}`))} `: `**Bot koruma kanalını ayarlamak için:** \n\`!botkoruma #kanal\``}
+${db.has(`botkoruma_${message.guild.id}`) ? `**Bot Koruma:** ${client.channels.get(db.fetch(`botkoruma_${message.guild.id}`))} `: `${emojiler.gold2} **Bot koruma kanalını ayarlamak için:** \n\`!botkoruma #kanal\``}
 
   
 `]
   
   const ayarlar = new Discord.RichEmbed()
   .setColor(0x36393E)
+  .setTitle(`${emojiler.gold1} **${message.guild.name} Ayarlar**`)
   .setDescription(sayfa)
   .setTimestamp()
   
