@@ -342,7 +342,7 @@ client.on('guildMemberAdd', async member => {
   if(member.user.username.length > 14) kontrol= ctx.font = `18px "Sans Serif"`;
    ctx.fillText(`${member.user.username.toUpperCase()}`, 180, 210);
 ctx.fillStyle = `#12fccd`;
- ctx.font = `18px "Sans Serif"`;
+ ctx.font = `16px "Sans Serif"`;
    ctx.fillText(`${client.user.username}`, 78, 235);
  
   let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL
@@ -385,9 +385,9 @@ ctx.fillStyle = `#12fccd`;
  if(member.user.username.length < 14) kontrol =ctx.font = `35px "Arial"`;
   if(member.user.username.length > 14) kontrol= ctx.font = `18px "Arial"`;
    ctx.fillText(`${member.user.username.toUpperCase()}`, 180, 210);
-  ctx.fillStyle = `#37edc9`;
- ctx.font = `15px "Sans Serif"`;
-   ctx.fillText(`${client.user.username}`, 82, 235);
+  ctx.fillStyle = `#12fccd`;
+ ctx.font = `16px "Sans Serif"`;
+   ctx.fillText(`${client.user.username}`, 78, 235);
 let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL
   const { body } = await request.get(avatarURL);
 	const avatar = await Canvas.loadImage(body);
