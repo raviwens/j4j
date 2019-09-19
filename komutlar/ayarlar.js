@@ -26,10 +26,11 @@ let botkoruma = db.fetch(`botkoruma_${message.guild.id}`)
   
   const ayarlar = new Discord.RichEmbed()
   .setColor("0x70ff96")
-  .setTitle(`${emojiler.gold1} **${message.guild.name} Sunucusunun Ayarları**`, message.guild.iconURL)
+  .setThumbnail(message.guild.iconURL)
+  .setTitle(`${emojiler.gold1} **${message.guild.name} Sunucusunun Ayarları**`)
   .setDescription(sayfa)
   .setTimestamp()
-  .setFooter(`${client.user.username} Ayarlar`)
+  .setFooter(`${client.user.username} Ayarlar`,message.author.avatarURL)
   message.channel.send(ayarlar)
 
  
