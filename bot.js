@@ -442,35 +442,5 @@ client.on("guildMemberRemove", message => {
 
  }
 });
-client.on('guildMemberAdd',async member => {
-  let gkisi = client.users.get(member.id);
-  let gkanal = client.channels.get(db.fetch(`guard_${member.guild.id}`)) 
-       const Canvas = require('canvas')
-       const canvas = Canvas.createCanvas(360,100);
-       const ctx = canvas.getContext('2d');
- 
-  const onaysız = await Canvas.loadImage('https://cdn.discordapp.com/attachments/542420184309301279/622408941384630272/onaysizz.jpg')
-    const onaylı = await Canvas.loadImage('https://cdn.discordapp.com/attachments/542420184309301279/622405001007857668/guvenilor.jpg')
-    const ktarih = new Date().getTime() - gkisi.createdAt.getTime();
-    const gün = moment.duration(ktarih).format("D")   
-    var kontrol;
-      if (ktarih > 1296000000) kontrol = onaylı
-    if (ktarih < 1296000001) kontrol = onaysız
-
-  const avatar = await Canvas.loadImage(member.user.displayAvatarURL);
-  ctx.drawImage(kontrol,0,0,canvas.width, canvas.height)
-  ctx.beginPath();
-    ctx.lineWidth = 4;
-  ctx.fill()
-    ctx.lineWidth = 4;
-  ctx.arc(190, 46, 36, 0, 2 * Math.PI);
-    ctx.clip();
-  ctx.drawImage(avatar, 153,10, 73, 72  );
-
-   
-       const attachment = new Discord.Attachment(canvas.toBuffer(), 'SERVER-GUARD.png');
- if(member.user.bot === true) return;
-  gkanal.send(attachment)
-});
 //SUNUCUPANEL
 client.login(ayarlar.token);
