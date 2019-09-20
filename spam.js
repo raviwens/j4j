@@ -1,6 +1,5 @@
 const Discord = require("discord.js"); // Requiring Library just for the sick of being th
 const db = require("quick.db");
- let botlar = ["613667739231584277","479355794278711296"];
 
 var authors = [];
 var warned = [];
@@ -8,7 +7,7 @@ var banned = [];
 var messageLog = [];
 
 module.exports = async (client, options) => {
-  /* Option Definitions */
+  
   
   const uyar = (options && options.uyar) || 7; //Uyarılmadan önce aralıkta gönderilmesine izin verilen maksimum mesaj miktarı.
   const ban = (options && options.ban) || 15;  //Yasaklanmadan önce aralıkta gönderilmesine izin verilen maksimum ileti miktar.
