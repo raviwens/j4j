@@ -472,18 +472,17 @@ client.on("message", async message =>{
 
 //TAG ALANA ROL
 
-client.on("userUpdate", async member =>{
-          let rol = db.fetch(`tagaRol_${member.gui.id}`);
-let tag = db.fetch(`tagaTag_${member.guild.id}`);
-let kanal= db.fetch(`tagaKanal_${member.guild.id}`);
+client.on("userUpdate", async (newUser,oldUser) =>{
+          let rol = db.fetch(`tagaRol_${newUser.guild.id}`);
+let tag = db.fetch(`tagaTag_${newUser.guild.id}`);
+let kanal= db.fetch(`tagaKanal_${newUser.guild.id}`);
 
   
-   
-  if(member.username.includes(tag)) {
-
-   member.addRole(rol)
+   client.guilds.array().forEach
+  if(newUser.username.includes(tag)) {
+   newUser.addRole(rol)
     }else{
-member.removeRole(rol)
+newUser.removeRole(rol)
     }
    
 });
