@@ -38,7 +38,7 @@ exports.run = async(client, message, args) => {
   }
   if(args[0] == "tag"){
       db.set(`tagaTag_${message.guild.id}`, args[1])
-  message.channel.send(`${args[1]} Adlı tagı 
+  message.channel.send(emojiler.onaylı + `${args[1]} Adlı tagı alanlara gerekli rolü vereceğim.`);
   }
 };
   
