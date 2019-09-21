@@ -7,7 +7,6 @@ exports.run = async(client, message, args) => {
 
   if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(':no_entry: Otorol ayarlamak için `Rolleri Yönet` yetkisine sahip olman gerek.')
 
-  
     if (args[0] == 'ayarla') {
  let rol = message.mentions.roles.first() || message.guild.roles.get(args.join(' '))
   let yeniRol;
