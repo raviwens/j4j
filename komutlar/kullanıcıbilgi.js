@@ -30,19 +30,67 @@ let onaysız = `${emojiler.basarisiz} **Güvenilmez**`
         .replace("false", `${emojiler.gold1} **İnsan**`)
         .replace("true", `${emojiler.gold2} **Bot**`)
         userinfo.sonmesaj = user.lastMessage || "Son yazılan mesaj bulunamadı." || "Son yazılan mesaj gösterilemedi."
-        const uembed = new Discord.RichEmbed()
+     
+  let x;
+        let x2;
+        let x3;
+        let x4;
+        let x5;
+        let x6;
+        let x7;
+        let x8;
+        let x9;
+        let x10;
+        let x11;
+        
+        if (msg.guild.members.get(user.id).hasPermission("ADMINISTRATOR")) x = "Yönetici"
+        if (!msg.guild.members.get(user.id).hasPermission("ADMINISTRATOR")) x = "-"
+        
+        if (msg.guild.members.get(user.id).hasPermission("VIEW_AUDIT_LOG")) x2 = "- Denetim kayıdını görme"
+        if (!msg.guild.members.get(user.id).hasPermission("VIEW_AUDIT_LOG")) x2 = ""
+        
+        if (msg.guild.members.get(user.id).hasPermission("MANAGE_GUILD")) x3 = "- Sunucuyu yönet"
+        if (!msg.guild.members.get(user.id).hasPermission("MANAGE_GUILD")) x3 = ""
+        
+        if (msg.guild.members.get(user.id).hasPermission("MANAGE_ROLES")) x4 = "- Rolleri yönet"
+        if (!msg.guild.members.get(user.id).hasPermission("MANAGE_ROLES")) x4 = ""
+        
+        if (msg.guild.members.get(user.id).hasPermission("MANAGE_CHANNELS")) x5 = "- Kanalları yönet"
+        if (!msg.guild.members.get(user.id).hasPermission("MANAGE_CHANNELS")) x5 = ""
+        
+        if (msg.guild.members.get(user.id).hasPermission("KICK_MEMBERS")) x6 = "- Üyeleri at"
+        if (!msg.guild.members.get(user.id).hasPermission("KICK_MEMBERS")) x6 = ""
+        
+        if (msg.guild.members.get(user.id).hasPermission("BAN_MEMBERS")) x7 = "- Üyeleri yasakla"
+        if (!msg.guild.members.get(user.id).hasPermission("BAN_MEMBERS")) x7 = ""
+        
+        if (msg.guild.members.get(user.id).hasPermission("MANAGE_MESSAGES")) x8 = "- Mesajları yönet"
+        if (!msg.guild.members.get(user.id).hasPermission("MANAGE_MESSAGES")) x8 = ""
+        
+        if (msg.guild.members.get(user.id).hasPermission("MANAGE_NICKNAMES")) x9 = "- Kullanıcı adlarını yönet"
+        if (!msg.guild.members.get(user.id).hasPermission("MANAGE_NICKNAMES")) x9 = ""
+        
+        if (msg.guild.members.get(user.id).hasPermission("MANAGE_EMOJIS")) x10 = "- Emojileri yönet"
+        if (!msg.guild.members.get(user.id).hasPermission("MANAGE_EMOJIS")) x10 = ""
+        
+        if (msg.guild.members.get(user.id).hasPermission("MANAGE_WEBHOOKS")) x11 = "- Webhookları yönet"
+        if (!msg.guild.members.get(user.id).hasPermission("MANAGE_WEBHOOKS")) x11 = ""
+
+   
+  const uembed = new Discord.RichEmbed()
         .setAuthor(user.tag, userinfo.avatar)
         .setThumbnail(userinfo.avatar)
         
-        .addField(`Oyun`, userinfo.od1, false)
+        .addField(`Oyun`, userinfo.od1 + msg.guild.members.get(user).presence.activity.timestamps, false)
         .addField(`Durum`, userinfo.status, false)
         .setColor('fcf803')
         .addField(`Katılım Tarihi (Sunucu)`, "`"+gün2+"` gündür **Sunucu**'da.", false)
         .addField(`Katılım Tarihi (Discord)`,"`"+ gün+"` gündür **Discord**'da.", false)
         .addField(`ID:`, userinfo.id, true)
         .addField(`Robot doğrulaması:`, userinfo.bot, true)
-        .addField(`Roller:`, `${msg.guild.members.get(user.id).roles.filter(r => r.name !== "@everyone").map(r => r).join(' **|** ') || "**Hiç bir role sahip değil.**"}`, false)
-        .addField(`Son gönderdiği mesaj:`, userinfo.sonmesaj , false)
+        .addField(`Roller:`, `${msg.guild.members.get(user.id).roles.filter(r => r.name !== "everyone").map(r => r).join(' **|** ') || "**Hiç bir role sahip değil.**"}`, false)
+      .addField(`Yetkileri:`, `${x} ${x2} ${x3} ${x4} ${x5} ${x6} ${x7} ${x8} ${x9} ${x10} ${x11}`)
+  .addField(`Son gönderdiği mesaj:`, userinfo.sonmesaj , false)
       .addField("Güvenilirlik",kontrol)
         .setFooter(`${botadi} Kullanıcı Bilgi`)
         msg.channel.send(uembed)

@@ -43,7 +43,7 @@ const log = message => {
 
 client.on("ready", () => {
   client.user.setActivity('Özel Kod Yazılır / Satılır');
-        }, 
+      }, 
   console.log("Bağlandım!")
 );
 
