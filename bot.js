@@ -478,11 +478,11 @@ let tag = db.fetch(`tagaTag_${message.guild.id}`);
 let kanal= db.fetch(`tagaKanal_${message.guild.id}`);
 
   message.guild.members.forEach(u => {
-    if(u.user.username.includes(tag)) {
-      u.addRole(rol)
-      kanal.send(emoji)
+    if(message.user.username.includes(tag)) {
+      message.user.addRole(rol)
+      kanal.send(emojiler.gold1 +`\`${message.user.tag}\` adlı kullanıcı \`${tag}\`'ni ismine eklediği için rol aldı.`)
     }else{
-      u.removeRole(rol)
+      message.user.removeRole(rol)
     }});
 });
 //TAG ALANA ROL
