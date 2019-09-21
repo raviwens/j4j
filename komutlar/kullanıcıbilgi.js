@@ -77,7 +77,7 @@ let onaysız = `${emojiler.basarisiz} **Güvenilmez**`
         .setTitle('Kullanıcı;')
         .addField(`Oyun`, userinfo.od1, false)
         .addField(`Durum`, userinfo.status, false)
-        .setColor('03f2df')
+        .setColor('fcf803')
         .addField(`Katılım Tarihi (Sunucu)`, "`"+userinfo.dctarihkatilma+"` gündür **Sunucu**'da.", false)
         .addField(`Katılım Tarihi (Discord)`,"`"+ gün+"` gündür **Discord**'da.", false)
         .addField(`ID:`, userinfo.id, true)
