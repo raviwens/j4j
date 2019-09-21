@@ -463,7 +463,7 @@ client.on("message", async message =>{
  let a = db.fetch(`st_${message.channel.id}`)
     if(!a || a === 'pasif') return;
     else {
-      message.delete(6000)
+      message.delete(8000)
     
   }
 });
