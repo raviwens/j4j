@@ -443,4 +443,17 @@ client.on("guildMemberRemove", message => {
  }
 });
 //SUNUCUPANEL
+
+//OTO ROL
+client.on("guildMemberAdd",async member =>{
+  if(member.user.bot === true) return;
+ let rol = await  db.fetch(`otorolisim_${member.guild.id}`)
+  let kanal =   db.fetch(`otorolKanal_${member.guild.id}`)
+  let otorol = await db.fetch(`otorol_${member.guild.id}`)
+   client.channels.get(kanal).send(``)
+
+});
+
+
+//OTO ROL
 client.login(ayarlar.token);
