@@ -44,7 +44,7 @@ let onaysız = `${emojiler.basarisiz} **Güvenilmez**`
         let x11;
         
         if (msg.guild.members.get(user.id).hasPermission("ADMINISTRATOR")) x = "Yönetici"
-        if (!msg.guild.members.get(user.id).hasPermission("ADMINISTRATOR")) x = "-"
+        if (!msg.guild.members.get(user.id).hasPermission("ADMINISTRATOR")) x = ""
         
         if (msg.guild.members.get(user.id).hasPermission("VIEW_AUDIT_LOG")) x2 = "- Denetim kayıdını görme"
         if (!msg.guild.members.get(user.id).hasPermission("VIEW_AUDIT_LOG")) x2 = ""
