@@ -5,7 +5,7 @@ const ayarlar = require('../ayarlar.json')
 const emojiler = require('../emojiler.json');
 exports.run = async(client, message, args) => {
 
-  if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(':no_entry: Otorol ayarlamak için `Rolleri Yönet` yetkisine sahip olman gerek.')
+  if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(':no_entry: Taga Rol ayarlmak için `Rolleri Yönet` yetkisine sahip olman gerek.')
 
     if (args[0] == 'ayarla') {
  let rol = message.mentions.roles.first() || message.guild.roles.get(args.join(' '))
@@ -20,7 +20,7 @@ exports.run = async(client, message, args) => {
   let i = await  db.set(`tagaKanal_${message.guild.id}`, message.mentions.channels.first().id)
   let otorol = await db.set(`tagaRol_${message.guild.id}`, yeniRol)
   if (!message.guild.roles.get(yeniRol)) return message.channel.send(emojiler.basarisiz+" Etiketlediğin rolü bulamadım. Rolün etiketlenebilir olduğundan emin olmalısın.")
-    message.channel.send(`${emojiler.onaylı} Başarılı, gerekli ayarlamalar yapıldı.\n${emojiler.gold2} Yeni kişilere vereceğim rol \`${isim}\` olarak ayarlandı.\n ${emojiler.gold2} Bilgilendirme kanalı <#${i}> olarak ayarlandı.`)  
+    message.channel.send(`${emojiler.onaylı} Başarılı, gerekli ayarlamalar yapıldı.\n${emojiler.gold2} Tag Alanlara vereceğim rol \`${isim}\` olarak ayarlandı.\n ${emojiler.gold2} Bilgilendirme kanalı <#${i}> olarak ayarlandı.`)  
      
   } 
 
@@ -29,11 +29,11 @@ exports.run = async(client, message, args) => {
 
     
     
-    db.delete(`otorolisim_${message.guild.id}`)
-        db.delete(`otorolKanal_${message.guild.id}`)
-    db.delete(`otorol_${message.guild.id}`)
+    db.delete(`tagaTag_${message.guild.id}`)
+        db.delete(`tagaKanal_${message.guild.id}`)
+    db.delete(`tagaRol_${message.guild.id}`)
 
-    message.channel.send(`${emojiler.onaylı} Otorol başarıyla kapatıldı.`)
+    message.channel.send(`${emojiler.onaylı} Taga Rol başarıyla kapatıldı.`)
   }
   if(args[0] == "tag"){
       db.set(`tagaTag_${message.guild.id}`, args[1])

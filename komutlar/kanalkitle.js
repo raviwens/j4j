@@ -7,7 +7,11 @@ if (args[0] === "unlock") {
     
    message.channel.send(`${emojiler.onaylı} ${message.channel} başarıyla açıldı.`);
   
-    
+  message.channel.overwritePermissions(herkes, {
+        'SEND_MESSAGES': true,
+
+});
+   
   }
   if(args[0] === "lock"){
   message.channel.overwritePermissions(herkes, {
