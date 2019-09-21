@@ -460,12 +460,12 @@ member.addRole(rolid);
 //OTO  BOT SILICI
 client.on("message", async message =>{
  if(!message.author.bot) return;
-  db.fetch(`botsilici_${message.channel.id}`).then(durum => {
-    if(!durum || durum === 'pasif') return;
+ let a = db.fetch(`st_${message.channel.id}`)
+    if(!a || a === 'pasif') return;
     else {
       message.delete(6000)
     
-  }})
+  }
 });
 
 //OTO BOT SILICI
