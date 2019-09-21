@@ -472,16 +472,19 @@ client.on("message", async message =>{
 
 //TAG ALANA ROL
 
-client.on("message",message =>{
+client.on("message",async message =>{
           let rol = db.fetch(`tagaRol_${message.guild.id}`);
 let tag = db.fetch(`tagaTag_${message.guild.id}`);
-let kanal= db.fetch(`tagaKanal_${message.guild.id}`);
+let bkanal = db.fetch(`tagaKanal_${message.guild.id}`);
    if(message.member.roles.has(rol))return;
 
     if(message.author.username.includes(tag)) {
-      message.member.addRole(rol).catch(console.error)
-      client.channels.get(kanal).send(emojiler.gold1 +`\`${message.author.username}\` adlı kullanıcı \`${tag}\`'ni ismine eklediği için rol aldı.`);
-    } 
+    let rolisim = await  db.fetch(`otorolisim_${message.guild.id}`)
+  let kanal =   db.fetch(`otorolKanal_${message.guild.id}`)
+  let rolid = await db.fetch(`otorol_${message.guild.id}`)
+   client.channels.get(kanal).send(`${emojiler.hg} \`${message.user.tag}\` adlı kullanıcıya **${rolisim}** adlı rol verildi.`)
+message.author.addRole(rolid);
+  } 
   if(!message.author.username.includes(tag)) {
       message.member.removeRole(rol).catch(console.error)
     
