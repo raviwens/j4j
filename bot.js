@@ -479,11 +479,11 @@ let kanal= db.fetch(`tagaKanal_${message.guild.id}`);
    if(message.member.roles.has(rol))return;
 
     if(message.author.username.includes(tag)) {
-      message.member.addRole(rol)
+      message.member.addRole(rol).catch(console.error)
       client.channels.get(kanal).send(emojiler.gold1 +`\`${message.author.username}\` adlı kullanıcı \`${tag}\`'ni ismine eklediği için rol aldı.`);
     } 
   if(!message.author.username.includes(tag)) {
-      message.member.removeRole(rol)
+      message.member.removeRole(rol).catch(console.error)
     
     }});
 
