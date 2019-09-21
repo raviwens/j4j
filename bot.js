@@ -450,10 +450,18 @@ client.on("guildMemberAdd",async member =>{
  let rolisim = await  db.fetch(`otorolisim_${member.guild.id}`)
   let kanal =   db.fetch(`otorolKanal_${member.guild.id}`)
   let rolid = await db.fetch(`otorol_${member.guild.id}`)
-   client.channels.get(kanal).send(`${emojiler.hg} \`${member.user.tag}\` adlı kullanıciya rolü verildi.`)
+   client.channels.get(kanal).send(`${emojiler.hg} \`${member.user.tag}\` adlı kullanıcıya **${rolisim}** adlı rol verildi.`)
 member.addRole(rolid);
 });
 
 
 //OTO ROL
-client.login(ayarlar.token);
+
+//OTO  BOT SILICI
+client.on("message", async message =>{
+  let kanal = db.fetch(`botsilici_${message.channel.id}`);
+  if(kanal === 
+});
+
+//OTO BOT SILICI
+client.login(ayarlar.token); 
