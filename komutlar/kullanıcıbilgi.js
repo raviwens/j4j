@@ -8,7 +8,13 @@ exports.run = async (bot, msg, args) => {
         let simdikitarih = moment.utc(msg.createdAt).format('DD MM YYYY');
   
         let user = msg.mentions.users.first() || msg.author;
-  
+   const ktarih = new Date().getTime() - user.createdAt.getTime();
+    let onaylı = `${emojiler.onaylı} **Güvenilir**`
+let onaysız = `${emojiler.basarisiz} **Güvenilmez**`
+    const gün = moment.duration(ktarih) 
+    var kontrol;
+      if (ktarih > 1296000000) kontrol = onaylı
+    if (ktarih < 1296000001) kontrol = onaysız
         let userinfo = {};
         userinfo.avatar= user.displayAvatarURL;
         userinfo.id = user.id;
@@ -67,16 +73,17 @@ exports.run = async (bot, msg, args) => {
         .setAuthor(user.tag, userinfo.avatar)
         .setThumbnail(userinfo.avatar)
         .setTitle('Kullanıcı;')
-        .addField(`Şu anda oynadığı oyun`, userinfo.od1, false)
+        .addField(`Oyun`, userinfo.od1, false)
         .addField(`Durum`, userinfo.status, false)
         .setColor('03f2df')
         .addField(`Katılım Tarihi (Sunucu)`, userinfo.dctarihkatilma, false)
         .addField(`Katılım Tarihi (Discord)`, userinfo.dctarih, false)
-        .addField(`Kimlik:`, userinfo.id, true)
-        .addField(`Botmu:`, userinfo.bot, true)
-        .addField(`Roller:`, `${msg.guild.members.get(user.id).roles.filter(r => r.name !== "@everyone").map(r => r).join(' **|** ') || "**Bu kullanıcıda hiçbir rol bulunmuyor**"}`, false)
+        .addField(`ID:`, userinfo.id, true)
+        .addField(`Bot mu?:`, userinfo.bot, true)
+        .addField(`Roller:`, `${msg.guild.members.get(user.id).roles.filter(r => r.name !== "@everyone").map(r => r).join(' **|** ') || "**Hiç bir role sahip değil.**"}`, false)
         .addField(`Son gönderdiği mesaj:`, userinfo.sonmesaj, false)
-        .setFooter(`${botadi} || Kullanıcı Sistemi`)
+      .addField("Güvenilirlik",kontrol)
+        .setFooter(`${botadi} Kullanıcı Bilgi`)
         msg.channel.send(uembed)
     }
 
@@ -87,7 +94,7 @@ exports.conf = {
   permLevel: 0
 };
 exports.help = {
-  name: 'kullanıcı-bilgi',
+  name: 'userinfo',
   description: 'İstediğiniz kullanıcını bilgilerini gösterir.',
   usage: 'kullanıcı-bilgi'
 };
