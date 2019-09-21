@@ -42,7 +42,7 @@ let onaysız = `${emojiler.basarisiz} **Güvenilmez**`
         .addField(`ID:`, userinfo.id, true)
         .addField(`Robot doğrulaması:`, userinfo.bot, true)
         .addField(`Roller:`, `${msg.guild.members.get(user.id).roles.filter(r => r.name !== "@everyone").map(r => r).join(' **|** ') || "**Hiç bir role sahip değil.**"}`, false)
-        .addField(`Son gönderdiği mesaj:`, userinfo.sonmesaj, false)
+        .addField(`Son gönderdiği mesaj:`, userinfo.sonmesaj , false)
       .addField("Güvenilirlik",kontrol)
         .setFooter(`${botadi} Kullanıcı Bilgi`)
         msg.channel.send(uembed)

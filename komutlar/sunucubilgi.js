@@ -26,6 +26,12 @@ ${emojiler.aktif} **Çevrimiçi:** ${message.guild.members.filter(m=>m.presence.
 ${emojiler.offline} **Çevrimdışı:** ${message.guild.members.filter(m=>m.presence.status == 'offline').size}
 ${emojiler.kup} **Toplam:** ${message.guild.memberCount}  
 `
+ let dogrulama = `${message.guild.verificationLevel}`
+ .replace("0","**Discord**'dan yasaklanmamış herkes.")
+ .replace("1","Hesaplar **E-Posta** ile doğrulanmalıdır")
+ .replace("2","Hesaplar **Discord**'a 5 dakikadan fazla kayıtlı olmalıdır.")
+ .replace("3","Hesaplar Sunucu'da **10 dakikadan** uzun süre kayıtlı olmalıdır.")
+ .replace("4","Hesapların **telefon** onaylı olması gerekmektedir.")
  const embed = new Discord.RichEmbed()
    .setColor("42bcf5")
    .setAuthor(message.guild.name, message.guild.userURL)
@@ -33,7 +39,7 @@ ${emojiler.kup} **Toplam:** ${message.guild.memberCount}
   .addField('Sunucu Sahibi:', message.guild.owner, true)
     .addField('Sunucu ID:', message.guild.id, true)
    .addField('Sunucu Bölgesi:', bolge , true)
-   .addField('Doğrulama seviyesi:', message.guild.verificationLevel, true)
+   .addField('Doğrulama seviyesi:', dogrulama, true)
    .addField('Üyeler [' + message.guild.members.size+"]:", uye, true)
    .addField('Roller:', "<@&" +message.guild.roles.map(role => role.id).join('> - <@&') + ">", true)
    .addField('Kanallar ['+ message.guild.channels.size+"]:", emojiler.gold2 +` \`${message.guild.channels.filter(chan => chan.type === 'voice').size}\` sesli/ \` ${message.guild.channels.filter(chan => chan.type === 'text').size}\` metin / \`${message.guild.channels.filter(chan => chan.type === "category").size}\` kategori`, true)
