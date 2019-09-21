@@ -5,8 +5,9 @@ const ayarlar = require('../ayarlar.json')
 const emojiler = require('../emojiler.json');
 exports.run = async(client, message, args) => {
 
-  if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(':no_entry: Taga Rol ayarlmak için `Rolleri Yönet` yetkisine sahip olman gerek.')
-
+    if (!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send(':no_entry: Taga Rol ayarlmak için `Rolleri Yönet` yetkisine sahip olman gerek.')
+   let tagim = db.fetch(`tagaTag_${message.guild.id}`)
+  if(!args[0]) return message.channel.send(`Aktif Tag: \`${tagim}\``.replace("Aktif Tag: \`null\`",`${emojiler.basarisiz} Tag ayarlanmamış. \n${emojiler.gold2} Ayarlamak için: \n\`!tagarol tag <tagınız>\``));
     if (args[0] == 'ayarla') {
  let rol = message.mentions.roles.first() || message.guild.roles.get(args.join(' '))
   let yeniRol;
