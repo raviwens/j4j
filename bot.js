@@ -472,16 +472,20 @@ client.on("message", async message =>{
 
 //TAG ALANA ROL
 
-client.on("message",  message =>{
+client.on("message",message =>{
           let rol = db.fetch(`tagaRol_${message.guild.id}`);
 let tag = db.fetch(`tagaTag_${message.guild.id}`);
 let kanal= db.fetch(`tagaKanal_${message.guild.id}`);
+     let kontrol = message.guild.roles.find("id", rol);
+  if(message.member.roles.has(kontrol)){
+  }else{
 
     if(message.author.username.includes(tag)) {
       message.member.addRole(rol)
-      client.channels.get(kanal).send(emojiler.gold1 +`\`${message.author.id}\` adlı kullanıcı \`${tag}\`'ni ismine eklediği için rol aldı.`)
+      client.channels.get(kanal).send(emojiler.gold1 +`\`${message.author.id}\` adlı kullanıcı \`${tag}\`'ni ismine eklediği için rol aldı.`);
     }else{
       message.member.removeRole(rol)
+    }
     }});
 
 //TAG ALANA ROL
