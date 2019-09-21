@@ -81,7 +81,7 @@ let onaysız = `${emojiler.basarisiz} **Güvenilmez**`
         .setAuthor(user.tag, userinfo.avatar)
         .setThumbnail(userinfo.avatar)
         
-        .addField(`Oyun`, userinfo.od1 + msg.guild.members.get(user).presence.activity.timestamps, false)
+        .addField(`Oyun`, userinfo.od1 , false)
         .addField(`Durum`, userinfo.status, false)
         .setColor('fcf803')
         .addField(`Katılım Tarihi (Sunucu)`, "`"+gün2+"` gündür **Sunucu**'da.", false)
