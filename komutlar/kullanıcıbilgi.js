@@ -27,61 +27,22 @@ let onaysız = `${emojiler.basarisiz} **Güvenilmez**`
         .replace("idle", `${emojiler.bosta} Boşta`)
         .replace("offline", `${emojiler.offline} Çevrimdışı`)
         userinfo.bot = user.bot.toString()
-        .replace("false", `Hayır`)
-        .replace("true", `Evet`)
+        .replace("false", `${emojiler.gold1} **İnsan**`)
+        .replace("true", `${emojiler.gold2} **Bot**`)
         userinfo.sonmesaj = user.lastMessage || "Son yazılan mesaj bulunamadı." || "Son yazılan mesaj gösterilemedi."
   
-        userinfo.dctarih = moment.utc(msg.guild.members.get(user.id).user.createdAt).format('**YYYY** [Yılında] MMMM [Ayında] dddd [Gününde] (**DD/MM/YYYY**)')
-      .replace("Monday", `**Pazartesi**`)
-        .replace("Tuesday", `**Salı**`)
-        .replace("Wednesday", `**Çarşamba**`)
-        .replace("Thursday", `**Perşembe**`)
-        .replace("Friday", `**Cuma**`)
-        .replace("Saturday", `**Cumartesi**`)
-        .replace("Sunday", `**Pazar**`)
-        .replace("January", `**Ocak**`)
-        .replace("February", `**Şubat**`)
-        .replace("March", `**Mart**`)
-        .replace("April", `**Nisan**`)
-        .replace("May", `**Mayıs**`)
-        .replace("June", `**Haziran**`)
-        .replace("July", `**Temmuz**`)
-        .replace("August", `**Ağustos**`)
-        .replace("September", `**Eylül**`)
-        .replace("October", `**Ekim**`)
-        .replace("November", `**Kasım**`)
-        .replace("December", `**Aralık**`)
         userinfo.dctarihkatilma = moment.utc(msg.guild.members.get(user.id).joinedAt).format('D')
-        .replace("Monday", `**Pazartesi**`)
-        .replace("Tuesday", `**Salı**`)
-        .replace("Wednesday", `**Çarşamba**`)
-        .replace("Thursday", `**Perşembe**`)
-        .replace("Friday", `**Cuma**`)
-        .replace("Saturday", `**Cumartesi**`)
-        .replace("Sunday", `**Pazar**`)
-       .replace("January", `**Ocak**`)
-        .replace("February", `**Şubat**`)
-        .replace("March", `**Mart**`)
-        .replace("April", `**Nisan**`)
-        .replace("May", `**Mayıs**`)
-        .replace("June", `**Haziran**`)
-        .replace("July", `**Temmuz**`)
-        .replace("August", `**Ağustos**`)
-        .replace("September", `**Eylül**`)
-        .replace("October", `**Ekim**`)
-        .replace("November", `**Kasım**`)
-        .replace("December", `**Aralık**`)
         const uembed = new Discord.RichEmbed()
         .setAuthor(user.tag, userinfo.avatar)
         .setThumbnail(userinfo.avatar)
-        .setTitle('Kullanıcı;')
+        
         .addField(`Oyun`, userinfo.od1, false)
         .addField(`Durum`, userinfo.status, false)
         .setColor('fcf803')
         .addField(`Katılım Tarihi (Sunucu)`, "`"+userinfo.dctarihkatilma+"` gündür **Sunucu**'da.", false)
         .addField(`Katılım Tarihi (Discord)`,"`"+ gün+"` gündür **Discord**'da.", false)
         .addField(`ID:`, userinfo.id, true)
-        .addField(`Bot mu?:`, userinfo.bot, true)
+        .addField(`Robot doğrulaması:`, userinfo.bot, true)
         .addField(`Roller:`, `${msg.guild.members.get(user.id).roles.filter(r => r.name !== "@everyone").map(r => r).join(' **|** ') || "**Hiç bir role sahip değil.**"}`, false)
         .addField(`Son gönderdiği mesaj:`, userinfo.sonmesaj, false)
       .addField("Güvenilirlik",kontrol)
@@ -96,8 +57,8 @@ exports.conf = {
   permLevel: 0
 };
 exports.help = {
-  name: 'userinfo',
-  description: 'İstediğiniz kullanıcını bilgilerini gösterir.',
-  usage: 'kullanıcı-bilgi'
+  name: 'kullanıcıbilgi',
+  description: '',
+  usage: 'kullanıcıbilgi'
 };
 
