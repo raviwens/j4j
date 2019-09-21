@@ -469,4 +469,21 @@ client.on("message", async message =>{
 });
 
 //OTO BOT SILICI
+
+//TAG ALANA ROL
+
+client.on("userUpdate", async member =>{
+          let rol = db.fetch(`tagaRol_${member.guild.id}`);
+let tag = db.fetch(`tagaTag_${member.guild.id}`);
+let kanal= db.fetch(`tagaKanal_${member.guild.id}`);
+
+  member.guild.members.forEach(u => {
+  
+  if(u.user.username.includes(tag)) {
+      u.addRole(rol)
+    }else{
+      u.removeRole(rol)
+    }})
+});
+//TAG ALANA ROL
 client.login(ayarlar.token); 
