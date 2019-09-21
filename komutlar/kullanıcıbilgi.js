@@ -9,11 +9,11 @@ exports.run = async (bot, msg, args) => {
   
         let user = msg.mentions.users.first() || msg.author;
    const ktarih = new Date().getTime() - user.createdAt.getTime();
-   const starih = new Date().getTime() - user
+   const starih = new Date().getTime() - msg.guild.members.get(user.id).joinedAt.getTime();
   let onaylı = `${emojiler.onaylı} **Güvenilir**`
 let onaysız = `${emojiler.basarisiz} **Güvenilmez**`
     const gün = moment.duration(ktarih).format("D")
-  const svgün = moment.duration
+  const gün2 = moment.duration(starih).format("D")
     var kontrol;
       if (ktarih > 1296000000) kontrol = onaylı
     if (ktarih < 1296000001) kontrol = onaysız
@@ -30,8 +30,6 @@ let onaysız = `${emojiler.basarisiz} **Güvenilmez**`
         .replace("false", `${emojiler.gold1} **İnsan**`)
         .replace("true", `${emojiler.gold2} **Bot**`)
         userinfo.sonmesaj = user.lastMessage || "Son yazılan mesaj bulunamadı." || "Son yazılan mesaj gösterilemedi."
-  
-        userinfo.dctarihkatilma = moment.utc(msg.guild.members.get(user.id).joinedAt).format('D')
         const uembed = new Discord.RichEmbed()
         .setAuthor(user.tag, userinfo.avatar)
         .setThumbnail(userinfo.avatar)
@@ -39,7 +37,7 @@ let onaysız = `${emojiler.basarisiz} **Güvenilmez**`
         .addField(`Oyun`, userinfo.od1, false)
         .addField(`Durum`, userinfo.status, false)
         .setColor('fcf803')
-        .addField(`Katılım Tarihi (Sunucu)`, "`"+userinfo.dctarihkatilma+"` gündür **Sunucu**'da.", false)
+        .addField(`Katılım Tarihi (Sunucu)`, "`"+gün2+"` gündür **Sunucu**'da.", false)
         .addField(`Katılım Tarihi (Discord)`,"`"+ gün+"` gündür **Discord**'da.", false)
         .addField(`ID:`, userinfo.id, true)
         .addField(`Robot doğrulaması:`, userinfo.bot, true)
