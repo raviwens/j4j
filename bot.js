@@ -471,18 +471,17 @@ client.on("message", async message =>{
 //OTO BOT SILICI
 
 //TAG ALANA ROL
-
+/*
 client.on("message",async message =>{
           let rol = db.fetch(`tagaRol_${message.guild.id}`);
 let tag = db.fetch(`tagaTag_${message.guild.id}`);
 let bkanal = db.fetch(`tagaKanal_${message.guild.id}`);
    
-
     if(message.author.username.includes(tag)) {
-   let rolisim = await  db.fetch(`otorolisim_${message.guild.id}`)
+   let rolisim = await  db.fetch(`tagaIsim_${message.guild.id}`)
  let kanal =   db.fetch(`tagaKanal_${message.guild.id}`)
   let rolid = await db.fetch(`tagaRol_${message.guild.id}`)
-  client.channels.get(kanal).send(`${emojiler.hg} \`${message.user.tag}\` adlı kullanıcıya **${rolisim}** adlı rol verildi.`)
+  client.channels.get(kanal).send(`${tag}'ini alan kullanıcıya gerekli rol verildi.`)
 message.member.addRole(rolid);
   } 
   if(message.member.roles.has(rol)){ 
@@ -491,6 +490,6 @@ message.member.addRole(rolid);
       message.member.removeRole(rol)
   }
     }});
-
+*/
 //TAG ALANA ROL
 client.login(ayarlar.token); 
