@@ -9,9 +9,11 @@ exports.run = async (bot, msg, args) => {
   
         let user = msg.mentions.users.first() || msg.author;
    const ktarih = new Date().getTime() - user.createdAt.getTime();
-    let onaylı = `${emojiler.onaylı} **Güvenilir**`
+   const starih = new Date().getTime() - user
+  let onaylı = `${emojiler.onaylı} **Güvenilir**`
 let onaysız = `${emojiler.basarisiz} **Güvenilmez**`
-    const gün = moment.duration(ktarih) 
+    const gün = moment.duration(ktarih).format("D")
+  const svgün = moment.duration
     var kontrol;
       if (ktarih > 1296000000) kontrol = onaylı
     if (ktarih < 1296000001) kontrol = onaysız
@@ -49,7 +51,7 @@ let onaysız = `${emojiler.basarisiz} **Güvenilmez**`
         .replace("October", `**Ekim**`)
         .replace("November", `**Kasım**`)
         .replace("December", `**Aralık**`)
-        userinfo.dctarihkatilma = moment.utc(msg.guild.members.get(user.id).joinedAt).format('**YYYY** [Yılında] MMMM [Ayında] dddd [Gününde] (**DD/MM/YYYY**)')
+        userinfo.dctarihkatilma = moment.utc(msg.guild.members.get(user.id).joinedAt).format('D')
         .replace("Monday", `**Pazartesi**`)
         .replace("Tuesday", `**Salı**`)
         .replace("Wednesday", `**Çarşamba**`)
@@ -76,8 +78,8 @@ let onaysız = `${emojiler.basarisiz} **Güvenilmez**`
         .addField(`Oyun`, userinfo.od1, false)
         .addField(`Durum`, userinfo.status, false)
         .setColor('03f2df')
-        .addField(`Katılım Tarihi (Sunucu)`, userinfo.dctarihkatilma, false)
-        .addField(`Katılım Tarihi (Discord)`, userinfo.dctarih, false)
+        .addField(`Katılım Tarihi (Sunucu)`, "`"+userinfo.dctarihkatilma+"` gündür **Sunucu**'da.", false)
+        .addField(`Katılım Tarihi (Discord)`,"`"+ gün+"` gündür **Discord**'da.", false)
         .addField(`ID:`, userinfo.id, true)
         .addField(`Bot mu?:`, userinfo.bot, true)
         .addField(`Roller:`, `${msg.guild.members.get(user.id).roles.filter(r => r.name !== "@everyone").map(r => r).join(' **|** ') || "**Hiç bir role sahip değil.**"}`, false)
