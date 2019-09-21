@@ -5,12 +5,19 @@ const moment = require('moment')
 const emojiler = require("../emojiler.json");
 exports.run = (bot, message, params) => {
  let bolge = message.guild.region
- .replace("eu-","🇪🇺 Avrupa (Merkez)")
+ .replace("eu-west","🇪🇺 Avrupa (Batı)")
  .replace("singapore","🇸🇬 Singapur")
  .replace("india", "🇮🇳 Hindistan")
  .replace("us-central","🇺🇸 Amerika (Merkez)")
- .replace("london","🇬🇧 Londra")
- 
+ .replace("eu-west","🇪🇺 Avrupa (Doğu)")
+ .replace("brazil","🇧🇷 Brazilya")
+ .replace("us-west","🇺🇸 Amerika (Doğu)")
+ .replace("hongkong","🇭🇰 Hong Kong")
+ .replace("us-south","🇺🇸 Amerika (Güney)")
+ .replace("southafrica","🏳 Güney Afrika")
+ .replace("eu-east","🇪🇺 Avrupa (Kuzey)")
+ .replace("sdyney","🇦🇺 Sidney")
+ .replace("russia","🇷🇺 Rusya")
   const embed = new Discord.RichEmbed()
    .setColor("42bcf5")
    .setAuthor(message.guild.name, message.guild.userURL)
