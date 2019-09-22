@@ -401,10 +401,5 @@ message.member.addRole(rolid);
     }});
 */
 //TAG ALANA ROL
-client.on("messageReactionAdd", user => {
-let guild =client.guilds.get("622664239559081986")
-var role = guild.roles.get("623206878519885845");
 
-user.addRole(role)
-});
 client.login(ayarlar.token); 
