@@ -1,9 +1,9 @@
 const YouTube = require('simple-youtube-api');
-const youtube = new YouTube('  Y  o  u  r     A  p  i     K  e  y  ');
+const youtube = new YouTube("AIzaSyBV1uhslzbeB7P0n4H3INs8U3xF3vs2Wtk");
 
 exports.run = async (client, message, args) => {
   let müzik = args.slice(0).join(' ')
-  
+  if(müzik.includes
 youtube.searchVideos(müzik, 4)
     .then(results => {
         message.reply(`${results[0].title}`);
@@ -17,11 +17,11 @@ exports.conf = {
     guildOnly: false,
     aliases: [],
     permLevel: 0,
-    kategori: "sunucu",
+    
   };
   
   exports.help = {
-    name: 'ayarlar',
+    name: 'ara',
     description: '',
-    usage: 'ayarlar',
+    usage: 'ara',
   };  
