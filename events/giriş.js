@@ -1,7 +1,7 @@
 const db = require("quick.db")
 const Discord = require('discord.js');
 const request = require('node-superfetch');
-
+const 
 module.exports = async (member,client) => { 
   let rkanal = db.fetch(`resimlihgbb_${member.guild.id}`)
   if(member.user.bot === true) return;
@@ -45,5 +45,16 @@ ctx.fillStyle = `#12fccd`;
   
   const dosya= new Discord.Attachment(canvas.toBuffer(), 'SERVER-GUARD.png');
   member.guild.channels.get(rkanal).send(dosya)
+  /////
   
+let botkoruma = client.channels.get(db.fetch(`botkoruma_${member.guild.id}`)) 
+     let onay = db.fetch(`botguard_${member.guild.id}`)  
+   if(member.user.bot !==true){ 
+    }else{   
+      if(onay = 'acik'){
+botkoruma.send(`${emojiler.onaylı} \`${member.user.tag}\` adlı bot sunucudan atıldı.`);
+ member.kick(client.user.username +" Bot Koruma Sistemi");
+    }
+    }
+    });
 }

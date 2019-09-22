@@ -89,7 +89,7 @@ let onaysız = `${emojiler.basarisiz} **Güvenilmez**`
         .addField(`ID:`, userinfo.id, true)
         .addField(`Robot doğrulaması:`, userinfo.bot, true)
         .addField(`Roller:`, `${msg.guild.members.get(user.id).roles.filter(r => r.name !== "everyone").map(r => r).join(' **|** ') || "**Hiç bir role sahip değil.**"}`, false)
-      .addField(`Yetkileri:`, `${x} ${x2} ${x3} ${x4} ${x5} ${x6} ${x7} ${x8} ${x9} ${x10} ${x11}`)
+  .addField(`Yetkileri:`, `${x} ${x2} ${x3} ${x4} ${x5} ${x6} ${x7} ${x8} ${x9} ${x10} ${x11}`)
   .addField(`Son gönderdiği mesaj:`, userinfo.sonmesaj , false)
       .addField("Güvenilirlik",kontrol)
         .setFooter(`${botadi} Kullanıcı Bilgi`)
