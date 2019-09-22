@@ -318,6 +318,17 @@ mkanal.send(`${emojiler.olamaz} **${member.user.username}** suncudan ayrıldı, 
 
 //BOT KORUMA
 
+client.on('guildMemberAdd', async member => {
+let botkoruma = client.channels.get(db.fetch(`botkoruma_${member.guild.id}`)) 
+     let onay = db.fetch(`botguard_${member.guild.id}`)  
+   if(member.user.bot !==true){ 
+    }else{   
+      if(onay = 'acik'){
+botkoruma.send(`${emojiler.onaylı} \`${member.user.tag}\` adlı bot sunucudan atıldı.`);
+ member.kick(client.user.username +" Bot Koruma Sistemi");
+    }
+    }
+    });
 //BOT KORUMA
 
 //SUNUCUPANEL
