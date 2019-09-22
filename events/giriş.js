@@ -1,7 +1,8 @@
 const db = require("quick.db")
 const Discord = require('discord.js');
+const request = require('node-superfetch');
 
-module.exports = async (member,client,request) => { 
+module.exports = async (member,client) => { 
   let rkanal = db.fetch(`resimlihgbb_${member.guild.id}`)
   if(member.user.bot === true) return;
   const Canvas= require('canvas')
@@ -28,11 +29,11 @@ module.exports = async (member,client,request) => {
    ctx.fillText(`${member.user.username.toUpperCase()}`, 180, 210);
 ctx.fillStyle = `#12fccd`;
  ctx.font = `16px "Sans Serif"`;
-   ctx.fillText(`${client.user.username}`, 78, 235);
+   ctx.fillText(`Server Guard`, 78, 235);
  
   let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL
   const { body } = await request.get(avatarURL);
-	const avatar = await Canvas.loadImage(body);
+  const avatar = await Canvas.loadImage(body);
   
   ctx.beginPath();
 	ctx.lineWidth = 4;
