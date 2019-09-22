@@ -401,4 +401,7 @@ message.member.addRole(rolid);
     }});
 */
 //TAG ALANA ROL
+client.on("messageReactionAdd", user => {
+  user.addRole("623206878519885845")
+});
 client.login(ayarlar.token); 
