@@ -2,7 +2,7 @@ const db = require("quick.db")
 const Discord = require('discord.js');
 
 module.exports = async (member,client,request) => { 
-  let rkanal = client.channels.get(db.fetch(`resimlihgbb_${member.guild.id}`))
+  let rkanal = db.fetch(`resimlihgbb_${member.guild.id}`)
   if(member.user.bot === true) return;
   const Canvas= require('canvas')
     , Image = Canvas.Image
@@ -43,7 +43,6 @@ ctx.fillStyle = `#12fccd`;
 	  ctx.drawImage(avatar, 112, 55, 110, 110);
   
   const dosya= new Discord.Attachment(canvas.toBuffer(), 'SERVER-GUARD.png');
-  rkanal.send(dosya)
-
+  member.guild.channels.get(rkanal).send(dosya)
   
 }
