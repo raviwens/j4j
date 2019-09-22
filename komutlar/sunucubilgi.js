@@ -41,7 +41,7 @@ ${emojiler.kup} **Toplam:** ${message.guild.memberCount}
    .addField('Sunucu Bölgesi:', bolge , true)
    .addField('Doğrulama seviyesi:', dogrulama, true)
    .addField('Üyeler [' + message.guild.members.size+"]:", uye, true)
-   .addField('Roller:', "<@&" +message.guild.roles.map(role => role.id).join('> - <@&') + ">", true)
+   .addField('Roller:', "<@&" +message.guild.roles.map(role => role.id).join('> - <@&')+ ">", true)
    .addField('Kanallar ['+ message.guild.channels.size+"]:", emojiler.gold2 +` \`${message.guild.channels.filter(chan => chan.type === 'voice').size}\` sesli/ \` ${message.guild.channels.filter(chan => chan.type === 'text').size}\` metin / \`${message.guild.channels.filter(chan => chan.type === "category").size}\` kategori`, true)
    .setFooter('Server Guard', message.guild.iconURL)
    .setTimestamp()
