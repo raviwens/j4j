@@ -71,7 +71,8 @@
     "weather-js": "^2.0.0",
     "ytdl-core": "^0.29.5",
     "better-sqlite3": "^5.4.2",
-    "gamedig": "^2.0.14"
+    "gamedig": "^2.0.14",
+    "whois": "^2.11.0"
   },
   "engines": {
     "node": "8.x"

@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const whois = require('whois')
 const http = require('http');
     app.get("/", (request, response) => {
     console.log(` az önce pinglenmedi. Sonra ponglanmadı... ya da başka bir şeyler olmadı.`);
@@ -44,8 +45,8 @@ const log = message => {
 client.on("ready", () => {
   client.user.setActivity('Özel Kod Yazılır / Satılır');
       }, 
-  console.log("Bağlandım!")
-);
+
+          );
 
 //----------------------Bot'un Bağlandı Kısmı SON-----------------------------//
 
