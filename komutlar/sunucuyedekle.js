@@ -6,10 +6,10 @@ exports.run = async (client, message, args) => {
  let eylem = args.slice(0).join(' ')
  if(eylem === "al"){
    if(!message.member.hasPermission("ADMINISTRATOR")){
-            return message.author.send(emojiler.basarisiz +"Bu kodu kullanmak için `ADMINISTRATOR` yetkinin olması lazım! ");
+            return message.channel.send(emojiler.basarisiz +"Bu kodu kullanmak için `ADMINISTRATOR` yetkinin olması lazım! ");
         }
          backup.create(message.guild).then((backupID) => {
-            message.channel.send("Yedeği kurmak için: `!sunucuyedek kur "+backupID+"`");
+            message.author.send("Yedeği kurmak için: `!sunucuyedek kur "+backupID+"`");
         });
  }
   if(eylem === "kur"){
