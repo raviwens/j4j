@@ -402,5 +402,4 @@ message.member.addRole(rolid);
     }});
 */
 //TAG ALANA ROL
-
 client.login(ayarlar.token); 
