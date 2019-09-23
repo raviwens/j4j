@@ -11,6 +11,7 @@ dependencies:
   common-tags: 1.8.0
   cpu-stat: 2.0.1
   dblapi.js: 2.3.0
+  discord-backup: 1.1.0
   discord.js: 11.5.1
   discord.js-commando: 0.10.0
   ejs: 2.6.2
@@ -505,6 +506,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=
+  /array-uniq/1.0.2:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-X8w3OSB3VyPP1k1lxkvvU7+eum0=
   /arrify/1.0.1:
     dev: false
     engines:
@@ -1163,6 +1170,14 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
+  /discord-backup/1.1.0:
+    dependencies:
+      discord.js: github.com/discordjs/discord.js/405bdb5b558eff478d0bde739cee1ee8e40c330b
+      fs: 0.0.1-security
+      randomstring: 1.1.5
+    dev: false
+    resolution:
+      integrity: sha512-33gUwAjXFE6BQh26EBF+KlL/csoRIwVSw3U9yoir2EF9KnpAfFEdAfd7ZHjJAhkPEMqExP/TKx1N4qw805N+Vw==
   /discord.js-commando/0.10.0:
     dependencies:
       common-tags: 1.8.0
@@ -1574,6 +1589,16 @@ packages:
       node: '>= 0.12'
     resolution:
       integrity: sha512-WXieX3G/8side6VIqx44ablyULoGruSde5PNTxoUyo5CeyAMX6nVWUd0rgist/EuX655cjhUhTo1Fo3tRYqbcA==
+  /form-data/2.5.1:
+    dependencies:
+      asynckit: 0.4.0
+      combined-stream: 1.0.8
+      mime-types: 2.1.24
+    dev: false
+    engines:
+      node: '>= 0.12'
+    resolution:
+      integrity: sha512-m21N3WOmEEURgk6B9GLOE4RuWOFf28Lhh9qGYeNlGq4VDXUlJy2th2slBNU8Gp8EzloYZOibZJ7t5ecIrFSjVA==
   /formidable/1.2.1:
     dev: false
     resolution:
@@ -1616,6 +1641,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
+  /fs/0.0.1-security:
+    dev: false
+    resolution:
+      integrity: sha1-invTcYa23d84E/I4WLV+yq9eQdQ=
   /fs/0.0.2:
     dev: false
     resolution:
@@ -2934,6 +2963,14 @@ packages:
     dev: false
     resolution:
       integrity: sha512-c9KkNifSMU/iXT8FFTaBwBMr+rdVcN+H/uNv1o+CuFeTThNZNTOrQ+RgXA1yL/DeLk098duAeRPP3QNPNbhxYQ==
+  /prism-media/1.1.0:
+    dev: false
+    peerDependencies:
+      ffmpeg-static: ^2.4.0
+      node-opus: ^0.3.1
+      opusscript: ^0.0.6
+    resolution:
+      integrity: sha512-W+oxjRyjtd7hw3pefNZuc7YEZ6VICORJvVNfCPs0+7CsJ43CqMjGAYGjPL3hQ82vw03EVra+CiX4zisqOBUUGw==
   /process-nextick-args/2.0.1:
     dev: false
     resolution:
@@ -3031,6 +3068,13 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha1-T2ih3Arli9P7lYSMMDJNt11kNgs=
+  /randomstring/1.1.5:
+    dependencies:
+      array-uniq: 1.0.2
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha1-bfBij3XL1ZMpMNn+OrTpVqGFGMM=
   /range-parser/1.2.0:
     dev: false
     engines:
@@ -3332,6 +3376,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-BF+XgtARrppoA93TgrJDkrPYkPc=
+  /setimmediate/1.0.5:
+    dev: false
+    resolution:
+      integrity: sha1-KQy7Iy4waULX1+qbg3Mqt4VvgoU=
   /setprototypeof/1.1.0:
     dev: false
     resolution:
@@ -3959,6 +4007,30 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-6WOoLQCeovo/aFYeMKeEXjvS/L+0j/vq85AYF86KSmkSA3lMzUzMdtmlo0GjsrOUN79S03MDkSgXEWOZBWL1Rg==
+  github.com/discordjs/discord.js/405bdb5b558eff478d0bde739cee1ee8e40c330b:
+    dependencies:
+      form-data: 2.5.1
+      node-fetch: 2.6.0
+      pako: 1.0.10
+      prism-media: 1.1.0
+      setimmediate: 1.0.5
+      tweetnacl: 1.0.1
+      ws: 6.2.1
+    dev: false
+    engines:
+      node: '>=10.0.0'
+    name: discord.js
+    peerDependencies:
+      '@discordjs/uws': ^11.149.1
+      bufferutil: ^4.0.1
+      erlpack: discordapp/erlpack
+      libsodium-wrappers: ^0.7.4
+      sodium: ^3.0.2
+      zlib-sync: ^0.1.4
+      zucc: ^0.1.0
+    resolution:
+      tarball: 'https://codeload.github.com/discordjs/discord.js/tar.gz/405bdb5b558eff478d0bde739cee1ee8e40c330b'
+    version: 12.0.0-dev
 registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
@@ -3975,6 +4047,7 @@ specifiers:
   common-tags: ^1.8.0
   cpu-stat: ^2.0.1
   dblapi.js: ^2.3.0
+  discord-backup: ^1.0.6
   discord.js: ^11.5.1
   discord.js-commando: ^0.10.0
   ejs: ^2.6.2
