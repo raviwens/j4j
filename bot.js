@@ -320,7 +320,7 @@ mkanal.send(`${emojiler.olamaz} **${member.user.username}** suncudan ayrıldı, 
 //BOT KORUMA
 
 client.on('guildMemberAdd', async member => {
-let botkoruma = client.channels.get(db.fetch(`botkoruma_${member.guild.id}`)) 
+let botkoruma = member.guild.channels.get(db.fetch(`botkoruma_${member.guild.id}`)) 
      let onay = db.fetch(`botguard_${member.guild.id}`)  
    if(member.user.bot !==true){ 
     }else{   
