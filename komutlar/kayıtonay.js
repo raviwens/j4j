@@ -4,15 +4,16 @@ const ayarlar = require('../ayarlar.json');
 const db = require("quick.db")
 
 exports.run = (client, message, args) => {
+message.delete(2000);
   let uye =  db.fetch(`kod_${message.author.id}`)
-  if(!uye) return;
-  db.fetch(`kod_${message.author.id}`).then(kod => {
-  if(args[0] !== kod) return message.reply("Hata! Doğru kod girmelisin.").then(msg => msg.delete(10000))
+  let uyes =  db.has(`kod_${message.author.id}`)
+  if(uyes) return message.channel.send("Zaten kayıtlısın!").then(msg => msg.delete(6000));
+  if(args[0] !== uye) return message.reply("Hata! Doğru kod girmelisin.").then(msg => msg.delete(10000))
   else {
   message.delete()
-  var alrol = message.guild.roles.get('626484784637673472');   
+  var silrol = message.guild.roles.get('626484784637673472');   
       
-  var silrol = message.guild.roles.get('626455739497447441');   
+  var alrol= message.guild.roles.get('626455739497447441');   
       
   message.member.removeRole(silrol);   
       
@@ -22,7 +23,7 @@ exports.run = (client, message, args) => {
     
   }
 
-})}
+}
 
 exports.conf = {
   enabled: true,
