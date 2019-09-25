@@ -5,7 +5,9 @@ const db = require('quick.db')
 
 exports.run = (client, message, args) => {
 let cat = args[0]
-let odaismi =
+let odaismi = args.slice(0).join(" ");
+  let js1 = client.channels.get("");
+message.guild.createChannel("☆-"+odaismi, "text");
 }
 
 exports.conf = {
@@ -16,7 +18,7 @@ exports.conf = {
 };
 
 exports.help = {
-  name: 'kayıt',
-  description: 'Tüm komutları gösterir.',
-  usage: 'yardım [komut]'
+  name: 'kodekle',
+  description: '',
+  usage: ''
 };
