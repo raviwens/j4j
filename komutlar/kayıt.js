@@ -28,7 +28,7 @@ exports.run = (client, message, params) => {
   var hpsi = h1 + h2 + h3 + h4 + h5
   db.set(`kod_${message.author.id}`, hpsi)
   message.delete()
-  message.author.send(hpsi)
+  message.author.send(hpsi).catch(console.error);
   message.reply("Özelden gönderdiğim kodu `p-kayıtonay <kod>` şeklinde yazarak kayıt olunuz.").then(msg => msg.delete(10000))
 }//)}
 
