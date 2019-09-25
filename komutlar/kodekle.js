@@ -5,19 +5,21 @@ const db = require('quick.db')
 
 exports.run = (client, message, args) => {
 let cat = args[0]
-let odaismi = args.slice(0).join(" ");
+let odaismi = args.slice(1).join(" ");
+
   let js1 = client.channels.get("626484209162125343");
+  if(cat === "cat1"){
+  
 message.guild.createChannel("☆-"+odaismi, "text").then(ss =>{
+  message.channel.send("Yeni kod odası açıldı: "+ss);
 let role = message.guild.roles.find(a => a.name === "@everyone");
 ss.setParent(js1);
   ss.overwritePermissions(role, {
-  MESSAGES_SEND: false,
+  SEND_MESSAGES: false,
   VIEW_CHANNEL:false
  });
 });
-  if(cat === "cat1"){
-  
-}
+  }
 }
 
 exports.conf = {
