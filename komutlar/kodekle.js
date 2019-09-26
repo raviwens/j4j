@@ -1,4 +1,3 @@
-
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 const db = require('quick.db')
@@ -13,17 +12,18 @@ if (message.member.roles.some(Rol => Rol.id ==="626424959916441601" )) {
 
   let js1 = client.channels.get("626484209162125343");
   if(cat === "cat1"){
-  
-message.guild.createChannel("☆-"+odaismi, "text").then(ss => {
-  message.channel.send("Yeni kod odası açıldı: "+ss);
-let role = message.guild.roles.find(a => a.name === "@everyone");
- ss.setParent(js1);
-  ss.overwritePermissions(role, {
+   
+message.guild.createChannel("☆-"+odaismi, "text").then(kanal =>{
+kanal.overwritePermissions(kanal, { // Pass 'UserResolvable' type thing as described in Wiki!
+  VIEW_CHANNEL: true,
   SEND_MESSAGES: false,
-  VIEW_CHANNEL:false
- });
+  READ_MESSAGE_HISTORY: true,
+  
+}); 
+  
+  message.channel.send("Yeni kod odası açıldı");
 });
-  }
+}
 }else{
   message.channel.send("Bu kodu yanlızca ***Coder*** ekibi kullanabilir.");
  
