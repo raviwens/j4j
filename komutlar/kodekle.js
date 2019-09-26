@@ -6,10 +6,12 @@ const db = require('quick.db')
 exports.run = (client, message, args) => {
 let cat = args[0]
 let odaismi = args.slice(1).join(" ");
-let coder= message.guild.roles.find("id", "Admin");
    
-  if(message.member.roles.has(coder)) return message.channel.send("Bu kodu yanlızca ***Coder*** ekibi kullanabilir.");
- let js1 = client.channels.get("626484209162125343");
+
+if (message.member.roles.some(Rol => Rol.id ==="626424959916441601" )) {
+
+
+  let js1 = client.channels.get("626484209162125343");
   if(cat === "cat1"){
   
 message.guild.createChannel("☆-"+odaismi, "text").then(ss => {
@@ -22,6 +24,11 @@ let role = message.guild.roles.find(a => a.name === "@everyone");
  });
 });
   }
+}else{
+  message.channel.send("Bu kodu yanlızca ***Coder*** ekibi kullanabilir.");
+ 
+}
+  
 }
 
 exports.conf = {
