@@ -13,30 +13,20 @@ if (message.member.roles.some(Rol => Rol.id ==="626424959916441601" )) {
   let js1 = client.channels.get("626484209162125343");
   if(cat === "cat1"){
   
-message.guild.createChannel("☆-"+odaismi, "text").then(ss => {
+message.guild.createChannel("☆-"+odaismi, "text").then(async ss => {
   message.channel.send("Yeni kod odası açıldı: "+ss);
 let role = message.guild.roles.find(a => a.name = "@everyone");
 let roles = message.guild.roles.find(a => a.id = "626424959916441601" );
- ss.setParent(js1);
-  ss.overwritePermissions(role,{
+ await ss.overwritePermissions(role,{
   SEND_MESSAGES: false,
   VIEW_CHANNEL:false
  });
-ss.setParent(js1);
-  ss.overwritePermissions(role, {
+
+  await ss.overwritePermissions(role, {
   SEND_MESSAGES: false,
   VIEW_CHANNEL:false
  });
- ss.setParent(js1);
-  ss.overwritePermissions(roles,{
-  SEND_MESSAGES: false,
-  VIEW_CHANNEL:false
- });
-ss.setParent(js1);
-  ss.overwritePermissions(roles, {
-  SEND_MESSAGES: false,
-  VIEW_CHANNEL:false
- });
+await ss.setParent(js1);
 });
   }
 }else{
