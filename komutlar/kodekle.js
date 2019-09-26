@@ -6,8 +6,10 @@ const db = require('quick.db')
 exports.run = (client, message, args) => {
 let cat = args[0]
 let odaismi = args.slice(1).join(" ");
-
-  let js1 = client.channels.get("626484209162125343");
+let coder= message.guild.roles.find("id", "Admin");
+   
+  if(message.member.roles.has(coder)) return message.channel.send("Bu kodu yanlızca ***Coder*** ekibi kullanabilir.");
+ let js1 = client.channels.get("626484209162125343");
   if(cat === "cat1"){
   
 message.guild.createChannel("☆-"+odaismi, "text").then(ss => {
