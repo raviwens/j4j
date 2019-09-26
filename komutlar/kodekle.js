@@ -6,7 +6,7 @@ const db = require('quick.db')
 exports.run = (client, message, args) => {
 let cat = args[0]
 let odaismi = args.slice(1).join(" ");
-   
+   if(args[0]) return message.channel.send("Doğru kullanım: `p-kodekld cat1 <komut-ismi>`");
 
 if (message.member.roles.some(Rol => Rol.id ==="626424959916441601" )) {
 
