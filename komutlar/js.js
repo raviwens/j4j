@@ -12,7 +12,7 @@ message.delete(2000);
     
    message.reply("JS rolünü aldın.").then(msg => msg.delete(10000))
  }else{
-  message.channel.send("Bu kodu yanlızca bot komut kanalında kullanabilirsin.");
+  message.channel.send("Bu kodu yanlızca **bot komut** kanalında kullanabilirsin.");
  }
   }
 
