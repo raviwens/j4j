@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
     let cat = args[0]
     let odaismi = args.slice(1).join(" ");
     if (!args[0]) return message.channel.send("Doğru kullanım: `p-kodekle cat1 <komut-ismi>`");
-    let coder = "626424959916441601";
+    let coder = message.guild.roles.find('name', 'Coder');
     if (message.member.roles.some(Rol => Rol.id === "626424959916441601")) {
 
 
@@ -15,10 +15,10 @@ exports.run = (client, message, args) => {
         if (cat === "cat1") {
             message.guild.createChannel("☆-" + odaismi, "text").then(ss => {
                 message.channel.send("Yeni kod odası açıldı: " + ss);
-                let role = message.guild.roles.find(a => a.name = "everyone");
                 ss.setParent(js1);
-                ss.overwritePermissions(role, {
-                    SEND_MESSAGES: false
+                ss.overwritePermissions(message.guild.id, {
+                    SEND_MESSAGES: false,
+                    VIEW
                 });
                 ss.overwritePermissions(coder, {
                     SEND_MESSAGES: true
