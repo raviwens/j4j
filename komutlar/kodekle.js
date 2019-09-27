@@ -1,50 +1,46 @@
+
 const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json');
 const db = require('quick.db')
 
 exports.run = (client, message, args) => {
-let cat = args[0]
-let odaismi = args.slice(1).join(" ");
-   if(!args[0]) return message.channel.send("Doğru kullanım: `p-kodekle cat1 <komut-ismi>`");
+    let cat = args[0]
+    let odaismi = args.slice(1).join(" ");
+    if (!args[0]) return message.channel.send("Doğru kullanım: `p-kodekle cat1 <komut-ismi>`");
+    let coder = "626424959916441601";
+    if (message.member.roles.some(Rol => Rol.id === "626424959916441601")) {
 
-if (message.member.roles.some(Rol => Rol.id ==="626424959916441601" )) {
 
+        let js1 = client.channels.get("626484209162125343");
+        if (cat === "cat1") {
+            message.guild.createChannel("☆-" + odaismi, "text").then(ss => {
+                message.channel.send("Yeni kod odası açıldı: " + ss);
+                let role = message.guild.roles.find(a => a.name = "everyone");
+                ss.setParent(js1);
+                ss.overwritePermissions(role, {
+                    SEND_MESSAGES: false
+                });
+                ss.overwritePermissions(coder, {
+                    SEND_MESSAGES: true
+                })
+            });
+        }
+    } else {
+        message.channel.send("Bu kodu yanlızca ***Coder*** ekibi kullanabilir.");
 
-  let js1 = client.channels.get("626484209162125343");
-  if(cat === "cat1"){
-  
-message.guild.createChannel("☆-"+odaismi, "text").then(async ss => {
-  message.channel.send("Yeni kod odası açıldı: "+ss);
-let role = message.guild.roles.find(a => a.name = "@everyone");
-let roles = message.guild.roles.find(a => a.id = "626424959916441601" );
- await ss.overwritePermissions(role,{
-  SEND_MESSAGES: false,
-  VIEW_CHANNEL:false
- });
+    }
 
-  await ss.overwritePermissions(role, {
-  SEND_MESSAGES: false,
-  VIEW_CHANNEL:false
- });
-await ss.setParent(js1);
-});
-  }
-}else{
-  message.channel.send("Bu kodu yanlızca ***Coder*** ekibi kullanabilir.");
- 
-}
-  
 }
 
 exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: [],
-  permLevel: 0
+    enabled: true,
+    guildOnly: false,
+    aliases: [],
+    permLevel: 0
 };
 
 exports.help = {
-  name: 'kodekle',
-  description: '',
-  usage: ''
+    name: 'kodekle',
+    description: '',
+    usage: ''
 };
