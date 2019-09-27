@@ -43,7 +43,7 @@ const log = message => {
 };
 
 client.on("ready", () => {
-  client.user.setActivity('p-js yazarak kodlara eri');
+  client.user.setActivity('p-js yazarak kodlara erişim imkanı!');
       }, 
 
           );
