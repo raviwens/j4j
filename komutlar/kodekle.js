@@ -18,7 +18,7 @@ exports.run = (client, message, args) => {
                 ss.setParent(js1);
                 ss.overwritePermissions(message.guild.id, {
                     SEND_MESSAGES: false,
-                    VIEW
+                    VIEW_CHANNEL: false
                 });
                 ss.overwritePermissions(coder, {
                     SEND_MESSAGES: true
