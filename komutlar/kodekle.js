@@ -8,6 +8,8 @@ exports.run = (client, message, args) => {
     let odaismi = args.slice(1).join(" ");
     if (!args[0]) return message.channel.send("Doğru kullanım: `p-kodekle cat1 <komut-ismi>`");
     let coder = message.guild.roles.find('name', 'Coder');
+    let jsrolu = message.guild.roles.find('name', 'JS');
+  
     if (message.member.roles.some(Rol => Rol.id === "626424959916441601")) {
 
 
@@ -21,8 +23,13 @@ exports.run = (client, message, args) => {
                     VIEW_CHANNEL: false
                 });
                 ss.overwritePermissions(coder, {
-                    SEND_MESSAGES: true
-                })
+                    SEND_MESSAGES: true,
+                     VIEW_CHANNEL: true
+                });
+           ss.overwritePermissions(jsrolu, {
+                    SEND_MESSAGES: false,
+                     VIEW_CHANNEL: true
+                });
             });
         }
     } else {
