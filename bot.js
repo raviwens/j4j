@@ -21,10 +21,10 @@ require('./util/eventLoader')(client);
 
 //////////////////////////////////////////////
 client.ayarlar = {
-"oynuyor":"Oynuyor kısmı burası",
+"oynuyor":"",
 "prefix":"!",
 "sahip":"SAHIP ID",
-"token":""
+"token":"NjMwMzE4Mjg1OTE2ODY0NTEy.XZmj0Q.9pEGtFJ4n_WpOVnJCFYv6GmeXOM"
 }
 var prefix = client.ayarlar.prefix
 /////////////////////////////////////////////
