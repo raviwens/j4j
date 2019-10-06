@@ -108,7 +108,7 @@ client.elevation = message => {
   if (message.member.hasPermission("MANAGE_CHANNELS")) permlvl = 1;
   if (message.member.hasPermission("BAN_MEMBERS")) permlvl = 2;
   if (message.member.hasPermission("ADMINISTRATOR")) permlvl = 3;
-  if (message.author.id === ayarlar.sahip) permlvl = 4;
+  if (message.author.id === client.ayarlar.sahip) permlvl = 4;
   return permlvl;
 };
 
@@ -125,5 +125,17 @@ client.on('error', e => {
   console.log(chalk.bgRed(e.replace(regToken, 'that was redacted')));
 });
 
+
+
+client.on('guildMemberAdd', async member => {
+let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
+if(member.user.bot === true) return;
+mkanal.send(` **${member.user.username}** sunucuya katıldı, oleyyy.`);
+})
+client.on('guildMemberRemove', async member => {
+let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
+ if(member.user.bot === true) return;
+mkanal.send(`**${member.user.username}** suncudan ayrıldı, puffff.`);
+});
 
 client.login(client.ayarlar.token); 
