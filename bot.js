@@ -22,10 +22,10 @@ const moment = require('moment');
 require('./util/eventLoader')(client);
 require('moment-duration-format');
 
-
-
 var prefix = ayarlar.prefix;
-
+client.ayarlar = {
+"oynuyor":"Oynuyor k"
+}
 
 /////////////////////////////////////////////
 
@@ -40,6 +40,7 @@ fs.readdir('./komutlar/', (err, files) => {
   log(`${files.length} komut yüklenecek.`);
   files.forEach(f => {
     let props = require(`./komutlar/${f}`);
+  
     log(`Yüklenen komut: ${props.help.name}.`);
     client.commands.set(props.help.name, props);
     props.conf.aliases.forEach(alias => {

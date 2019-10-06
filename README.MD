@@ -5,3 +5,6 @@ Ping Was Here
 
 
 Ping her zaman buradaydı, ve çalanları banlar.
+
+Daha ne kadar emek hırsızı olacaksınız?
+Hiç bir sik başarmadan laf atanlara selam olsun.
