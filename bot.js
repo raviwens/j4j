@@ -23,8 +23,11 @@ require('./util/eventLoader')(client);
 require('moment-duration-format');
 
 var prefix = ayarlar.prefix;
+
 client.ayarlar = {
-"oynuyor":"Oynuyor k"
+"oynuyor":"Oynuyor kısmı burası",
+  
+"token":"NjE1NjU1NTQ5MjkxNDYyNjU3.XYYBIQ.b87ujVYPv_16nseAkyFQLjc5wQQ"
 }
 
 /////////////////////////////////////////////
@@ -125,4 +128,4 @@ client.on('error', e => {
   console.log(chalk.bgRed(e.replace(regToken, 'that was redacted')));
 });
 
-client.login(ayarlar.token); 
+client.login(client.ayarlar.token); 

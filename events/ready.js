@@ -9,5 +9,5 @@ module.exports = client => {
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Ping ~ 》 Gerekli kurulum tamamlandı!`);
   console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] Ping ~ 》 ${client.user.tag} olarak giriş sağlandı...`);
   client.user.setStatus("dnd");
-        client.user.setActivity("PingWasHere");
+        client.user.setActivity(client.ayarlar.oynuyor + " PingWasHere");
 };
