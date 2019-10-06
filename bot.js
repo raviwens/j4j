@@ -24,7 +24,7 @@ client.ayarlar = {
 "oynuyor":"Oynuyor kısmı burası",
 "prefix":"!",
 "sahip":"SAHIP ID",
-"token":"NjE1NjU1NTQ5MjkxNDYyNjU3.XYYBIQ.b87ujVYPv_16nseAkyFQLjc5wQQ"
+"token":""
 }
 var prefix = client.ayarlar.prefix
 /////////////////////////////////////////////
