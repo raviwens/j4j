@@ -26,22 +26,21 @@ client.ayarlar = {
 "sahip":"SAHIP ID",
 "token":"NjMwMzE4Mjg1OTE2ODY0NTEy.XZmj0Q.9pEGtFJ4n_WpOVnJCFYv6GmeXOM"
 }
-var prefix = client.ayarlar.prefix
 /////////////////////////////////////////////
 
 const log = message => {
-  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${message}`);
+  console.log(`Kurulum: ${message}`);
 };
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 fs.readdir('./komutlar/', (err, files) => {
   if (err) console.error(err);
-  log(`${files.length} komut yüklenecek.`);
+  log(`${files.length} komut kurulacak.`);
   files.forEach(f => {
     let props = require(`./komutlar/${f}`);
   
-    log(`Yüklenen komut: ${props.help.name}.`);
+    log(`Kurulan komut ~ ${props.help.name}.`);
     client.commands.set(props.help.name, props);
     props.conf.aliases.forEach(alias => {
       client.aliases.set(alias, props.help.name);
@@ -126,7 +125,7 @@ client.on('error', e => {
 });
 
 
-
+//// YAZILI GIRIS CIKIS BASLANGIC ////
 client.on('guildMemberAdd', async member => {
 let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
 if(member.user.bot === true) return;
@@ -137,5 +136,19 @@ let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`))
  if(member.user.bot === true) return;
 mkanal.send(`**${member.user.username}** suncudan ayrıldı, puffff.`);
 });
+//// YAZILI GIRIS CIKIS SON ////
 
+//// OTOROL BASLANGIC ////
+
+client.on("guildMemberAdd", async member => {
+  if (member.user.bot === true) return;
+  let rolisim = await db.fetch(`otorolisim_${member.guild.id}`);
+  let kanal = db.fetch(`otorolKanal_${member.guild.id}`);
+  let rolid = await db.fetch(`otorol_${member.guild.id}`);
+  let bilgiKanal = client.channels.get(kanal)
+    bilgiKanal.send(`:new: \`${member.user.tag}\` adlı kullanıcıya **${rolisim}** adlı rol verildi.` );
+   member.addRole(rolid);
+});
+
+//// OTOROL SON ////
 client.login(client.ayarlar.token); 
