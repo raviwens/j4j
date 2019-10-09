@@ -35,7 +35,7 @@ module.exports.conf = {
 
 module.exports.help = {
   name: 'yazılı-hgbb',
-  description: '',
+  description: 'Ping Was Here',
   usage: '!yazılı-hgbb #kanal'
 };
  
