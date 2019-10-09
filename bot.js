@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const http = require('http');
     app.get("/", (request, response) => {
-    console.log(` az önce pinglenmedi. Sonra ponglanmadı... ya da başka bir şeyler olmadı.`);
+    console.log(`Ping bu botu aktif tutuyor.`);
     response.sendStatus(200);
     });
     app.listen(process.env.PORT);
