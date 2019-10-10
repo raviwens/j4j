@@ -40,9 +40,11 @@ fs.readdir('./komutlar/', (err, files) => {
     let pingKodları = require(`./komutlar/${f}`);
   
     log(`Kurulan komut ~ ${pingKodları.help.name}.`);
+    client.commands.set(pingKodları.help.name, pingKodları); 
+    log(`-------------------------`);
     client.commands.set(pingKodları.help.name, pingKodları);
     pingKodları.conf.aliases.forEach(alias => {
-      client.aliases.set(alias, pingKodları.help.name);
+    client.aliases.set(alias, pingKodları.help.name);
     });
   });
 });

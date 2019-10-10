@@ -39,6 +39,7 @@ let anarol= message.mentions.roles.first() || message.guild.roles.get(args.join(
   
     
 exports.conf = {
+  kategori: "Sunucu Yönetim",
     enabled: true,
     guildOnly: true,
     aliases: [],
