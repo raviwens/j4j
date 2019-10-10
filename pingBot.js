@@ -100,9 +100,6 @@ client.unload = command => {
 
 client.elevation = message => {
   let permlvl = 0;
-  if(!message.guild) {
-  if (message.author.id === client.ayarlar.sahip) permlvl = 4;
-	return; }
   if (message.member.hasPermission("MANAGE_CHANNELS")) permlvl = 1;
   if (message.member.hasPermission("BAN_MEMBERS")) permlvl = 2;
   if (message.member.hasPermission("ADMINISTRATOR")) permlvl = 3;
