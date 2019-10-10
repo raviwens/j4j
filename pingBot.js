@@ -12,7 +12,6 @@ const http = require('http');
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const bot = new Discord.Client();
 const chalk = require('chalk');
 const fs = require('fs');
 const db = require("quick.db")
