@@ -10,8 +10,8 @@ const http = require('http');
     http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
     }, 280000);
 
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const pingDiscord = require('discord.js');
+const client = new pingDiscord.Client();
 const chalk = require('chalk');
 const fs = require('fs');
 const db = require("quick.db")
@@ -31,18 +31,18 @@ const log = message => {
   console.log(`Kurulum: ${message}`);
 };
 
-client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection();
+client.commands = new pingDiscord.Collection();
+client.aliases = new pingDiscord.Collection();
 fs.readdir('./komutlar/', (err, files) => {
   if (err) console.error(err);
   log(`${files.length} komut kurulacak.`);
   files.forEach(f => {
-    let props = require(`./komutlar/${f}`);
+    let pingKodları = require(`./komutlar/${f}`);
   
-    log(`Kurulan komut ~ ${props.help.name}.`);
-    client.commands.set(props.help.name, props);
-    props.conf.aliases.forEach(alias => {
-      client.aliases.set(alias, props.help.name);
+    log(`Kurulan komut ~ ${pingKodları.help.name}.`);
+    client.commands.set(pingKodları.help.name, pingKodları);
+    pingKodları.conf.aliases.forEach(alias => {
+      client.aliases.set(alias, pingKodları.help.name);
     });
   });
 });
