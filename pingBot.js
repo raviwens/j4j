@@ -147,4 +147,8 @@ client.on("guildMemberAdd", async member => {
 });
 
 //// OTOROL SON ////
+
+
+
+
 client.login(client.ayarlar.token); 
