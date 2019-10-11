@@ -114,12 +114,12 @@ client.elevation = message => {
 var hataKontrol = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
 
 
-client.on('warn', e => {
-  console.log(chalk.bgYellow(e.replace(hataKontrol, 'that was redacted')));
+client.on("error", e => {
+console.log("[PING] Hata oluştu!");
 });
 
-client.on('error', e => {
-  console.log(chalk.bgRed(e.replace(hataKontrol, 'that was redacted')));
+client.on("disconnect", e => {
+  console.log("[PING] Botun bağlantısı kaybedildi!");
 });
 
 
