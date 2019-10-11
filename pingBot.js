@@ -151,15 +151,18 @@ client.on("guildMemberAdd", async member => {
 //// OTOROL SON ////
 
 //// GUVENLIK SISTEMI BASLANGIC ///
+
 client.on("guildMemberAdd", async member => {
   let gkisi = client.users.get(member.id);
   let gkanal = client.channels.get(db.fetch(`guard_${member.guild.id}`));
-  let onaylı = `${member.tag} onaylıd
+  let onaylı = `:ballot_box_with_check:  ${member},  **Güvenlik** sistemine takılmadı.`
+  let onaysız = `:x: ${member}, **Güvenlik** sistemine takıldı!`
+
   const ktarih = new Date().getTime() - gkisi.createdAt.getTime();
-  const gün = moment.duration(ktarih).format("D");
   var kontrol;
   if (ktarih > 1296000000) kontrol = onaylı;
   if (ktarih < 1296000001) kontrol = onaysız;
+  gkanal.send(kontrol);
 });
 
 //// GUVENLIK SISTEMI SON ////
