@@ -21,14 +21,14 @@ require('./util/eventLoader')(client);
 //////////////////////////////////////////////
 client.ayarlar = {
 "durum":"dnd",//online , idle , dnd 
-"oynuyor":"",
-"prefix":"!",
+"oynuyor":"TOKENINIZ",
+"prefix":"PREFIXINIZ",
 "sahip":"SAHIP ID",
-"token":"NjMwMzE4Mjg1OTE2ODY0NTEy.XZmj0Q.9pEGtFJ4n_WpOVnJCFYv6GmeXOM"
+"token":""
 }
 /////////////////////////////////////////////
 
-const log = message => {
+const kurulum = message => {
   console.log(`Kurulum: ${message}`);
 };
 
@@ -36,14 +36,14 @@ client.commands = new pingDiscord.Collection();
 client.aliases = new pingDiscord.Collection();
 fs.readdir('./komutlar/', (err, files) => {
   if (err) console.error(err);
-  log(`${files.length} komut kurulacak.`);
-   log(`-------------------------`);
+  kurulum(`${files.length} komut kurulacak.`);
+   kurulum(`-------------------------`);
    files.forEach(f => {
     let pingKodları = require(`./komutlar/${f}`);
   
-    log(`Kurulan komut ~ ${pingKodları.help.name}.`);
+    kurulum(`Kurulan komut ~ ${pingKodları.help.name}.`);
     client.commands.set(pingKodları.help.name, pingKodları); 
-    log(`-------------------------`);
+    kurulum(`-------------------------`);
     client.commands.set(pingKodları.help.name, pingKodları);
     pingKodları.conf.aliases.forEach(alias => {
     client.aliases.set(alias, pingKodları.help.name);
@@ -55,14 +55,14 @@ client.reload = command => {
   return new Promise((resolve, reject) => {
     try {
       delete require.cache[require.resolve(`./komutlar/${command}`)];
-      let cmd = require(`./komutlar/${command}`);
+      let pingDosya = require(`./komutlar/${command}`);
       client.commands.delete(command);
       client.aliases.forEach((cmd, alias) => {
         if (cmd === command) client.aliases.delete(alias);
       });
-      client.commands.set(command, cmd);
-      cmd.conf.aliases.forEach(alias => {
-        client.aliases.set(alias, cmd.help.name);
+      client.commands.set(command, pingDosya);
+      pingDosya.conf.aliases.forEach(alias => {
+        client.aliases.set(alias, pingDosya.help.name);
       });
       resolve();
     } catch (e){
@@ -121,6 +121,8 @@ console.log("[PING] Hata oluştu!");
 client.on("disconnect", e => {
   console.log("[PING] Botun bağlantısı kaybedildi!");
 });
+
+///////KURULUM KISMI SON//////////
 
 
 //// YAZILI GIRIS CIKIS BASLANGIC ////
