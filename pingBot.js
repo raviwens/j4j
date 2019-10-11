@@ -1,5 +1,14 @@
 const express = require('express');
 const app = express();
+const http = require('http');
+    app.get("/", (request, response) => {
+    console.log(`[PING] Açık tutuyorum...`);
+    response.sendStatus(200);
+    });
+    app.listen(process.env.PORT);
+    setInterval(() => {
+    http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+    }, 280000);
 
 const pingDiscord = require('discord.js');
 const client = new pingDiscord.Client();
@@ -11,6 +20,7 @@ require('./util/eventLoader')(client);
 
 //////////////////////////////////////////////
 client.ayarlar = {
+"durum":"dnd",//online , idle , dnd 
 "oynuyor":"",
 "prefix":"!",
 "sahip":"SAHIP ID",
@@ -27,7 +37,8 @@ client.aliases = new pingDiscord.Collection();
 fs.readdir('./komutlar/', (err, files) => {
   if (err) console.error(err);
   log(`${files.length} komut kurulacak.`);
-  files.forEach(f => {
+   log(`-------------------------`);
+   files.forEach(f => {
     let pingKodları = require(`./komutlar/${f}`);
   
     log(`Kurulan komut ~ ${pingKodları.help.name}.`);
@@ -100,17 +111,15 @@ client.elevation = message => {
   return permlvl;
 };
 
-var regToken = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
-// client.on('debug', e => {
-//   console.log(chalk.bgBlue.green(e.replace(regToken, 'that was redacted')));
-// });
+var hataKontrol = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
+
 
 client.on('warn', e => {
-  console.log(chalk.bgYellow(e.replace(regToken, 'that was redacted')));
+  console.log(chalk.bgYellow(e.replace(hataKontrol, 'that was redacted')));
 });
 
 client.on('error', e => {
-  console.log(chalk.bgRed(e.replace(regToken, 'that was redacted')));
+  console.log(chalk.bgRed(e.replace(hataKontrol, 'that was redacted')));
 });
 
 

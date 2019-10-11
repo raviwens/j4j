@@ -7,7 +7,7 @@
   "description": "PingWasHere.",
   "main": "pingBot.js",
   "scripts": {
-    "start": "node shard.js"
+    "start": "node pingBot.js"
   },
   "dependencies": {
     "dblapi.js": "^2.3.0",
