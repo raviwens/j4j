@@ -5,9 +5,9 @@
   "name": "ping-altyapi",
   "version": "1.0.0",
   "description": "PingWasHere.",
-  "main": "pingBot.js",
+  "main": "bot.js",
   "scripts": {
-    "start": "node pingBot.js"
+    "start": "node bot.js"
   },
   "dependencies": {
     "dblapi.js": "^2.3.0",
