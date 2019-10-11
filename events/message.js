@@ -12,16 +12,16 @@ module.exports = message => {
   if (!message.content.startsWith(client.ayarlar.prefix)) return;
   let komut = message.content.split(" ")[0].slice(client.ayarlar.prefix.length);
   let params = message.content.split(" ").slice(1);
-  let perms = client.elevation(message);
-  let probs;
+  let pingYetkileri = client.elevation(message);
+  var pingEsya;
 
   if (client.commands.has(komut)) {
-    probs = client.commands.get(komut);
+    pingEsya = client.commands.get(komut);
   } else if (client.aliases.has(komut)) {
-    probs = client.commands.get(client.aliases.get(komut));
+    pingEsya = client.commands.get(client.aliases.get(komut));
   }
-  if (probs) {
-    if (perms < probs.conf.permLevel) return;
-    probs.run(client, message, params, perms);
+  if (pingEsya) {
+    if (pingYetkileri < pingEsya.conf.permLevel) return;
+    pingEsya.run(client, message, params, pingYetkileri);
   }
 };
