@@ -13,7 +13,6 @@ exports.run = async (client, message, args) => {
 }
 
 exports.conf = {
-  kategori: "Genel",
   enabled: true,
   guildOnly: false,
   aliases: [],

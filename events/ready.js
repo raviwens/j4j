@@ -9,4 +9,5 @@ module.exports = client => {
         client.user.setActivity(client.ayarlar.oynuyor + " PingWasHere");
 
 console.log(`[PING] Kurulum #${client.shard.id}: (${+client.shard.id+1}/${client.shard.count}) hazır.`);
+
 };
