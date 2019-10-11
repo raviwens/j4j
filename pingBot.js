@@ -21,10 +21,10 @@ require('./util/eventLoader')(client);
 //////////////////////////////////////////////
 client.ayarlar = {
 "durum":"dnd",//online , idle , dnd 
-"oynuyor":"TOKENINIZ",
+"oynuyor":"OYNUYOR METNI",
 "prefix":"PREFIXINIZ",
 "sahip":"SAHIP ID",
-"token":""
+"token":"TOKENINIZ"
 }
 /////////////////////////////////////////////
 
