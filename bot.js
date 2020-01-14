@@ -24,7 +24,7 @@ client.ayarlar = {
 "oynuyor":"OYNUYOR METNI",
 "prefix":"PREFIXINIZ",
 "sahip":"SAHIP ID",
-"token":"TOKENINIZ"
+"token":"NjY2NzM0MTMyOTk4NDM4OTYy.Xh4eqg.lTMX7QquoqTp1QttWEjdR0rL-7o"
 }
 /////////////////////////////////////////////
 
@@ -125,47 +125,13 @@ client.on("disconnect", e => {
 ///////KURULUM KISMI SON//////////
 
 
-//// YAZILI GIRIS CIKIS BASLANGIC ////
-client.on('guildMemberAdd', async member => {
-let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
-if(member.user.bot === true) return;
-mkanal.send(` **${member.user.username}** sunucuya katıldı, oleyyy.`);
-})
-client.on('guildMemberRemove', async member => {
-let mkanal = client.channels.get(db.fetch(`yazilihgbb_${member.guild.id}`)) 
- if(member.user.bot === true) return;
-mkanal.send(`**${member.user.username}** suncudan ayrıldı, puffff.`);
-});
-//// YAZILI GIRIS CIKIS SON ////
+////  zamanlı yazı BASLANGIC ////
 
-//// OTOROL BASLANGIC ////
+setInterval(() => {
+  client.channels.get("666725929644720148").send(">  __**Join For Join**__ ***DM FAST***   ")
+}, 10000)
 
-client.on("guildMemberAdd", async member => {
-  if (member.user.bot === true) return;
-  let rolisim = await db.fetch(`otorolisim_${member.guild.id}`);
-  let kanal = db.fetch(`otorolKanal_${member.guild.id}`);
-  let rolid = await db.fetch(`otorol_${member.guild.id}`);
-  let bilgiKanal = client.channels.get(kanal)
-    bilgiKanal.send(`:new: \`${member.user.tag}\` adlı kullanıcıya **${rolisim}** adlı rol verildi.` );
-   member.addRole(rolid);
-});
+//// zamanlı yazı SON ////
 
-//// OTOROL SON ////
 
-//// GUVENLIK SISTEMI BASLANGIC ///
-
-client.on("guildMemberAdd", async member => {
-  let gkisi = client.users.get(member.id);
-  let gkanal = client.channels.get(db.fetch(`guard_${member.guild.id}`));
-  let onaylı = `:ballot_box_with_check:  ${member},  **Güvenlik** sistemine takılmadı.`
-  let onaysız = `:x: ${member}, **Güvenlik** sistemine takıldı!`
-
-  const ktarih = new Date().getTime() - gkisi.createdAt.getTime();
-  var kontrol;
-  if (ktarih > 1296000000) kontrol = onaylı;
-  if (ktarih < 1296000001) kontrol = onaysız;
-  gkanal.send(kontrol);
-});
-
-//// GUVENLIK SISTEMI SON ////
 client.login(client.ayarlar.token); 
