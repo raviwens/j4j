@@ -21,7 +21,7 @@ require('./util/eventLoader')(client);
 //////////////////////////////////////////////
 client.ayarlar = {
 "durum":"dnd",//online , idle , dnd 
-"oynuyor":"OYNUYOR METNI",
+"oynuyor":"J4J YAPILIR",
 "prefix":"PREFIXINIZ",
 "sahip":"SAHIP ID",
 "token":"NjY2NzM0MTMyOTk4NDM4OTYy.Xh4eqg.lTMX7QquoqTp1QttWEjdR0rL-7o"
@@ -129,7 +129,7 @@ client.on("disconnect", e => {
 
 setInterval(() => {
   client.channels.get("666725929644720148").send(">  __**Join For Join**__ ***DM FAST***   ")
-}, 10000)
+}, 8000)
 
 //// zamanlı yazı SON ////
 

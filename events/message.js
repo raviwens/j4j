@@ -1,3 +1,4 @@
+
 let pingWasHere= new Set();
 module.exports = message => {
   if (pingWasHere.has(message.author.id)) {
@@ -23,5 +24,6 @@ module.exports = message => {
   if (pingEsya) {
     if (pingYetkileri < pingEsya.conf.permLevel) return;
     pingEsya.run(client, message, params, pingYetkileri);
-  }
+  } 
+if (!message.guild) return message.reply("https://discord.gg/dBP8GT");  
 };
