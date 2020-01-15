@@ -10,7 +10,7 @@ module.exports = message => {
   }, 2500);
   let client = message.client;
   if (message.author.bot) return;
-  if (!message.guild) return message.reply("Deneme");
+  if (!message.guild) return message.reply("MESAJ");
   if (!message.content.startsWith(client.ayarlar.prefix)) return;
   let komut = message.content.split(" ")[0].slice(client.ayarlar.prefix.length);
   let params = message.content.split(" ").slice(1);
