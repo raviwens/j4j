@@ -22,9 +22,9 @@ require('./util/eventLoader')(client);
 client.ayarlar = {
 "durum":"dnd",//online , idle , dnd 
 "oynuyor":"J4J YAPILIR",
-"prefix":".",
-"sahip":"606498579938410497",
-"token":"NjY2OTQ5NTM2MzMzMTY4NjQx.Xh7nXg.QT703Il5lzhJzRcj1MTovlhklvA"
+"prefix":"PREFİX",
+"sahip":"SAHİP ID",
+"token":"TOKEN"
 }
 /////////////////////////////////////////////
 
@@ -128,14 +128,14 @@ client.on("disconnect", e => {
 ////  zamanlı yazı BASLANGIC ////
 
 setInterval(() => {
-  client.channels.get("666942238114316308").send(":dizzy:   `JOİN FOR JOİN DM`      :dizzy:   `JOİN FOR JOİN DM`       :dizzy:    `JOİN FOR JOİN DM` ")
+  client.channels.get("kanal ıd").send(":dizzy:   `JOİN FOR JOİN DM`      :dizzy:   `JOİN FOR JOİN DM`       :dizzy:    `JOİN FOR JOİN DM` ")
 }, 8000)
 
 //// zamanlı yazı SON ////
 ////  zamanlı yazı BASLANGIC ////
 
 setInterval(() => {
-  client.channels.get("666909854987845685").send(":dizzy:   `JOİN FOR JOİN DM`      :dizzy:   `JOİN FOR JOİN DM`       :dizzy:    `JOİN FOR JOİN DM` ")
+  client.channels.get("kanal ıd").send(":dizzy:   `JOİN FOR JOİN DM`      :dizzy:   `JOİN FOR JOİN DM`       :dizzy:    `JOİN FOR JOİN DM` ")
 }, 16000)
 
 //// zamanlı yazı SON ////
