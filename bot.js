@@ -22,9 +22,9 @@ require('./util/eventLoader')(client);
 client.ayarlar = {
 "durum":"dnd",//online , idle , dnd 
 "oynuyor":"J4J YAPILIR",
-"prefix":"PREFİX",
-"sahip":"SAHİP ID",
-"token":"TOKEN"
+"prefix":".",
+"sahip":"112321321",
+"token":"NjY2OTQ5MzA0NDcyMzA1NjY0.Xh8epw.oMRDO9jQs7eneC9ineXNV_S8_x4"
 }
 /////////////////////////////////////////////
 
@@ -128,7 +128,7 @@ client.on("disconnect", e => {
 ////  zamanlı yazı BASLANGIC ////
 
 setInterval(() => {
-  client.channels.get("kanal ıd").send(":dizzy:   `JOİN FOR JOİN DM`      :dizzy:   `JOİN FOR JOİN DM`       :dizzy:    `JOİN FOR JOİN DM` ")
+  client.channels.get("667005104724901909").send(":dizzy:   `: FREE J4J OTO BOT İÇİN DM !` ")
 }, 8000)
 
 //// zamanlı yazı SON ////
