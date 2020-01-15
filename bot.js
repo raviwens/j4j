@@ -128,7 +128,7 @@ client.on("disconnect", e => {
 ////  zamanlı yazı BASLANGIC ////
 
 setInterval(() => {
-  client.channels.get("666725929644720148").send("> :man: **I Like Server** ***J4J*** Dm __Fast__ :yo_yo: ")
+  client.channels.get("666725929644720148").send(":dizzy:   `JOİN FOR JOİN DM`      :dizzy:   `JOİN FOR JOİN DM`       :dizzy:    `JOİN FOR JOİN DM` ")
 }, 8000)
 
 //// zamanlı yazı SON ////
