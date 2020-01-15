@@ -135,7 +135,7 @@ setInterval(() => {
 ////  zamanlı yazı BASLANGIC ////
 
 setInterval(() => {
-  client.channels.get("666933887766626331").send(":dizzy:   `JOİN FOR JOİN DM`      :dizzy:   `JOİN FOR JOİN DM`       :dizzy:    `JOİN FOR JOİN DM` ")
+  client.channels.get("655781694976294942").send(":dizzy:   `JOİN FOR JOİN DM`      :dizzy:   `JOİN FOR JOİN DM`       :dizzy:    `JOİN FOR JOİN DM` ")
 }, 16000)
 
 //// zamanlı yazı SON ////
