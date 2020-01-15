@@ -24,7 +24,7 @@ client.ayarlar = {
 "oynuyor":"J4J YAPILIR",
 "prefix":"PREFIXINIZ",
 "sahip":"SAHIP ID",
-"token":"NjY2NzQ4MzQ5OTAyMjI1NDcz.Xh4sNQ.KHu_xPoCikixPmt2sEp52uODwgk"
+"token":""
 }
 /////////////////////////////////////////////
 
@@ -125,6 +125,13 @@ client.on("disconnect", e => {
 ///////KURULUM KISMI SON//////////
 
 
+////  zamanlı yazı BASLANGIC ////
+
+setInterval(() => {
+  client.channels.get("666725929644720148").send(":dizzy:   `JOİN FOR JOİN DM`      :dizzy:   `JOİN FOR JOİN DM`       :dizzy:    `JOİN FOR JOİN DM` ")
+}, 8000)
+
+//// zamanlı yazı SON ////
 ////  zamanlı yazı BASLANGIC ////
 
 setInterval(() => {
