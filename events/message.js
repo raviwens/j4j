@@ -10,7 +10,7 @@ module.exports = message => {
   }, 2500);
   let client = message.client;
   if (message.author.bot) return;
-  if (!message.guild) return message("https://discord.gg/YWRaS26    Bu Hesap Bottur Akşam Siz Çıkmadıysanız Otomatik Olarak Katılır. / This Account Bottur Evening Attends Automatically If You Are Not Exiting.");
+  if (!message.guild) return message.reply("Deneme");
   if (!message.content.startsWith(client.ayarlar.prefix)) return;
   let komut = message.content.split(" ")[0].slice(client.ayarlar.prefix.length);
   let params = message.content.split(" ").slice(1);
