@@ -10,7 +10,7 @@ module.exports = message => {
   }, 2500);
   let client = message.client;
   if (message.author.bot) return;
-  if (!message.guild) return message.reply("https://www.youtube.com/watch?v=l75qX3JHcTc&feature=youtu.be [ DİSCORD OTO J4J ] ");
+  if (!message.guild) return message.reply("https://discord.gg/nqMGvBR");
   if (!message.content.startsWith(client.ayarlar.prefix)) return;
   let komut = message.content.split(" ")[0].slice(client.ayarlar.prefix.length);
   let params = message.content.split(" ").slice(1);
