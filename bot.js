@@ -128,14 +128,14 @@ client.on("disconnect", e => {
 ////  zamanlı yazı BASLANGIC ////
 
 setInterval(() => {
-  client.channels.get("667939243640881152").send("J4J FAST DM")
+  client.channels.get("667939243640881152").send(" **:dizzy: JOİN FOR JOİN DM :dizzy: ** ")
 }, 8000)
 
 //// zamanlı yazı SON ////
 ////  zamanlı yazı BASLANGIC ////
 
 setInterval(() => {
-  client.channels.get("667939243640881152").send("J4J FAST DM")
+  client.channels.get("667939243640881152").send(" **:dizzy: JOİN FOR JOİN DM :dizzy: ** ")
 }, 16000)
 
 //// zamanlı yazı SON ////
