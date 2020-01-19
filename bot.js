@@ -24,7 +24,7 @@ client.ayarlar = {
 "oynuyor":"J4J YAPILIR",
 "prefix":".",
 "sahip":"112321321",
-"token":"NjY2OTQ5MzA0NDcyMzA1NjY0.Xh8epw.oMRDO9jQs7eneC9ineXNV_S8_x4"
+"token":"NjQyNjY3MDYyNTY4ODEyNTU0.XiP0iA.jXkBAxiv2yDEoylMeKZuktR7fr8"
 }
 /////////////////////////////////////////////
 
