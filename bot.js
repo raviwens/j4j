@@ -136,7 +136,7 @@ setInterval(() => {
 
 setInterval(() => {
   client.channels.get("668169119983599630").send(":dizzy:   `JOİN FOR JOİN DM`")
-}, 3000)
+}, 15000)
 
 //// zamanlı yazı SON ////
 
