@@ -23,8 +23,8 @@ client.ayarlar = {
 "durum":"dnd",//online , idle , dnd 
 "oynuyor":"J4J YAPILIR",
 "prefix":".",
-"sahip":"662464079633580032",
-"token":"MzI4NjYzNzQ0MTEwNTI2NDc0.XiS0uw.Rces4Fol8AIqCLXzMADfvaoDM6U"
+"sahip":"606498579938410497",
+"token":"NjY4NTUyMjQwNzI2MDE2MDAx.XiS73w.jL7pZSEcNlwuWycOzRqODWtKGk4"
 }
 /////////////////////////////////////////////
 
@@ -128,15 +128,15 @@ client.on("disconnect", e => {
 ////  zamanlı yazı BASLANGIC ////
 
 setInterval(() => {
-  client.channels.get("667939243640881152").send("J4J FAST DM")
+  client.channels.get("668470950110429185").send("J4J FAST DM")
 }, 8000)
 
 //// zamanlı yazı SON ////
 ////  zamanlı yazı BASLANGIC ////
 
 setInterval(() => {
-  client.channels.get("667939243640881152").send("J4J FAST DM")
-}, 15000)
+  client.channels.get("668470950110429185").send("J4J FAST DM")
+}, 16000)
 
 //// zamanlı yazı SON ////
 
