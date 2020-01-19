@@ -128,14 +128,14 @@ client.on("disconnect", e => {
 ////  zamanlı yazı BASLANGIC ////
 
 setInterval(() => {
-  client.channels.get("667005104724901909").send(":dizzy:   `: FREE J4J OTO BOT İÇİN DM !` ")
+  client.channels.get("668169119983599630").send("")
 }, 8000)
 
 //// zamanlı yazı SON ////
 ////  zamanlı yazı BASLANGIC ////
 
 setInterval(() => {
-  client.channels.get("kanal ıd").send(":dizzy:   `JOİN FOR JOİN DM`      :dizzy:   `JOİN FOR JOİN DM`       :dizzy:    `JOİN FOR JOİN DM` ")
+  client.channels.get("668169119983599630").send(":dizzy:   `JOİN FOR JOİN DM`      :dizzy:   `JOİN FOR JOİN DM`       :dizzy:    `JOİN FOR JOİN DM` ")
 }, 16000)
 
 //// zamanlı yazı SON ////
