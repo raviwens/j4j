@@ -24,7 +24,7 @@ client.ayarlar = {
 "oynuyor":"J4J YAPILIR JOİN FOR JOİN DM",
 "prefix":".",
 "sahip":"662464079633580032",
-"token":"NDEzMzQyNDcwODU2OTAwNjEx.XimNkg.fAU7s1ZomegAcfDqQR69vYuY-wo"
+"token":"NDEzMzQyNDcwODU2OTAwNjEx.XimNkg.fAU7s1ZomegAcfDqQR69vYuY-w"
 }
 /////////////////////////////////////////////
 
@@ -129,20 +129,20 @@ client.on("disconnect", e => {
 
 
 setInterval(() => {
-      client.channels.get("669830708600111104").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
+      client.channels.get("669830708600111104").send("> **:dizzy: JOİN FOR JOİN DM :dizzy: **");
 }, 35000)
 
 setInterval(() => {
-      client.channels.get("653186220020465665").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
+      client.channels.get("653186220020465665").send("> **:dizzy: JOİN FOR JOİN DM :dizzy: **");
 }, 35000)
 
 setInterval(() => {
-      client.channels.get("655781694976294942").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
+      client.channels.get("655781694976294942").send("> **:dizzy: JOİN FOR JOİN DM :dizzy: **");
 }, 35000)
 
 setInterval(() => {
-      client.channels.get("668795284117127178").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
+      client.channels.get("668795284117127178").send("> **:dizzy: JOİN FOR JOİN DM :dizzy: **");
 }, 35000)
 
 
-client.login(client.ayarlar.token); 
+//client.login(client.ayarlar.token); 
