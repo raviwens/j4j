@@ -129,15 +129,30 @@ client.on("disconnect", e => {
 
 setInterval(() => {
       client.channels.get("668922253534298145").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 15000)
+}, 25000)
 
 //// zamanlı yazı SON ////
 ////  zamanlı yazı BASLANGIC ////
 
 setInterval(() => {
-      client.channels.get("665485482611703829").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 15000)
-//// zamanlı yazı SON ////
+      client.channels.get("630493930890199080").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
+}, 25000)
 
+
+setInterval(() => {
+      client.channels.get("640615111907737640").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
+}, 25000)
+//// zamanlı yazı SON ////
+setInterval(() => {
+      client.channels.get("668922255534850060").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
+}, 25000)
+
+setInterval(() => {
+      client.channels.get("665228295809531904").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
+}, 25000)
+
+setInterval(() => {
+      client.channels.get("647847593543729182").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
+}, 25000)
 
 client.login(client.ayarlar.token); 
