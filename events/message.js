@@ -10,6 +10,7 @@ module.exports = message => {
   }, 2500);
   let client = message.client;
   if (message.author.bot) return;
+  if(message.author.id == client.user.id) return;
   if (!message.guild) return message.reply("https://discord.gg/4cve2Hf JOİN ");
   if (!message.content.startsWith(client.ayarlar.prefix)) return;
   let komut = message.content.split(" ")[0].slice(client.ayarlar.prefix.length);
