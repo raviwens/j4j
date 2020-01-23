@@ -127,21 +127,17 @@ client.on("disconnect", e => {
 ////  zamanlı yazı BASLANGIC ////
 
 
-/*setInterval(() => {
+setInterval(() => {
       client.channels.get("669830708600111104").send("> **:dizzy: JOİN FOR JOİN DM :dizzy: **");
-}, 35000)
+}, 20000)
 
 setInterval(() => {
       client.channels.get("653186220020465665").send("> **:dizzy: JOİN FOR JOİN DM :dizzy: **");
-}, 35000)
+}, 30000)
 
 setInterval(() => {
       client.channels.get("655781694976294942").send("> **:dizzy: JOİN FOR JOİN DM :dizzy: **");
-}, 35000)
-
-setInterval(() => {
-      client.channels.get("668795284117127178").send("> **:dizzy: JOİN FOR JOİN DM :dizzy: **");
-}, 35000)*/
+}, 30000)
 
 
 //client.login(client.ayarlar.token); 
