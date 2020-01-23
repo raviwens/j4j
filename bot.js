@@ -140,11 +140,9 @@ setInterval(() => {
       client.channels.get("655781694976294942").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
 }, 35000)
 
+setInterval(() => {
+      client.channels.get("668795284117127178").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
+}, 35000)
 
-
-
-client.on("message", async (message) => {
-  
-})
 
 client.login(client.ayarlar.token); 
