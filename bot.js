@@ -9,7 +9,6 @@ const http = require('http');
     setInterval(() => {
     http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
     }, 280000);
-
 const pingDiscord = require('discord.js');
 const client = new pingDiscord.Client();
 const chalk = require('chalk');
