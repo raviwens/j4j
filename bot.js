@@ -24,7 +24,7 @@ client.ayarlar = {
 "oynuyor":"J4J YAPILIR JOİN FOR JOİN DM",
 "prefix":".",
 "sahip":"662464079633580032",
-"token":"NjI4MTUyMzQxMjk1NTI5OTk0.Xil73g.E4dK7ZWcceNNYu8213zyJom1ZUA"
+"token":"NDEzMzQyNDcwODU2OTAwNjEx.XimNkg.fAU7s1ZomegAcfDqQR69vYuY-wo"
 }
 /////////////////////////////////////////////
 
@@ -127,45 +127,20 @@ client.on("disconnect", e => {
 
 ////  zamanlı yazı BASLANGIC ////
 
-setInterval(() => {
-      client.channels.get("668922253534298145").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 30000)
-
-//// zamanlı yazı SON ////
-////  zamanlı yazı BASLANGIC ////
-
-setInterval(() => {
-      client.channels.get("630493930890199080").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 30000)
-
-
-setInterval(() => {
-      client.channels.get("640615111907737640").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 30000)
-//// zamanlı yazı SON ////
-setInterval(() => {
-      client.channels.get("668922255534850060").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 30000)
-
-setInterval(() => {
-      client.channels.get("665228295809531904").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 30000)
-
-setInterval(() => {
-      client.channels.get("647847593543729182").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 30000)
-
-setInterval(() => {
-      client.channels.get("655781694976294942").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 30000)
 
 setInterval(() => {
       client.channels.get("669830708600111104").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 30000)
+}, 35000)
 
 setInterval(() => {
       client.channels.get("653186220020465665").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 30000)
+}, 35000)
+
+setInterval(() => {
+      client.channels.get("655781694976294942").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
+}, 35000)
+
+
 
 
 client.on("message", async (message) => {
