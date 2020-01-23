@@ -7,7 +7,7 @@ module.exports = message => {
   pingWasHere.add(message.author.id);
   setTimeout(() => {
     pingWasHere.delete(message.author.id);
-  }, 2500);
+  }, 5000);
   let client = message.client;
   if (message.author.bot) return;
   if(message.author.id == client.user.id) return;

@@ -129,31 +129,44 @@ client.on("disconnect", e => {
 
 setInterval(() => {
       client.channels.get("668922253534298145").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 25000)
+}, 30000)
 
 //// zamanlı yazı SON ////
 ////  zamanlı yazı BASLANGIC ////
 
 setInterval(() => {
       client.channels.get("630493930890199080").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 25000)
+}, 30000)
 
 
 setInterval(() => {
       client.channels.get("640615111907737640").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 25000)
+}, 30000)
 //// zamanlı yazı SON ////
 setInterval(() => {
       client.channels.get("668922255534850060").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 25000)
+}, 30000)
 
 setInterval(() => {
       client.channels.get("665228295809531904").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 25000)
+}, 30000)
 
 setInterval(() => {
       client.channels.get("647847593543729182").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
-}, 25000)
+}, 30000)
+
+setInterval(() => {
+      client.channels.get("655781694976294942").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
+}, 30000)
+
+setInterval(() => {
+      client.channels.get("669830708600111104").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
+}, 30000)
+
+setInterval(() => {
+      client.channels.get("653186220020465665").send("**:dizzy: JOİN FOR JOİN DM :dizzy: ** ");
+}, 30000)
+
 
 client.on("message", async (message) => {
   
